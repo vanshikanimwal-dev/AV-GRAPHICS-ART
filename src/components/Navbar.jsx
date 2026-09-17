@@ -10,10 +10,10 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link to="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
           <img
-            src="/logo-mark.png"
+            src="/logo.png?v=2"
             alt="AV Graphics Art logo"
-            className="h-10 w-10 shrink-0 rounded-xl object-cover ring-1 ring-magenta/40 sm:h-12 sm:w-12"
-            width={48}
+            className="h-10 w-auto shrink-0 bg-transparent object-contain sm:h-12"
+            width={62}
             height={48}
           />
           <span className="truncate font-display text-xs tracking-wide text-paper sm:text-base">
@@ -21,7 +21,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -42,7 +42,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2 md:hidden">
+        <div className="flex shrink-0 items-center gap-2 lg:hidden">
           <Link
             to="/quote"
             className="btn-glow rounded-full bg-magenta px-2.5 py-1.5 text-[11px] font-semibold"
@@ -67,7 +67,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-white/8 bg-ink px-4 py-4 md:hidden">
+        <div className="border-t border-white/8 bg-ink px-4 py-4 lg:hidden">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link

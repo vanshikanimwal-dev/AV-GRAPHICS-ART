@@ -3,6 +3,7 @@ export const products = [
     id: "aurora-shopfront",
     name: "Aurora Shopfront Board",
     category: "LED Light Boards",
+    group: "Signage & Boards",
     short: "Full-width LED fascia for storefronts, cafés, and studios.",
     description:
       "A hand-designed LED light board built for storefront presence after dark. Custom lettering, logo lockups, and colorways are drawn by Anand Prakash Nimwal before fabrication.",
@@ -20,6 +21,7 @@ export const products = [
     id: "studio-name-board",
     name: "Studio Name Board",
     category: "LED Light Boards",
+    group: "Signage & Boards",
     short: "Compact LED identity board for studios, clinics, and offices.",
     description:
       "A refined LED name board with balanced lettering and a soft halo glow. Ideal for indoor reception walls and outdoor porch lighting.",
@@ -37,6 +39,7 @@ export const products = [
     id: "home-glow-board",
     name: "Home Glow Board",
     category: "LED Light Boards",
+    group: "Signage & Boards",
     short: "House-name LED board with a warm, residential glow.",
     description:
       "A residential LED board designed around your family name or house title. Lit and unlit states are composed so the piece still reads as art during the day.",
@@ -54,6 +57,7 @@ export const products = [
     id: "acrylic-door-plate",
     name: "Acrylic Door Nameplate",
     category: "Nameplates",
+    group: "Signage & Boards",
     short: "Crisp modern nameplate for apartments and studio doors.",
     description:
       "Laser-cut acrylic with layered lettering and optional edge lighting. A quieter piece for homes that still carries the AV glow language.",
@@ -71,6 +75,7 @@ export const products = [
     id: "brass-classic",
     name: "Brass Classic Nameplate",
     category: "Nameplates",
+    group: "Signage & Boards",
     short: "Hand-finished brass plate with custom serif or geometric type.",
     description:
       "A heritage-leaning nameplate in brushed brass, designed so the typography feels custom rather than catalogue. Optional dark-wood backing.",
@@ -88,6 +93,7 @@ export const products = [
     id: "led-house-number",
     name: "LED House Number Plate",
     category: "Nameplates",
+    group: "Signage & Boards",
     short: "Backlit house numbers that read clearly from the street.",
     description:
       "High-contrast numerals with a halo edge. Designed for gates, porches, and apartment corridors where visibility after dark matters.",
@@ -105,6 +111,7 @@ export const products = [
     id: "neon-quote-plate",
     name: "Neon Quote Plate",
     category: "Neon Plates",
+    group: "Signage & Boards",
     short: "A line of custom lettering in flexible neon for walls and bars.",
     description:
       "A neon-style quote plate, scripted and spaced by hand. Choose a short line, a couple name, or a brand slogan — each piece is drawn before it is bent.",
@@ -122,6 +129,7 @@ export const products = [
     id: "neon-logo-wall",
     name: "Neon Logo Wall Sign",
     category: "Neon Plates",
+    group: "Signage & Boards",
     short: "Brand-mark neon for studios, boutiques, and photo corners.",
     description:
       "Your logo translated into neon-flex linework. Built for content walls and reception pieces that need to photograph as well as they light a room.",
@@ -134,6 +142,245 @@ export const products = [
     signText: "AV",
     accent: "#ff5c8a",
     variant: "neon",
+  },
+  {
+    id: "neon-flex-signs",
+    name: "Neon Flex Signs",
+    category: "Neon Flex",
+    group: "Signage & Boards",
+    short: "Flexible LED neon for decorative and commercial applications.",
+    description:
+      "Flexible LED neon signage designed for attractive, durable and energy-efficient decorative and commercial applications. Lettering is drawn to the space, then bent in neon-flex so the glow holds indoors and out.",
+    offers: ["Custom scripts and logos", "Indoor and outdoor-rated neon-flex", "Quiet adapters and acrylic backing"],
+    useCases: ["Shopfronts", "Photo corners", "Cafés and bars", "Home feature walls"],
+    materials: ["LED neon flex", "Clear acrylic", "Weather-rated fittings"],
+    colors: ["Coral red", "Warm white", "Ice blue", "Custom"],
+    popularity: 90,
+    signText: "FLEX",
+    accent: "#ff2d6a",
+    variant: "neon",
+  },
+  {
+    id: "3d-letters",
+    name: "3D Letters / 3D Logo Signs",
+    category: "3D Letters",
+    group: "Signage & Boards",
+    short: "Raised acrylic, metal and dimensional lettering for branded walls.",
+    description:
+      "Raised acrylic, metal and dimensional lettering for office receptions, storefronts, walls and branded spaces. Depth, spacing and finish are composed so the mark reads from the lobby and in photographs.",
+    offers: ["Acrylic, metal and mixed-material letters", "Flush or standoff mounting", "Optional halo or face lighting"],
+    useCases: ["Reception logos", "Storefront identity", "Corridor wayfinding", "Brand walls"],
+    materials: ["Acrylic", "Metal face", "Standoffs"],
+    colors: ["Crimson", "White", "Brushed metal"],
+    popularity: 89,
+    signText: "3D",
+    accent: "#ff2d6a",
+    variant: "letters3d",
+  },
+  {
+    id: "backlit-signboards",
+    name: "Backlit Signboards",
+    category: "Backlit Signs",
+    group: "Signage & Boards",
+    short: "Front-lit and halo-lit boards for storefronts and offices.",
+    description:
+      "Premium front-lit and halo-lit signage designed for storefronts, offices and businesses that need strong visibility after dark without a harsh, cheap glow.",
+    offers: ["Front-lit and halo-lit builds", "Even diffusion", "Daytime-readable faces"],
+    useCases: ["Retail fascias", "Clinics", "Showrooms", "Building identity"],
+    materials: ["Acrylic face", "LED modules", "Aluminum frame"],
+    colors: ["White", "Coral red", "Warm amber"],
+    popularity: 87,
+    signText: "HALO",
+    accent: "#ff5c8a",
+    variant: "backlit",
+  },
+  {
+    id: "led-video-walls",
+    name: "Digital LED Video Walls / Scrolling Message Boards",
+    category: "Digital Signage",
+    group: "Signage & Boards",
+    short: "Dynamic LED displays for ads, announcements and promotions.",
+    description:
+      "Dynamic LED displays for advertisements, announcements, promotions, scrolling messages and changing visual content. Built for shops, campuses and public-facing counters that need the message to update.",
+    offers: ["Modular video walls", "Scrolling message boards", "Content-ready panels"],
+    useCases: ["Retail promotions", "Lobbies", "Campuses", "Outdoor announcements"],
+    materials: ["LED modules", "Controller", "Weather housing where required"],
+    colors: ["Full colour"],
+    popularity: 85,
+    signText: "LIVE",
+    accent: "#3de0ff",
+    variant: "videowall",
+  },
+  {
+    id: "solar-signboards",
+    name: "Solar-Powered Signboards",
+    category: "Solar Signage",
+    group: "Signage & Boards",
+    short: "Outdoor illuminated signs where grid power is limited.",
+    description:
+      "Outdoor signage solutions powered by solar energy, suitable for locations where reliable electrical power is limited. The board still reads as a designed object, not a utility fixture.",
+    offers: ["Solar panel + battery packs", "Dusk-to-dawn lighting", "Outdoor-rated faces"],
+    useCases: ["Highways and plots", "Campuses", "Sites without stable power", "Gate identity"],
+    materials: ["Solar panel", "LED face", "Weather-sealed cabinet"],
+    colors: ["White", "Amber", "Coral red"],
+    popularity: 72,
+    signText: "SOLAR",
+    accent: "#ffb020",
+    variant: "solar",
+  },
+  {
+    id: "flex-vinyl-banners",
+    name: "Flex / Vinyl Banner Printing",
+    category: "Print",
+    group: "Printing & Branding",
+    short: "Printed banners, vinyl graphics and outdoor promotional material.",
+    description:
+      "High-quality printed banners, vinyl graphics and promotional materials for businesses, events and outdoor advertising. Colour and type are matched to the brand, not dumped from a template.",
+    offers: ["Flex banners", "Vinyl graphics", "Outdoor and indoor print"],
+    useCases: ["Shop promotions", "Events", "Hoardings", "Site branding"],
+    materials: ["Flex", "Vinyl", "Eyelets / mounting"],
+    colors: ["Full colour print"],
+    popularity: 83,
+    signText: "PRINT",
+    accent: "#ff2d6a",
+    variant: "banner",
+  },
+  {
+    id: "vehicle-branding",
+    name: "Vehicle Branding & Wrapping",
+    category: "Vehicle Wrap",
+    group: "Printing & Branding",
+    short: "Graphics for cars, bikes, vans and commercial fleets.",
+    description:
+      "Custom branding and graphics for cars, bikes, vans and commercial vehicles to turn vehicles into mobile advertising. Layouts are designed around doors, windows and wrap panels.",
+    offers: ["Partial and full wraps", "Fleet identity", "Bike and van graphics"],
+    useCases: ["Delivery fleets", "Sales cars", "Service vans", "Two-wheelers"],
+    materials: ["Wrap vinyl", "Laminate", "Cut graphics"],
+    colors: ["Brand colours"],
+    popularity: 81,
+    signText: "FLEET",
+    accent: "#ff2d6a",
+    variant: "vehicle",
+  },
+  {
+    id: "office-branding",
+    name: "Office Interior Branding",
+    category: "Interior Branding",
+    group: "Printing & Branding",
+    short: "Wall graphics, glass frosting, reception and identity interiors.",
+    description:
+      "Complete interior branding including wall graphics, glass frosting, reception branding and visual identity elements — so the office reads as one designed space.",
+    offers: ["Reception walls", "Glass frosting and manifestation", "Wayfinding and wall graphics"],
+    useCases: ["Studios", "Clinics", "Corporate floors", "Co-working"],
+    materials: ["Vinyl", "Frost film", "Acrylic marks"],
+    colors: ["Brand palette"],
+    popularity: 80,
+    signText: "STUDIO",
+    accent: "#f4f1ea",
+    variant: "office",
+  },
+  {
+    id: "visiting-cards",
+    name: "Visiting Cards & Stationery Printing",
+    category: "Stationery",
+    group: "Printing & Branding",
+    short: "Cards, letterheads and envelopes matched to your identity.",
+    description:
+      "Professional visiting cards, letterheads, envelopes and branded stationery designed to match your business identity. Quiet stock, precise type, no clip-art crests.",
+    offers: ["Visiting cards", "Letterheads", "Envelopes and sets"],
+    useCases: ["New businesses", "Studios", "Clinics", "Corporate kits"],
+    materials: ["Paper stocks", "Spot UV / foil on request"],
+    colors: ["Brand colours"],
+    popularity: 76,
+    signText: "CARD",
+    accent: "#ff2d6a",
+    variant: "stationery",
+  },
+  {
+    id: "event-name-boards",
+    name: "Wedding / Event Name Boards & Stage Backdrops",
+    category: "Events",
+    group: "Events & Corporate",
+    short: "Welcome boards, name boards and stage backdrops for occasions.",
+    description:
+      "Custom-designed welcome boards, event name boards, stage backdrops and decorative branding for weddings and special events. Composed for photographs as much as for the room.",
+    offers: ["Welcome and name boards", "Stage backdrops", "Entry and photo corners"],
+    useCases: ["Weddings", "Receptions", "Corporate evenings", "Family functions"],
+    materials: ["Flex / fabric", "Neon-flex accents", "Wooden or acrylic frames"],
+    colors: ["Ivory", "Coral red", "Gold, custom"],
+    popularity: 84,
+    signText: "WELCOME",
+    accent: "#ffb020",
+    variant: "event",
+  },
+  {
+    id: "trophies-mementos",
+    name: "Trophies, Mementos & Corporate Gifting",
+    category: "Awards",
+    group: "Events & Corporate",
+    short: "Acrylic, wooden and engraved awards for recognition.",
+    description:
+      "Custom acrylic, wooden and engraved trophies, awards, mementos and corporate gifts for recognition and special occasions. Marks and names are set as type, not stickers.",
+    offers: ["Acrylic trophies", "Wooden mementos", "Engraved gifts"],
+    useCases: ["Annual days", "Corporate gifting", "Sports and schools", "Farewells"],
+    materials: ["Acrylic", "Wood", "Metal plates"],
+    colors: ["Clear / black acrylic", "Teak", "Brass"],
+    popularity: 74,
+    signText: "AWARD",
+    accent: "#ffb020",
+    variant: "trophy",
+  },
+  {
+    id: "photo-frames-canvas",
+    name: "Photo Frames / Canvas Prints",
+    category: "Canvas",
+    group: "Events & Corporate",
+    short: "Personalized frames and canvas prints for homes and offices.",
+    description:
+      "Personalized photo frames and premium canvas prints for homes, offices, gifts and corporate displays. Colour and crop are considered before print.",
+    offers: ["Canvas prints", "Framed photographs", "Sets for walls"],
+    useCases: ["Homes", "Receptions", "Gifts", "Studio walls"],
+    materials: ["Canvas", "Frames", "Archival print"],
+    colors: ["Full colour"],
+    popularity: 70,
+    signText: "FRAME",
+    accent: "#f4f1ea",
+    variant: "canvas",
+  },
+  {
+    id: "laser-cutting",
+    name: "Laser Cutting & Engraving",
+    category: "Laser",
+    group: "Services",
+    short: "Precision cutting and engraving on acrylic, wood and more.",
+    description:
+      "Precision laser cutting and engraving on acrylic, wood and other suitable materials for customized products and branding. Edges stay clean; type stays sharp.",
+    offers: ["Acrylic cutting", "Wood engraving", "Nameplates and inlay work"],
+    useCases: ["Sign faces", "Gifts", "Inlays", "Prototypes"],
+    materials: ["Acrylic", "Wood", "Engraving stock"],
+    colors: ["Material natural", "Paint-fill on request"],
+    popularity: 78,
+    signText: "CUT",
+    accent: "#3de0ff",
+    variant: "laser",
+  },
+  {
+    id: "installation-amc",
+    name: "Installation & AMC",
+    category: "AMC",
+    group: "Services",
+    short: "Install, maintain and annually service illuminated signage.",
+    description:
+      "Professional installation, maintenance and Annual Maintenance Contract services for LED and illuminated signage. AMC is a recurring plan for businesses that want boards kept lit, clean and safe after the install day.",
+    offers: ["On-site installation", "Annual Maintenance Contracts", "Repairs and module replacement"],
+    useCases: ["Store networks", "Offices", "Outdoor boards", "Existing AV installs"],
+    materials: ["Mounting hardware", "Electrical checks", "Spare LED modules"],
+    colors: ["—"],
+    popularity: 82,
+    signText: "AMC",
+    accent: "#ff2d6a",
+    variant: "install",
+    highlight: "AMC is a yearly maintenance plan so your LED and illuminated signs stay reliable after installation.",
   },
 ];
 
@@ -152,8 +399,33 @@ export const relatedProducts = (id, n = 3) => {
   return products
     .filter((p) => p.id !== id)
     .sort((a, b) => {
+      const group = (b.group === current.group) - (a.group === current.group);
       const same = (b.category === current.category) - (a.category === current.category);
-      return same || b.popularity - a.popularity;
+      return group || same || b.popularity - a.popularity;
     })
     .slice(0, n);
 };
+
+export const quotePath = (product) =>
+  `/quote?service=${encodeURIComponent(product?.name || "")}`;
+
+export const serviceNames = products.map((p) => p.name);
+
+export const homepagePreview = [
+  {
+    group: "Signage & Boards",
+    items: ["neon-flex-signs", "3d-letters", "backlit-signboards"],
+  },
+  {
+    group: "Printing & Branding",
+    items: ["flex-vinyl-banners", "vehicle-branding", "office-branding"],
+  },
+  {
+    group: "Events & Corporate",
+    items: ["event-name-boards", "trophies-mementos", "photo-frames-canvas"],
+  },
+  {
+    group: "Services",
+    items: ["laser-cutting", "installation-amc"],
+  },
+];

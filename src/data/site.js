@@ -23,9 +23,17 @@ export const whatsappUrl = (text = site.whatsappMessage) =>
 export const navLinks = [
   { to: "/", label: "Home" },
   { to: "/products", label: "Products" },
+  { to: "/services", label: "Services" },
   { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
 
 export const categories = ["LED Light Boards", "Nameplates", "Neon Plates"];
+
+export const serviceGroups = [
+  "Signage & Boards",
+  "Printing & Branding",
+  "Events & Corporate",
+  "Services",
+];

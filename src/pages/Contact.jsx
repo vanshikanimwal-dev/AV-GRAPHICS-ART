@@ -1,21 +1,44 @@
 import { useState } from "react";
 import Seo from "../components/Seo";
+import ScrollReveal from "../components/ScrollReveal";
 import { site, whatsappUrl } from "../data/site";
+import { postJson } from "../lib/api";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const [form, setForm] = useState({ name: "", contact: "", message: "" });
+
+  const update = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setBusy(true);
+    try {
+      await postJson("/api/contact", form);
+      setSent(true);
+    } catch (err) {
+      setError(err.message || "Could not send the message.");
+    } finally {
+      setBusy(false);
+    }
+  };
 
   return (
     <>
       <Seo
-        title={`Contact ${site.name} in ${site.city} | LED Signs & Neon`}
-        description={`Call, WhatsApp, or visit ${site.name} in ${site.city}. Custom LED boards and neon plates by ${site.owner}.`}
+        title={`Contact ${site.name} in ${site.city} | LED Signs & Branding`}
+        description={`Call, WhatsApp, or visit ${site.name} in ${site.city} for LED sign boards, neon flex, printing, vehicle branding and signage AMC by ${site.owner}.`}
       />
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <p className="text-xs uppercase tracking-[0.24em] text-magenta">Delhi</p>
-        <h1 className="mt-2 font-display text-4xl text-paper">Contact</h1>
+        <ScrollReveal>
+          <p className="text-xs uppercase tracking-[0.24em] text-magenta">Delhi</p>
+          <h1 className="mt-2 font-display text-4xl text-paper">Contact</h1>
+        </ScrollReveal>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-2">
+        <ScrollReveal className="mt-10 grid gap-8 lg:grid-cols-2" delay={0.08}>
           <div className="space-y-5">
             <div className="overflow-hidden rounded-3xl border border-white/10">
               <iframe
@@ -54,36 +77,50 @@ export default function Contact() {
             </a>
           </div>
 
-          <form
-            className="space-y-4 rounded-3xl border border-white/10 bg-ink-2 p-6 sm:p-8"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
-          >
+          <form className="space-y-4 rounded-3xl border border-white/10 bg-ink-2 p-6 sm:p-8" onSubmit={onSubmit}>
             {sent ? (
-              <p className="text-paper">Message noted. For a faster reply, continue on WhatsApp.</p>
+              <p className="text-paper">Message saved. For a faster reply, continue on WhatsApp.</p>
             ) : (
               <>
                 <label className="block text-sm">
                   <span className="mb-1.5 block text-mute">Name</span>
-                  <input required className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3" />
+                  <input
+                    name="name"
+                    required
+                    value={form.name}
+                    onChange={update}
+                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3"
+                  />
                 </label>
                 <label className="block text-sm">
                   <span className="mb-1.5 block text-mute">Phone or email</span>
-                  <input required className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3" />
+                  <input
+                    name="contact"
+                    required
+                    value={form.contact}
+                    onChange={update}
+                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3"
+                  />
                 </label>
                 <label className="block text-sm">
                   <span className="mb-1.5 block text-mute">Message</span>
-                  <textarea required rows={5} className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3" />
+                  <textarea
+                    name="message"
+                    required
+                    rows={5}
+                    value={form.message}
+                    onChange={update}
+                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3"
+                  />
                 </label>
-                <button type="submit" className="btn-glow w-full rounded-full bg-magenta py-3 font-semibold">
-                  Send message
+                {error && <p className="text-sm text-magenta">{error}</p>}
+                <button type="submit" disabled={busy} className="btn-glow w-full rounded-full bg-magenta py-3 font-semibold disabled:opacity-60">
+                  {busy ? "Sending…" : "Send message"}
                 </button>
               </>
             )}
           </form>
-        </div>
+        </ScrollReveal>
       </section>
     </>
   );

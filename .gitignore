@@ -4,3 +4,7 @@ dist
 *.local
 .vite
 tmp-screens
+.env
+data
+uploads/*
+!uploads/.gitkeep

@@ -1,19 +1,26 @@
 import { Link } from "react-router-dom";
 import { site, whatsappUrl } from "../data/site";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-white/8 bg-[#08080c]">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
+    <footer className="mt-8 border-t border-white/8 bg-[#08080c]">
+      <ScrollReveal y={36} className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <img src="/logo-mark.png" alt="AV Graphics Art logo" className="h-12 w-12 rounded-xl object-cover" />
+            <img src="/logo.png?v=2" alt="AV Graphics Art logo" className="h-14 w-auto bg-transparent object-contain" />
             <p className="font-display text-paper">{site.name}</p>
           </div>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-mute">
-            Handcrafted LED light boards, nameplates, and neon-style plates in {site.city}.
-            Every piece designed personally by {site.owner}.
+            Designed to define your space — LED sign boards, neon flex, printing, branding,
+            events and fabrication in {site.city}. Every piece designed personally by {site.owner}.
           </p>
+          <Link
+            to="/quote"
+            className="btn-glow btn-glow-cta mt-5 inline-flex rounded-full bg-magenta px-5 py-2.5 text-sm font-semibold"
+          >
+            Get a Custom Quote
+          </Link>
           <form
             className="mt-6 flex max-w-md gap-2"
             onSubmit={(e) => {
@@ -44,6 +51,7 @@ export default function Footer() {
           <p className="text-xs uppercase tracking-[0.2em] text-magenta">Visit</p>
           <ul className="mt-4 space-y-2 text-sm text-mute">
             <li><Link to="/products" className="hover:text-paper">Products</Link></li>
+            <li><Link to="/services" className="hover:text-paper">Services</Link></li>
             <li><Link to="/gallery" className="hover:text-paper">Gallery</Link></li>
             <li><Link to="/quote" className="hover:text-paper">Custom quote</Link></li>
             <li><Link to="/about" className="hover:text-paper">About</Link></li>
@@ -78,7 +86,7 @@ export default function Footer() {
             WhatsApp us
           </a>
         </div>
-      </div>
+      </ScrollReveal>
       <div className="border-t border-white/8 py-5 text-center text-xs text-mute">
         © {new Date().getFullYear()} {site.name}, {site.city}. Handcrafted signs, designed to glow.
       </div>

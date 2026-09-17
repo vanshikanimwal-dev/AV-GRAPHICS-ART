@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import ProductVisual from "../components/ProductVisual";
+import ScrollReveal from "../components/ScrollReveal";
 import Seo from "../components/Seo";
 import { gallery } from "../data/gallery";
 import { categories, site } from "../data/site";
@@ -19,11 +20,13 @@ export default function Gallery() {
         description={`Gallery of LED boards, nameplates, and neon plates by ${site.owner} in ${site.city}.`}
       />
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <p className="text-xs uppercase tracking-[0.24em] text-blue">Portfolio</p>
-        <h1 className="mt-2 font-display text-4xl text-paper">Gallery</h1>
-        <p className="mt-3 max-w-2xl text-mute">
-          Placeholder compositions of completed work. Tap a tile for a larger view; swap in photographs when ready.
-        </p>
+        <ScrollReveal>
+          <p className="text-xs uppercase tracking-[0.24em] text-blue">Portfolio</p>
+          <h1 className="mt-2 font-display text-4xl text-paper">Gallery</h1>
+          <p className="mt-3 max-w-2xl text-mute">
+            Placeholder compositions of completed work. Tap a tile for a larger view; swap in photographs when ready.
+          </p>
+        </ScrollReveal>
         <div className="mt-8 flex flex-wrap gap-2">
           {["All", ...categories].map((c) => (
             <button
@@ -39,7 +42,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+        <ScrollReveal className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3" y={24}>
           {items.map((item, i) => (
             <button
               key={item.id}
@@ -61,7 +64,7 @@ export default function Gallery() {
               </div>
             </button>
           ))}
-        </div>
+        </ScrollReveal>
       </section>
 
       {active && (

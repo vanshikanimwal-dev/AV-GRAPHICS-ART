@@ -1,3 +1,4 @@
+import ScrollReveal from "../components/ScrollReveal";
 import Seo from "../components/Seo";
 import { site } from "../data/site";
 
@@ -21,22 +22,25 @@ export default function About() {
     <>
       <Seo
         title={`About ${site.name} | Custom Signs in ${site.city}`}
-        description={`${site.owner} designs handcrafted LED boards, nameplates, and neon plates at ${site.name} in ${site.city}.`}
+        description={`${site.owner} designs LED sign boards, neon flex, 3D letters, printing and branding at ${site.name} in ${site.city}.`}
       />
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <p className="text-xs uppercase tracking-[0.24em] text-magenta">Studio</p>
-        <h1 className="mt-2 font-display text-4xl text-paper sm:text-5xl">About AV Graphics Art</h1>
-        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-mute">
-          {site.name} is the signage practice of {site.owner} in {site.city} — a graphic designer who
-          builds LED light boards, door nameplates, and neon-style plates as designed objects, not
-          off-the-shelf stock.
-        </p>
+        <ScrollReveal>
+          <p className="text-xs uppercase tracking-[0.24em] text-magenta">Studio</p>
+          <h1 className="mt-2 font-display text-4xl text-paper sm:text-5xl">About AV Graphics Art</h1>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-mute">
+            {site.name} is the signage practice of {site.owner} in {site.city} — a graphic designer who
+            builds LED light boards, door nameplates, and neon-style plates as designed objects, not
+            off-the-shelf stock. The studio also handles printing and branding, event boards, laser
+            cutting, and installation with AMC.
+          </p>
+        </ScrollReveal>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <ScrollReveal className="mt-12 grid gap-6 lg:grid-cols-2" delay={0.08}>
           <img
-            src="/logo.png"
-            alt={`${site.owner} workshop portrait placeholder — replace with real photo`}
-            className="h-80 w-full rounded-3xl object-cover ring-1 ring-white/10"
+            src="/logo.png?v=2"
+            alt="AV Graphics Art logo"
+            className="h-80 w-full object-contain"
           />
           <div className="flex flex-col justify-center rounded-3xl border border-white/8 bg-ink-2 p-8">
             <p className="text-xs uppercase tracking-[0.2em] text-blue">The designer</p>
@@ -47,11 +51,11 @@ export default function About() {
               The studio exists so shops, homes, and brands in Delhi can commission a sign that feels authored.
             </p>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {["Sketch & type", "Prototype glow", "Finish & install"].map((label, i) => (
-            <div key={label} className="overflow-hidden rounded-2xl border border-white/8 bg-ink-2">
+            <ScrollReveal key={label} delay={i * 0.08} className="overflow-hidden rounded-2xl border border-white/8 bg-ink-2">
               <div
                 className="h-36"
                 style={{
@@ -65,16 +69,18 @@ export default function About() {
                 aria-label={`${label} workshop process photo placeholder — replace with real process photo`}
               />
               <p className="px-4 py-3 text-sm text-paper">{label}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {values.map((v) => (
-            <div key={v.title} className="glow-border rounded-2xl bg-ink-2 p-6">
+          {values.map((v, i) => (
+            <ScrollReveal key={v.title} delay={i * 0.08}>
+            <div className="glow-border rounded-2xl bg-ink-2 p-6">
               <h3 className="font-display text-xl text-paper">{v.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-mute">{v.copy}</p>
             </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>

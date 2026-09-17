@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { categories, site, whatsappUrl } from "../data/site";
+import { serviceNames } from "../data/products";
+import { postForm } from "../lib/api";
 
 const empty = {
   name: "",
@@ -13,38 +16,69 @@ const empty = {
 };
 
 export default function QuoteForm() {
-  const [form, setForm] = useState(empty);
+  const [params] = useSearchParams();
+  const requested = params.get("service") || "";
+  const [form, setForm] = useState(() => ({
+    ...empty,
+    productType: serviceNames.includes(requested) ? requested : empty.productType,
+  }));
+  const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [preview, setPreview] = useState("");
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (!requested) return;
+    setForm((f) => ({
+      ...f,
+      productType: serviceNames.includes(requested) ? requested : requested,
+    }));
+  }, [requested]);
 
   const update = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
   const onFile = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setFileName(file.name);
+    const next = e.target.files?.[0];
+    if (!next) return;
+    setFile(next);
+    setFileName(next.name);
     const reader = new FileReader();
     reader.onload = () => setPreview(String(reader.result));
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(next);
   };
 
-  const onSubmit = (e) => {
+  const typeOptions = [...new Set([...categories, ...serviceNames, requested].filter(Boolean))];
+
+  const whatsappText = [
+    `Quote request from ${form.name}`,
+    `Contact: ${form.contact}`,
+    `Service: ${form.productType}`,
+    `Size: ${form.size || "to discuss"}`,
+    `Colors: ${form.colors || "to discuss"}`,
+    `Text/logo: ${form.textLogo || "to discuss"}`,
+    `Budget: ${form.budget}`,
+    form.message,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
-    const text = [
-      `Quote request from ${form.name}`,
-      `Contact: ${form.contact}`,
-      `Type: ${form.productType}`,
-      `Size: ${form.size || "to discuss"}`,
-      `Colors: ${form.colors || "to discuss"}`,
-      `Text/logo: ${form.textLogo || "to discuss"}`,
-      `Budget: ${form.budget}`,
-      form.message,
-    ]
-      .filter(Boolean)
-      .join("\n");
-    window.open(whatsappUrl(text), "_blank", "noreferrer");
+    setError("");
+    setBusy(true);
+    try {
+      const data = new FormData();
+      Object.entries(form).forEach(([key, value]) => data.append(key, value));
+      if (file) data.append("image", file);
+      await postForm("/api/quotes", data);
+      setSent(true);
+    } catch (err) {
+      setError(err.message || "Could not save the quote. Try WhatsApp if this keeps happening.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   const field =
@@ -53,16 +87,28 @@ export default function QuoteForm() {
   if (sent) {
     return (
       <div className="rounded-3xl border border-magenta/40 bg-ink-2 p-8 text-center">
-        <p className="font-display text-xl text-paper">Request ready</p>
+        <p className="font-display text-xl text-paper">Brief saved</p>
         <p className="mt-3 text-sm text-mute">
-          WhatsApp should open with your details. If it did not, use the chat button beside this form.
+          {site.owner} has your request. Continue on WhatsApp if you want a faster reply.
         </p>
+        <a
+          href={whatsappUrl(whatsappText)}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-6 inline-flex rounded-full bg-[#25D366] px-5 py-3 font-semibold text-ink"
+        >
+          Continue on WhatsApp
+        </a>
         <button
           type="button"
-          className="mt-6 rounded-full border border-white/15 px-4 py-2 text-sm"
+          className="mt-4 block w-full text-sm text-mute"
           onClick={() => {
             setSent(false);
-            setForm(empty);
+            setForm({
+              ...empty,
+              productType: serviceNames.includes(requested) ? requested : empty.productType,
+            });
+            setFile(null);
             setFileName("");
             setPreview("");
           }}
@@ -86,9 +132,9 @@ export default function QuoteForm() {
         </label>
       </div>
       <label className="block text-sm">
-        <span className="mb-1.5 block text-mute">Product type</span>
+        <span className="mb-1.5 block text-mute">Service required</span>
         <select name="productType" value={form.productType} onChange={update} className={field}>
-          {categories.map((c) => (
+          {typeOptions.map((c) => (
             <option key={c}>{c}</option>
           ))}
         </select>
@@ -130,14 +176,15 @@ export default function QuoteForm() {
         )}
       </label>
       <label className="block text-sm">
-        <span className="mb-1.5 block text-mute">Message</span>
+        <span className="mb-1.5 block text-mute">Message / requirements</span>
         <textarea name="message" rows={4} value={form.message} onChange={update} className={field} />
       </label>
       <p className="text-xs leading-relaxed text-mute">
-        Every piece is designed personally by {site.owner}. This form prepares a WhatsApp brief — no payment is taken here.
+        Every piece is designed personally by {site.owner}. Your brief is saved for the studio — no payment is taken here.
       </p>
-      <button type="submit" className="btn-glow w-full rounded-full bg-magenta py-3 font-semibold">
-        Send quote request
+      {error && <p className="text-sm text-magenta">{error}</p>}
+      <button type="submit" disabled={busy} className="btn-glow w-full rounded-full bg-magenta py-3 font-semibold disabled:opacity-60">
+        {busy ? "Saving…" : "Send quote request"}
       </button>
     </form>
   );

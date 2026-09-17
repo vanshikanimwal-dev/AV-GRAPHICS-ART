@@ -1,37 +1,61 @@
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductVisual from "./ProductVisual";
 import { products } from "../data/products";
+import { usePrefersReducedMotion } from "../hooks/useMotionPrefs";
 
 const slides = products.slice(0, 5);
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const reduced = usePrefersReducedMotion();
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, 80]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.45], reduced ? [1, 1] : [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -48]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.75], reduced ? [1, 1] : [1, 0.15]);
+  const imageY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -90]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1.04, 0.88]);
 
   useEffect(() => {
+    if (reduced) return undefined;
     const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 4200);
     return () => clearInterval(id);
-  }, []);
+  }, [reduced]);
 
   const slide = slides[index];
 
   return (
-    <section className="relative overflow-hidden noise">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,45,106,0.18),transparent_42%),radial-gradient(circle_at_80%_70%,rgba(61,224,255,0.12),transparent_40%)]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-20">
-        <div className="reveal">
+    <section ref={sectionRef} className="relative flex min-h-[100svh] items-center overflow-hidden noise">
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,45,106,0.18),transparent_42%),radial-gradient(circle_at_80%_70%,rgba(61,224,255,0.12),transparent_40%)]"
+        style={{ y: bgY }}
+      />
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-8">
+        <motion.div style={{ opacity: textOpacity, y: textY }}>
           <p className="text-xs uppercase tracking-[0.28em] text-magenta">Delhi · Custom signage</p>
-          <h1 className="glow-text mt-4 font-display text-4xl leading-tight text-paper sm:text-5xl lg:text-6xl">
+          <h1
+            className={`mt-4 font-display text-4xl leading-tight text-paper sm:text-5xl lg:text-6xl ${
+              reduced ? "glow-text" : "glow-text glow-text-settle"
+            }`}
+          >
             Custom Signs, Designed to Glow
           </h1>
+          <p className="mt-3 text-xs uppercase tracking-[0.22em] text-paper/70">Designed to define your space</p>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
-            LED light boards, nameplates, and neon-style plates — drawn by hand, built to light a room,
+            LED sign boards, neon flex, 3D letters, printing and branding — drawn by hand, built to light a room,
             a shopfront, or a name on a door.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/quote"
-              className="btn-glow rounded-full bg-magenta px-6 py-3 text-sm font-semibold text-white transition hover:bg-magenta-soft"
+              className="btn-glow btn-glow-cta rounded-full bg-magenta px-6 py-3 text-sm font-semibold text-white transition hover:bg-magenta-soft"
             >
               Get a Custom Quote
             </Link>
@@ -41,11 +65,20 @@ export default function Hero() {
             >
               Browse Products
             </Link>
+            <Link
+              to="/services"
+              className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-paper transition hover:bg-white/5"
+            >
+              View All Services
+            </Link>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="relative">
-          <div className="glow-border overflow-hidden rounded-3xl bg-ink-2">
+        <motion.div
+          className="relative will-change-transform"
+          style={{ opacity: imageOpacity, y: imageY, scale: imageScale }}
+        >
+          <div className="glow-border mx-auto w-full max-w-xl overflow-hidden rounded-3xl bg-ink-2 lg:max-w-none">
             <div className="aspect-[16/11]">
               <ProductVisual
                 key={slide.id}
@@ -53,7 +86,7 @@ export default function Hero() {
                 accent={slide.accent}
                 variant={slide.variant}
                 lit
-                className="h-full animate-pulse-glow"
+                className={`h-full ${reduced ? "" : "animate-pulse-glow"}`}
                 label={`${slide.name} flagship photo — replace with real product photo`}
               />
             </div>
@@ -75,7 +108,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
