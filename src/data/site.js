@@ -9,8 +9,11 @@ export const site = {
   ],
   whatsapp: "917838989931",
   whatsappMessage: "Hi AV Graphics Art, I would like a custom quote.",
+  email: "avgraphicsart16@gmail.com",
   instagram: "@avgraphicsart",
-  instagramUrl: "https://www.instagram.com/avgraphicsart",
+  instagramUrl: "https://www.instagram.com/avgraphicsart/?hl=en",
+  facebook: "Facebook",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61594267629208",
   hours: "Monday – Saturday, 10:00 AM – 7:00 PM",
   hoursNote: "Sunday by appointment",
   mapEmbed:

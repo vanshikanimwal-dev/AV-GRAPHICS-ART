@@ -45,6 +45,17 @@ export default function Footer() {
               {site.instagram}
             </button>
           </form>
+          <p className="mt-4 flex flex-wrap gap-4 text-sm text-mute">
+            <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="hover:text-paper">
+              Instagram
+            </a>
+            <a href={site.facebookUrl} target="_blank" rel="noreferrer" className="hover:text-paper">
+              Facebook
+            </a>
+            <a href={`mailto:${site.email}`} className="hover:text-paper">
+              {site.email}
+            </a>
+          </p>
         </div>
 
         <div>
@@ -70,10 +81,20 @@ export default function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <a href={`mailto:${site.email}`} className="hover:text-paper">
+                {site.email}
+              </a>
+            </li>
             <li>{site.hours}</li>
             <li>
               <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="hover:text-paper">
-                {site.instagram}
+                Instagram {site.instagram}
+              </a>
+            </li>
+            <li>
+              <a href={site.facebookUrl} target="_blank" rel="noreferrer" className="hover:text-paper">
+                {site.facebook}
               </a>
             </li>
           </ul>

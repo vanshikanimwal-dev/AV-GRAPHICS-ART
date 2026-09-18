@@ -30,6 +30,19 @@ export default function Quote() {
             </p>
             <p className="mt-4 text-sm text-paper">+91 {site.phones[0].label}</p>
             <p className="text-sm text-mute">Alt: +91 {site.phones[1].label}</p>
+            <p className="mt-2 text-sm text-mute">
+              <a href={`mailto:${site.email}`} className="hover:text-paper">
+                {site.email}
+              </a>
+            </p>
+            <p className="mt-2 flex flex-wrap gap-3 text-sm">
+              <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="text-blue hover:underline">
+                Instagram
+              </a>
+              <a href={site.facebookUrl} target="_blank" rel="noreferrer" className="text-blue hover:underline">
+                Facebook
+              </a>
+            </p>
             <a
               href={whatsappUrl()}
               target="_blank"

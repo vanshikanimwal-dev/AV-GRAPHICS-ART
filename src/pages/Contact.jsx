@@ -59,9 +59,21 @@ export default function Contact() {
                 </li>
               ))}
               <li>
+                Email:{" "}
+                <a className="text-blue" href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>
+              </li>
+              <li>
                 Instagram:{" "}
                 <a className="text-blue" href={site.instagramUrl} target="_blank" rel="noreferrer">
                   {site.instagram}
+                </a>
+              </li>
+              <li>
+                Facebook:{" "}
+                <a className="text-blue" href={site.facebookUrl} target="_blank" rel="noreferrer">
+                  AV Graphics Art
                 </a>
               </li>
               <li>Hours: {site.hours}</li>

@@ -36,14 +36,19 @@ export default function GalleryStory() {
   const x = useTransform(scrollYProgress, [0, 1], [0, -travel]);
 
   const header = (
-    <div className="mb-8 flex items-end justify-between">
+    <div className="mb-8 flex items-end justify-between gap-4">
       <div>
         <p className="text-xs uppercase tracking-[0.24em] text-blue">Instagram</p>
         <h2 className="mt-2 font-display text-3xl text-paper">Past work</h2>
       </div>
-      <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="text-sm text-magenta">
-        {site.instagram}
-      </a>
+      <div className="flex shrink-0 flex-col items-end gap-1 text-sm sm:flex-row sm:gap-4">
+        <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="text-magenta">
+          {site.instagram}
+        </a>
+        <a href={site.facebookUrl} target="_blank" rel="noreferrer" className="text-mute hover:text-paper">
+          Facebook
+        </a>
+      </div>
     </div>
   );
 
