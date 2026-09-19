@@ -29,10 +29,10 @@ export default function HowItWorksStory() {
   });
 
   return (
-    <section ref={ref} className="site-wrap py-16">
+    <section ref={ref} className="site-wrap page-section">
       <ScrollReveal>
         <p className="text-xs uppercase tracking-[0.24em] text-amber">How it works</p>
-        <h2 className="mt-2 font-display text-[clamp(1.35rem,4.5vw,2.25rem)] leading-tight text-paper">
+        <h2 className="mt-2 font-display text-[clamp(1.15rem,4vw,2.25rem)] leading-tight text-paper">
           Consult → Design → Approve → Delivered
         </h2>
       </ScrollReveal>
@@ -75,7 +75,7 @@ export default function HowItWorksStory() {
         </svg>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="how-steps mt-8">
         {steps.map((step, i) => {
           const on = reduced || activeIndex >= i;
           return (

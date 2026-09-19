@@ -19,21 +19,21 @@ export default function Gallery() {
         title={`Portfolio of Custom Signs in ${site.city} | ${site.name}`}
         description={`Gallery of LED boards, nameplates, and neon plates by ${site.owner} in ${site.city}.`}
       />
-      <section className="site-wrap py-12">
+      <section className="site-wrap page-section">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-blue">Portfolio</p>
-          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">Gallery</h1>
-          <p className="mt-3 max-w-2xl text-mute">
+          <h1 className="page-title mt-2 font-display text-[clamp(1.4rem,4.6vw,2.75rem)] text-paper">Gallery</h1>
+          <p className="page-copy mt-3 text-sm text-mute sm:text-base">
             Placeholder compositions of completed work. Tap a tile for a larger view; swap in photographs when ready.
           </p>
         </ScrollReveal>
-        <div className="mt-8 flex flex-wrap gap-2">
+        <div className="chip-row mt-8">
           {["All", ...categories].map((c) => (
             <button
               key={c}
               type="button"
               onClick={() => setFilter(c)}
-              className={`rounded-full px-4 py-2 text-sm ${
+              className={`shrink-0 rounded-full px-4 py-2 text-sm ${
                 filter === c ? "bg-blue text-ink" : "border border-white/15 text-mute"
               }`}
             >
@@ -42,7 +42,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <ScrollReveal className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3" y={24}>
+        <ScrollReveal className="gallery-masonry mt-10" y={24}>
           {items.map((item, i) => (
             <button
               key={item.id}
@@ -56,7 +56,7 @@ export default function Gallery() {
                 accent={item.accent}
                 variant={item.variant}
                 className={i % 3 === 0 ? "aspect-[4/5]" : "aspect-[16/11]"}
-                label={`${item.title} — replace with real product photo`}
+                label={`${item.title}. replace with real product photo`}
               />
               <div className="bg-ink-2 px-4 py-3 text-left">
                 <p className="text-xs uppercase tracking-wider text-magenta">{item.category}</p>
@@ -69,23 +69,23 @@ export default function Gallery() {
 
       {active && (
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-3 sm:p-6"
           onClick={() => setActive(null)}
           role="dialog"
           aria-modal="true"
           aria-label={active.title}
         >
-          <div className="max-w-3xl overflow-hidden rounded-3xl border border-magenta/40 bg-ink" onClick={(e) => e.stopPropagation()}>
+          <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-magenta/40 bg-ink sm:rounded-3xl" onClick={(e) => e.stopPropagation()}>
             <ProductVisual
               signText={active.signText}
               accent={active.accent}
               variant={active.variant}
-              className="aspect-video w-[min(90vw,48rem)]"
-              label={`${active.title} lightbox — replace with real product photo`}
+              className="aspect-video w-full"
+              label={`${active.title} lightbox. replace with real product photo`}
             />
-            <div className="flex items-center justify-between px-5 py-4">
-              <p className="text-paper">{active.title}</p>
-              <button type="button" className="text-sm text-mute" onClick={() => setActive(null)}>
+            <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4">
+              <p className="min-w-0 truncate text-sm text-paper sm:text-base">{active.title}</p>
+              <button type="button" className="shrink-0 text-sm text-mute" onClick={() => setActive(null)}>
                 Close
               </button>
             </div>

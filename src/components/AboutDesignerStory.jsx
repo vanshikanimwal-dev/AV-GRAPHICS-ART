@@ -6,7 +6,7 @@ import { useMediaQuery, usePrefersReducedMotion } from "../hooks/useMotionPrefs"
 
 const lines = [
   `A graphic designer based in ${site.city}.`,
-  `${site.owner} treats every board as a piece of type — not a template.`,
+  `${site.owner} treats every board as a piece of type, not a template.`,
   "Lettering, spacing, and glow are composed by hand before fabrication.",
 ];
 
@@ -62,12 +62,12 @@ export default function AboutDesignerStory() {
   }, [pin]);
 
   const card = (
-    <div className="grid min-w-0 items-center gap-8 rounded-3xl border border-white/8 bg-ink-2/80 p-5 sm:p-8 lg:grid-cols-[240px_1fr]">
+    <div className="grid min-w-0 items-center gap-5 rounded-3xl border border-white/8 bg-ink-2/80 p-4 sm:p-8 lg:grid-cols-[240px_1fr]">
       <img
         ref={photoRef}
         src="/logo.png?v=2"
         alt="AV Graphics Art logo"
-        className="mx-auto h-44 w-full max-w-[220px] object-contain"
+        className="mx-auto h-28 w-full max-w-[140px] object-contain sm:h-44 sm:max-w-[220px]"
         style={pin ? { opacity: 0 } : undefined}
       />
       <div className="min-w-0">
@@ -76,7 +76,7 @@ export default function AboutDesignerStory() {
           ref={(el) => {
             lineRefs.current[0] = el;
           }}
-          className="mt-2 font-display text-2xl text-paper"
+          className="mt-2 font-display text-xl text-paper sm:text-2xl"
           style={pin ? { opacity: 0 } : undefined}
         >
           {site.owner}
@@ -110,14 +110,14 @@ export default function AboutDesignerStory() {
 
   if (!pin) {
     return (
-      <section className="site-wrap py-16">
+      <section className="site-wrap page-section">
         <ScrollReveal>{card}</ScrollReveal>
       </section>
     );
   }
 
   return (
-    <section ref={rootRef} className="site-wrap py-16">
+    <section ref={rootRef} className="site-wrap page-section">
       {card}
     </section>
   );

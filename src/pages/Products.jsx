@@ -66,47 +66,45 @@ export default function Products() {
         }
         description={`LED sign boards, neon flex signs, 3D letter signs, backlit boards, flex printing, vehicle branding, wedding name boards, laser engraving and signage AMC from ${site.name} in ${site.city}.`}
       />
-      <section className="site-wrap py-12">
+      <section className="site-wrap page-section">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">
             {isServices ? "Services" : "Catalog"}
           </p>
-          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">
+          <h1 className="page-title mt-2 font-display text-[clamp(1.4rem,4.6vw,2.75rem)] text-paper">
             {isServices ? "Services" : "Products"}
           </h1>
-          <p className="mt-3 max-w-2xl text-mute">
-            Signage and boards, printing and branding, events, and fabrication — plus the original LED
+          <p className="page-copy mt-3 text-sm text-mute sm:text-base">
+            Signage and boards, printing and branding, events, and fabrication, plus the original LED
             boards, nameplates, and neon plates.
           </p>
 
-          <div className="mt-8 overflow-x-auto [scrollbar-width:thin]">
-            <div className="flex w-max min-w-full gap-2 sm:w-full sm:flex-wrap">
-              {["All", ...serviceGroups].map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  onClick={() => {
-                    setGroup(c);
-                    setCategory("All");
-                  }}
-                  className={`shrink-0 rounded-full px-4 py-2 text-sm ${
-                    group === c ? "bg-magenta text-white" : "border border-white/15 text-mute"
-                  }`}
-                >
-                  {c === "All" ? "ALL" : c}
-                </button>
-              ))}
-            </div>
+          <div className="chip-row mt-8">
+            {["All", ...serviceGroups].map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => {
+                  setGroup(c);
+                  setCategory("All");
+                }}
+                className={`shrink-0 rounded-full px-3 py-2 text-xs sm:px-4 sm:text-sm ${
+                  group === c ? "bg-magenta text-white" : "border border-white/15 text-mute"
+                }`}
+              >
+                {c === "All" ? "ALL" : c}
+              </button>
+            ))}
           </div>
 
           {showLegacyFilters ? (
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="chip-row mt-4">
               {["All", ...categories].map((c) => (
                 <button
                   key={c}
                   type="button"
                   onClick={() => setCategory(c)}
-                  className={`rounded-full px-3 py-1.5 text-xs ${
+                  className={`shrink-0 rounded-full px-3 py-1.5 text-xs ${
                     category === c ? "bg-white/15 text-paper" : "border border-white/10 text-mute"
                   }`}
                 >
@@ -116,13 +114,13 @@ export default function Products() {
             </div>
           ) : null}
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="filters-3 mt-6">
             <label className="text-sm text-mute">
               Size
               <select
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
-                className="mt-1 w-full rounded-xl border border-white/10 bg-ink-2 px-3 py-2 text-paper"
+                className="mt-1 w-full rounded-xl border border-white/10 bg-ink-2 px-3 py-2 text-base text-paper sm:text-sm"
               >
                 {sizes.map((s) => (
                   <option key={s}>{s}</option>
@@ -134,7 +132,7 @@ export default function Products() {
               <select
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="mt-1 w-full rounded-xl border border-white/10 bg-ink-2 px-3 py-2 text-paper"
+                className="mt-1 w-full rounded-xl border border-white/10 bg-ink-2 px-3 py-2 text-base text-paper sm:text-sm"
               >
                 {prices.map((p) => (
                   <option key={p.label}>{p.label}</option>
@@ -146,7 +144,7 @@ export default function Products() {
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
-                className="mt-1 w-full rounded-xl border border-white/10 bg-ink-2 px-3 py-2 text-paper"
+                className="mt-1 w-full rounded-xl border border-white/10 bg-ink-2 px-3 py-2 text-base text-paper sm:text-sm"
               >
                 <option value="popularity">Popularity</option>
                 <option value="price-asc">Price: low to high</option>

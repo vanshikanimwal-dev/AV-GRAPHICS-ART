@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
-import { site, whatsappUrl } from "../data/site";
+import { site } from "../data/site";
 import ScrollReveal from "./ScrollReveal";
+import SocialIcons from "./SocialIcons";
 
 export default function Footer() {
   return (
     <footer className="mt-8 border-t border-white/8 bg-[#08080c]">
-      <ScrollReveal y={36} className="site-wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="sm:col-span-2">
-          <div className="flex items-center gap-3">
-            <img src="/logo.png?v=2" alt="AV Graphics Art logo" className="h-14 w-auto bg-transparent object-contain" />
-            <p className="font-display text-paper">{site.name}</p>
+      <ScrollReveal y={36} className="footer-grid site-wrap py-10 sm:py-14">
+        <div className="footer-brand">
+          <div className="flex min-w-0 items-center gap-3">
+            <img src="/logo.png?v=2" alt="AV Graphics Art logo" className="h-10 w-auto shrink-0 bg-transparent object-contain sm:h-14" />
+            <p className="min-w-0 truncate font-display text-paper">{site.name}</p>
           </div>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-mute">
-            Designed to define your space — LED sign boards, neon flex, printing, branding,
+            Designed to define your space. LED sign boards, neon flex, printing, branding,
             events and fabrication in {site.city}. Every piece designed personally by {site.owner}.
           </p>
           <Link
@@ -22,7 +23,7 @@ export default function Footer() {
             Get a Custom Quote
           </Link>
           <form
-            className="mt-6 flex max-w-md gap-2"
+            className="mt-6 flex max-w-md flex-col gap-2 sm:flex-row"
             onSubmit={(e) => {
               e.preventDefault();
               window.open(site.instagramUrl, "_blank", "noreferrer");
@@ -36,7 +37,7 @@ export default function Footer() {
               type="email"
               required
               placeholder="Follow us on Instagram"
-              className="w-full rounded-full border border-white/10 bg-ink-2 px-4 py-2.5 text-sm outline-none ring-magenta/40 placeholder:text-mute/70 focus:ring-2"
+              className="w-full min-w-0 rounded-full border border-white/10 bg-ink-2 px-4 py-2.5 text-base outline-none ring-magenta/40 placeholder:text-mute/70 focus:ring-2 sm:text-sm"
             />
             <button
               type="submit"
@@ -45,14 +46,9 @@ export default function Footer() {
               {site.instagram}
             </button>
           </form>
-          <p className="mt-4 flex flex-wrap gap-4 text-sm text-mute">
-            <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="hover:text-paper">
-              Instagram
-            </a>
-            <a href={site.facebookUrl} target="_blank" rel="noreferrer" className="hover:text-paper">
-              Facebook
-            </a>
-            <a href={`mailto:${site.email}`} className="hover:text-paper">
+          <p className="mt-4 flex min-w-0 flex-col gap-3 text-sm text-mute sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <SocialIcons />
+            <a href={`mailto:${site.email}`} className="break-all hover:text-paper">
               {site.email}
             </a>
           </p>
@@ -81,31 +77,14 @@ export default function Footer() {
                 </a>
               </li>
             ))}
-            <li>
+            <li className="break-all">
               <a href={`mailto:${site.email}`} className="hover:text-paper">
                 {site.email}
               </a>
             </li>
             <li>{site.hours}</li>
-            <li>
-              <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="hover:text-paper">
-                Instagram {site.instagram}
-              </a>
-            </li>
-            <li>
-              <a href={site.facebookUrl} target="_blank" rel="noreferrer" className="hover:text-paper">
-                {site.facebook}
-              </a>
-            </li>
           </ul>
-          <a
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-5 inline-flex rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-ink"
-          >
-            WhatsApp us
-          </a>
+          <SocialIcons className="mt-5" />
         </div>
       </ScrollReveal>
       <div className="border-t border-white/8 py-5 text-center text-xs text-mute">

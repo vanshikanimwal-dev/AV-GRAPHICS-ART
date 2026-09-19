@@ -22,7 +22,25 @@ export default function ProductVisual({
   lit = true,
   className = "",
   label,
+  image,
 }) {
+  if (image) {
+    return (
+      <div className={`relative overflow-hidden bg-[#07070b] ${className}`}>
+        <img
+          src={image}
+          alt={label || signText}
+          className="h-full w-full object-cover object-center"
+          decoding="async"
+          style={{
+            filter: lit ? "none" : "brightness(0.58) saturate(0.8)",
+            transition: "filter 0.45s ease",
+          }}
+        />
+      </div>
+    );
+  }
+
   const opacity = lit ? 1 : 0.28;
   const glow = lit
     ? `drop-shadow(0 0 10px ${accent}) drop-shadow(0 0 28px ${accent}88)`
@@ -40,7 +58,7 @@ export default function ProductVisual({
         viewBox="0 0 400 260"
         className="h-full w-full"
         role="img"
-        aria-label={label || `${signText} product preview — replace with real product photo`}
+        aria-label={label || `${signText} product preview. replace with real product photo`}
         style={{ filter: glow, opacity }}
       >
         {variant === "board" && (

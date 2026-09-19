@@ -1,7 +1,8 @@
 import QuoteForm from "../components/QuoteForm";
 import ScrollReveal from "../components/ScrollReveal";
 import Seo from "../components/Seo";
-import { site, whatsappUrl } from "../data/site";
+import SocialIcons from "../components/SocialIcons";
+import { site } from "../data/site";
 
 export default function Quote() {
   return (
@@ -10,47 +11,32 @@ export default function Quote() {
         title={`Get a Custom Quote in ${site.city} | ${site.name}`}
         description={`Request a quote for LED sign boards, neon flex signs, 3D letters, vehicle branding, event boards or signage AMC from ${site.owner} at ${site.name}, ${site.city}.`}
       />
-      <section className="site-wrap py-12">
+      <section className="site-wrap page-section">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Commission</p>
-          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">Get a custom quote</h1>
-          <p className="mt-4 max-w-2xl text-mute">
+          <h1 className="page-title mt-2 font-display text-[clamp(1.4rem,4.6vw,2.75rem)] text-paper">Get a custom quote</h1>
+          <p className="page-copy mt-4 text-sm leading-relaxed text-mute sm:text-base">
             Every piece is designed personally by {site.owner}. Share a brief here, or skip ahead on WhatsApp
             if you already know what you want.
           </p>
         </ScrollReveal>
 
-        <ScrollReveal className="mt-10 grid items-start gap-8 lg:grid-cols-[1.2fr_0.8fr]" delay={0.08}>
+        <ScrollReveal className="quote-layout mt-8 sm:mt-10" delay={0.08}>
           <QuoteForm />
-          <aside className="rounded-3xl border border-[#25D366]/40 bg-ink-2 p-6 sm:p-8">
+          <aside className="form-card min-w-0 rounded-3xl border border-[#25D366]/40 bg-ink-2">
             <p className="text-xs uppercase tracking-[0.2em] text-[#25D366]">Faster path</p>
-            <h2 className="mt-2 font-display text-2xl text-paper">Chat on WhatsApp</h2>
+            <h2 className="mt-2 font-display text-xl text-paper sm:text-2xl">Chat on WhatsApp</h2>
             <p className="mt-3 text-sm leading-relaxed text-mute">
               Send a photo of the wall, the name, or a rough sketch. {site.owner} replies from {site.city}.
             </p>
             <p className="mt-4 text-sm text-paper">+91 {site.phones[0].label}</p>
             <p className="text-sm text-mute">Alt: +91 {site.phones[1].label}</p>
-            <p className="mt-2 text-sm text-mute">
+            <p className="mt-2 break-all text-sm text-mute">
               <a href={`mailto:${site.email}`} className="hover:text-paper">
                 {site.email}
               </a>
             </p>
-            <p className="mt-2 flex flex-wrap gap-3 text-sm">
-              <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="text-blue hover:underline">
-                Instagram
-              </a>
-              <a href={site.facebookUrl} target="_blank" rel="noreferrer" className="text-blue hover:underline">
-                Facebook
-              </a>
-            </p>
-            <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#25D366] px-5 py-3 font-semibold text-ink"
-            >
-              Chat on WhatsApp
-            </a>
+            <SocialIcons className="mt-4" />
           </aside>
         </ScrollReveal>
       </section>

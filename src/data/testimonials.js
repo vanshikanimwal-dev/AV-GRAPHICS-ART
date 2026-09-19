@@ -21,7 +21,7 @@ export const testimonials = [
     name: "Arjun Bedi",
     role: "Boutique, Khan Market",
     quote:
-      "From first sketch to install, everything felt personal. Not a catalogue — a designed object for the shop.",
+      "From first sketch to install, everything felt personal. Not a catalogue, a designed object for the shop.",
   },
   {
     name: "Sana Qureshi",

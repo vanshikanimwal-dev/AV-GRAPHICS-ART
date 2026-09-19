@@ -12,16 +12,16 @@ export default function Navbar() {
           <img
             src="/logo.png?v=2"
             alt="AV Graphics Art logo"
-            className="h-10 w-auto shrink-0 bg-transparent object-contain sm:h-12"
+            className="h-8 w-auto shrink-0 bg-transparent object-contain sm:h-12"
             width={62}
             height={48}
           />
-          <span className="truncate font-display text-xs tracking-wide text-paper sm:text-base">
+          <span className="brand-name truncate font-display text-xs tracking-wide text-paper sm:text-base">
             {site.name}
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+        <nav className="nav-desktop items-center gap-5 xl:gap-7" aria-label="Primary">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -42,7 +42,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2 lg:hidden">
+        <div className="nav-mobile shrink-0 items-center gap-2">
           <Link
             to="/quote"
             className="btn-glow rounded-full bg-magenta px-2.5 py-1.5 text-[11px] font-semibold"
@@ -67,7 +67,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-white/8 bg-ink py-4 lg:hidden">
+        <div className="nav-drawer max-h-[calc(100svh-4.5rem)] overflow-y-auto border-t border-white/8 bg-ink py-4">
           <div className="site-wrap flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link

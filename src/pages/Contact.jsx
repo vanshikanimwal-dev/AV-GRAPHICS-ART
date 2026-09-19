@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Seo from "../components/Seo";
 import ScrollReveal from "../components/ScrollReveal";
-import { site, whatsappUrl } from "../data/site";
+import SocialIcons from "../components/SocialIcons";
+import { site } from "../data/site";
 import { postJson } from "../lib/api";
 
 export default function Contact() {
@@ -32,64 +33,37 @@ export default function Contact() {
         title={`Contact ${site.name} in ${site.city} | LED Signs & Branding`}
         description={`Call, WhatsApp, or visit ${site.name} in ${site.city} for LED sign boards, neon flex, printing, vehicle branding and signage AMC by ${site.owner}.`}
       />
-      <section className="site-wrap py-12">
+      <section className="site-wrap page-section">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Delhi</p>
-          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">Contact</h1>
+          <h1 className="page-title mt-2 font-display text-[clamp(1.4rem,4.6vw,2.75rem)] text-paper">Contact</h1>
         </ScrollReveal>
 
-        <ScrollReveal className="mt-10 grid gap-8 lg:grid-cols-2" delay={0.08}>
-          <div className="space-y-5">
-            <div className="overflow-hidden rounded-3xl border border-white/10">
-              <iframe
-                title={`Map of ${site.city} — replace with exact studio location`}
-                src={site.mapEmbed}
-                className="h-72 w-full max-w-full grayscale contrast-125"
-                loading="lazy"
-              />
-            </div>
-            <ul className="space-y-2 text-sm text-mute">
-              <li className="text-paper">{site.address} — map placeholder until a street address is set</li>
-              {site.phones.map((p) => (
-                <li key={p.raw}>
-                  Phone / WhatsApp:{" "}
-                  <a className="text-magenta" href={`tel:${p.tel}`}>
-                    +91 {p.label}
-                  </a>
-                </li>
-              ))}
-              <li>
-                Email:{" "}
-                <a className="text-blue" href={`mailto:${site.email}`}>
-                  {site.email}
+        <ScrollReveal className="mt-8 space-y-4 text-sm text-mute" delay={0.04}>
+          <ul className="space-y-2">
+            <li className="text-paper">{site.address}</li>
+            {site.phones.map((p) => (
+              <li key={p.raw}>
+                Phone:{" "}
+                <a className="text-magenta" href={`tel:${p.tel}`}>
+                  +91 {p.label}
                 </a>
               </li>
-              <li>
-                Instagram:{" "}
-                <a className="text-blue" href={site.instagramUrl} target="_blank" rel="noreferrer">
-                  {site.instagram}
-                </a>
-              </li>
-              <li>
-                Facebook:{" "}
-                <a className="text-blue" href={site.facebookUrl} target="_blank" rel="noreferrer">
-                  AV Graphics Art
-                </a>
-              </li>
-              <li>Hours: {site.hours}</li>
-              <li>{site.hoursNote}</li>
-            </ul>
-            <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex rounded-full bg-[#25D366] px-5 py-3 font-semibold text-ink"
-            >
-              WhatsApp {site.name}
-            </a>
-          </div>
+            ))}
+            <li className="break-all">
+              Email:{" "}
+              <a className="text-blue" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+            </li>
+            <li>Hours: {site.hours}</li>
+            <li>{site.hoursNote}</li>
+          </ul>
+          <SocialIcons className="pt-1" />
+        </ScrollReveal>
 
-          <form className="space-y-4 rounded-3xl border border-white/10 bg-ink-2 p-6 sm:p-8" onSubmit={onSubmit}>
+        <ScrollReveal className="two-col mt-8" delay={0.08}>
+          <form className="form-card space-y-4 rounded-3xl border border-white/10 bg-ink-2" onSubmit={onSubmit}>
             {sent ? (
               <p className="text-paper">Message saved. For a faster reply, continue on WhatsApp.</p>
             ) : (
@@ -101,7 +75,7 @@ export default function Contact() {
                     required
                     value={form.name}
                     onChange={update}
-                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3"
+                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-base sm:text-sm"
                   />
                 </label>
                 <label className="block text-sm">
@@ -111,7 +85,7 @@ export default function Contact() {
                     required
                     value={form.contact}
                     onChange={update}
-                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3"
+                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-base sm:text-sm"
                   />
                 </label>
                 <label className="block text-sm">
@@ -122,7 +96,7 @@ export default function Contact() {
                     rows={5}
                     value={form.message}
                     onChange={update}
-                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3"
+                    className="w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-base sm:text-sm"
                   />
                 </label>
                 {error && <p className="text-sm text-magenta">{error}</p>}
@@ -132,6 +106,15 @@ export default function Contact() {
               </>
             )}
           </form>
+
+          <div className="map-frame overflow-hidden rounded-3xl border border-white/10">
+            <iframe
+              title={`Map of ${site.city}. replace with exact studio location`}
+              src={site.mapEmbed}
+              className="w-full max-w-full grayscale contrast-125"
+              loading="lazy"
+            />
+          </div>
         </ScrollReveal>
       </section>
     </>

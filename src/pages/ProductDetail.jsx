@@ -28,21 +28,26 @@ export default function ProductDetail() {
       <Seo
         title={`${product.name} in ${site.city} | ${site.name}`}
         description={seoDescription}
+        image={product.image}
+        type="product"
+        product={product}
       />
-      <section className="site-wrap grid gap-10 py-12 lg:grid-cols-2">
+      <section className="two-col site-wrap page-section">
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl border border-white/10">
-            <div className="aspect-[16/11]">
+            <div className="aspect-[16/10] max-h-[38svh] sm:aspect-[16/11] sm:max-h-none">
               <ProductVisual
                 signText={product.signText}
                 accent={product.accent}
                 variant={product.variant}
-                lit={lit}
+                image={product.image}
+                lit={product.image ? true : lit}
                 className="h-full"
-                label={`${product.name} ${angles[angle].toLowerCase()} ${lit ? "lit" : "unlit"} — replace with real product photo`}
+                label={`${product.name} ${product.image ? "photo" : `${angles[angle].toLowerCase()} ${lit ? "lit" : "unlit"}`}`}
               />
             </div>
           </div>
+          {!product.image ? (
           <div className="mt-4 flex flex-wrap gap-2">
             {angles.map((a, i) => (
               <button
@@ -64,14 +69,15 @@ export default function ProductDetail() {
               {lit ? "Show unlit" : "Show lit"}
             </button>
           </div>
+          ) : null}
         </ScrollReveal>
 
         <ScrollReveal delay={0.08}>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">
             {product.group} · {product.category}
           </p>
-          <h1 className="mt-2 break-words font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">{product.name}</h1>
-          <p className="mt-4 text-mute leading-relaxed">{product.description}</p>
+          <h1 className="page-title mt-2 break-words font-display text-[clamp(1.4rem,4.6vw,2.75rem)] text-paper">{product.name}</h1>
+          <p className="mt-3 text-sm leading-relaxed text-mute sm:mt-4 sm:text-base">{product.description}</p>
           {product.highlight ? (
             <p className="mt-4 rounded-2xl border border-magenta/30 bg-magenta/5 px-4 py-3 text-sm text-paper">
               {product.highlight}
@@ -85,7 +91,7 @@ export default function ProductDetail() {
               ) : null}
             </>
           ) : (
-            <p className="mt-6 text-sm text-mute">Custom quotation after a brief — no listed price.</p>
+            <p className="mt-6 text-sm text-mute">Custom quotation after a brief. No listed price.</p>
           )}
 
           <dl className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -141,9 +147,9 @@ export default function ProductDetail() {
         </ScrollReveal>
       </section>
 
-      <section className="site-wrap pb-16">
+      <section className="site-wrap pb-12 sm:pb-16">
         <ScrollReveal>
-          <h2 className="font-display text-2xl text-paper">Related pieces</h2>
+          <h2 className="font-display text-xl text-paper sm:text-2xl">Related pieces</h2>
         </ScrollReveal>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {relatedProducts(product.id).map((p, i) => (

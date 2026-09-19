@@ -107,12 +107,12 @@ app.post("/api/quotes", rateLimit, upload.single("image"), async (req, res) => {
       text: [
         `Name: ${lead.name}`,
         `Contact: ${lead.contact}`,
-        `Type: ${lead.productType || "—"}`,
-        `Size: ${lead.size || "—"}`,
-        `Colors: ${lead.colors || "—"}`,
-        `Text/logo: ${lead.textLogo || "—"}`,
-        `Budget: ${lead.budget || "—"}`,
-        `Message: ${lead.message || "—"}`,
+        `Type: ${lead.productType || "-"}`,
+        `Size: ${lead.size || "-"}`,
+        `Colors: ${lead.colors || "-"}`,
+        `Text/logo: ${lead.textLogo || "-"}`,
+        `Budget: ${lead.budget || "-"}`,
+        `Message: ${lead.message || "-"}`,
         `Image: ${lead.image || "none"}`,
       ].join("\n"),
     });

@@ -36,12 +36,12 @@ export default function GalleryStory() {
   const x = useTransform(scrollYProgress, [0, 1], [0, -travel]);
 
   const header = (
-    <div className="mb-8 flex items-end justify-between gap-4">
-      <div>
+    <div className="mb-8 flex flex-wrap items-end justify-between gap-3 sm:gap-4">
+      <div className="min-w-0">
         <p className="text-xs uppercase tracking-[0.24em] text-blue">Instagram</p>
-        <h2 className="mt-2 font-display text-3xl text-paper">Past work</h2>
+        <h2 className="mt-2 font-display text-xl text-paper sm:text-3xl">Past work</h2>
       </div>
-      <div className="flex shrink-0 flex-col items-end gap-1 text-sm sm:flex-row sm:gap-4">
+      <div className="flex shrink-0 flex-col items-start gap-1 text-sm sm:items-end sm:flex-row sm:gap-4">
         <a href={site.instagramUrl} target="_blank" rel="noreferrer" className="text-magenta">
           {site.instagram}
         </a>
@@ -54,7 +54,7 @@ export default function GalleryStory() {
 
   if (!horizontal) {
     return (
-      <section className="site-wrap py-16">
+      <section className="site-wrap page-section">
         <ScrollReveal>{header}</ScrollReveal>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {items.map((item, i) => (
@@ -65,7 +65,7 @@ export default function GalleryStory() {
                   accent={item.accent}
                   variant={item.variant}
                   className="aspect-square"
-                  label={`${item.title} — replace with real product photo`}
+                  label={`${item.title}. replace with real product photo`}
                 />
               </Link>
             </ScrollReveal>
@@ -95,7 +95,7 @@ export default function GalleryStory() {
                 accent={item.accent}
                 variant={item.variant}
                 className="aspect-square"
-                label={`${item.title} — replace with real product photo`}
+                label={`${item.title}. replace with real product photo`}
               />
             </Link>
           ))}

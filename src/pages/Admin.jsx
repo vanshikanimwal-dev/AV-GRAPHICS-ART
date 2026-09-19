@@ -24,19 +24,19 @@ export default function Admin() {
 
   return (
     <>
-      <Seo title="Studio leads | AV Graphics Art" description="Private lead inbox for AV Graphics Art." />
-      <section className="site-wrap mx-auto max-w-4xl py-12">
+      <Seo title="Studio leads | AV Graphics Art" description="Private lead inbox for AV Graphics Art." noindex />
+      <section className="site-wrap page-section mx-auto max-w-4xl">
         <p className="text-xs uppercase tracking-[0.24em] text-magenta">Private</p>
-        <h1 className="mt-2 font-display text-4xl text-paper">Leads</h1>
-        <form onSubmit={load} className="mt-6 flex max-w-md gap-2">
+        <h1 className="mt-2 font-display text-[clamp(1.4rem,4.6vw,2.25rem)] text-paper">Leads</h1>
+        <form onSubmit={load} className="mt-6 flex max-w-md flex-col gap-2 sm:flex-row">
           <input
             type="password"
             value={key}
             onChange={(e) => setKey(e.target.value)}
             placeholder="Admin key"
-            className="w-full rounded-full border border-white/10 bg-ink-2 px-4 py-2.5 text-sm"
+            className="w-full min-w-0 rounded-full border border-white/10 bg-ink-2 px-4 py-2.5 text-base sm:text-sm"
           />
-          <button type="submit" className="btn-glow shrink-0 rounded-full bg-magenta px-4 py-2 text-sm font-semibold">
+          <button type="submit" className="btn-glow shrink-0 rounded-full bg-magenta px-4 py-2.5 text-sm font-semibold">
             Open
           </button>
         </form>

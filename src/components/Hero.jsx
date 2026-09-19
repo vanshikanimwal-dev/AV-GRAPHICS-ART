@@ -31,35 +31,35 @@ export default function Hero() {
 
   const slide = slides[index];
   const cta =
-    "inline-flex min-h-12 w-full items-center justify-center rounded-full px-6 py-3 text-center text-sm font-semibold sm:w-auto";
+    "inline-flex min-h-10 w-full items-center justify-center rounded-full px-4 py-2.5 text-center text-xs font-semibold sm:min-h-12 sm:w-auto sm:px-6 sm:py-3 sm:text-sm";
 
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[100svh] items-stretch overflow-x-clip noise lg:items-center lg:overflow-hidden"
+      className="hero-shell relative flex items-stretch overflow-x-clip noise lg:items-center lg:overflow-hidden"
     >
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,45,106,0.18),transparent_42%),radial-gradient(circle_at_80%_70%,rgba(61,224,255,0.12),transparent_40%)]"
         style={{ y: bgY }}
       />
-      <div className="site-wrap relative grid w-full flex-1 items-center gap-8 py-10 sm:gap-10 sm:py-12 lg:min-h-[calc(100svh-4.75rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-8">
+      <div className="site-wrap relative grid w-full flex-1 items-center gap-5 py-6 sm:gap-10 sm:py-12 lg:min-h-[calc(100svh-4.75rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-8">
         <motion.div className="min-w-0" style={{ opacity: textOpacity, y: textY }}>
-          <p className="text-[11px] uppercase tracking-[0.28em] text-magenta sm:text-xs">Delhi · Custom signage</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-magenta sm:text-xs sm:tracking-[0.28em]">Delhi · Custom signage</p>
           <h1
-            className={`mt-3 font-display text-[clamp(2.15rem,8vw,4.75rem)] leading-[1.08] text-paper sm:mt-4 ${
+            className={`mt-2 font-display text-[clamp(1.45rem,6.4vw,4.75rem)] leading-[1.12] text-paper sm:mt-4 ${
               reduced ? "glow-text" : "glow-text glow-text-settle"
             }`}
           >
             Custom Signs, Designed to Glow
           </h1>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-paper/70 sm:text-xs">
+          <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-paper/70 sm:mt-3 sm:text-xs sm:tracking-[0.22em]">
             Designed to define your space
           </p>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
-            LED sign boards, neon flex, 3D letters, printing and branding — drawn by hand, built to light a room,
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-mute sm:mt-5 sm:text-base lg:text-lg">
+            LED sign boards, neon flex, 3D letters, printing and branding, drawn by hand, built to light a room,
             a shopfront, or a name on a door.
           </p>
-          <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-5 flex w-full flex-col gap-2 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-3">
             <Link to="/quote" className={`btn-glow btn-glow-cta bg-magenta text-white transition hover:bg-magenta-soft ${cta}`}>
               Get a Custom Quote
             </Link>
@@ -82,22 +82,23 @@ export default function Hero() {
           className="relative min-w-0 w-full will-change-transform"
           style={{ opacity: imageOpacity, y: imageY, scale: imageScale }}
         >
-          <div className="glow-border w-full overflow-hidden rounded-2xl bg-ink-2 sm:rounded-3xl">
-            <div className="aspect-[16/11] w-full">
+          <div className="hero-frame glow-border overflow-hidden rounded-xl bg-ink-2 sm:rounded-3xl">
+            <div className="hero-media">
               <ProductVisual
                 key={slide.id}
                 signText={slide.signText}
                 accent={slide.accent}
                 variant={slide.variant}
+                image={slide.image}
                 lit
-                className={`h-full w-full ${reduced ? "" : "animate-pulse-glow"}`}
-                label={`${slide.name} flagship photo — replace with real product photo`}
+                className="h-full w-full"
+                label={`${slide.name} flagship photo`}
               />
             </div>
-            <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4">
+            <div className="flex items-center justify-between gap-3 px-3 py-2.5 sm:px-5 sm:py-4">
               <div className="min-w-0">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-magenta">{slide.category}</p>
-                <p className="mt-1 truncate font-display text-sm text-paper">{slide.name}</p>
+                <p className="text-[10px] uppercase tracking-[0.16em] text-magenta sm:text-[11px] sm:tracking-[0.2em]">{slide.category}</p>
+                <p className="mt-0.5 truncate font-display text-xs text-paper sm:mt-1 sm:text-sm">{slide.name}</p>
               </div>
               <div className="flex shrink-0 gap-2">
                 {slides.map((s, i) => (

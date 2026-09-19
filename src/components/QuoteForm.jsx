@@ -82,11 +82,11 @@ export default function QuoteForm() {
   };
 
   const field =
-    "w-full max-w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-sm text-paper outline-none ring-magenta/40 placeholder:text-mute/60 focus:ring-2";
+    "w-full max-w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-base text-paper outline-none ring-magenta/40 placeholder:text-mute/60 focus:ring-2 sm:text-sm";
 
   if (sent) {
     return (
-      <div className="rounded-3xl border border-magenta/40 bg-ink-2 p-8 text-center">
+      <div className="rounded-3xl border border-magenta/40 bg-ink-2 p-5 text-center form-card">
         <p className="font-display text-xl text-paper">Brief saved</p>
         <p className="mt-3 text-sm text-mute">
           {site.owner} has your request. Continue on WhatsApp if you want a faster reply.
@@ -120,8 +120,8 @@ export default function QuoteForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="min-w-0 space-y-4 rounded-3xl border border-white/10 bg-ink-2 p-5 sm:p-8">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={onSubmit} className="form-card space-y-4 rounded-3xl border border-white/10 bg-ink-2">
+      <div className="split-form">
         <label className="block text-sm">
           <span className="mb-1.5 block text-mute">Name</span>
           <input name="name" required value={form.name} onChange={update} className={field} />
@@ -139,7 +139,7 @@ export default function QuoteForm() {
           ))}
         </select>
       </label>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="split-form">
         <label className="block text-sm">
           <span className="mb-1.5 block text-mute">Size</span>
           <input name="size" value={form.size} onChange={update} placeholder="e.g. 24 × 12 in" className={field} />
@@ -168,11 +168,11 @@ export default function QuoteForm() {
           type="file"
           accept="image/*"
           onChange={onFile}
-          className="w-full text-sm text-mute file:mr-3 file:rounded-full file:border-0 file:bg-magenta file:px-4 file:py-2 file:text-white"
+          className="w-full max-w-full text-sm text-mute file:mr-3 file:rounded-full file:border-0 file:bg-magenta file:px-4 file:py-2 file:text-white"
         />
-        {fileName && <p className="mt-2 text-xs text-mute">{fileName}</p>}
+        {fileName && <p className="mt-2 break-all text-xs text-mute">{fileName}</p>}
         {preview && (
-          <img src={preview} alt="Reference upload preview" className="mt-3 h-28 rounded-xl object-cover" />
+          <img src={preview} alt="Reference upload preview" className="mt-3 h-28 w-full max-w-xs rounded-xl object-cover" />
         )}
       </label>
       <label className="block text-sm">
@@ -180,7 +180,7 @@ export default function QuoteForm() {
         <textarea name="message" rows={4} value={form.message} onChange={update} className={field} />
       </label>
       <p className="text-xs leading-relaxed text-mute">
-        Every piece is designed personally by {site.owner}. Your brief is saved for the studio — no payment is taken here.
+        Every piece is designed personally by {site.owner}. Your brief is saved for the studio. No payment is taken here.
       </p>
       {error && <p className="text-sm text-magenta">{error}</p>}
       <button type="submit" disabled={busy} className="btn-glow w-full rounded-full bg-magenta py-3 font-semibold disabled:opacity-60">

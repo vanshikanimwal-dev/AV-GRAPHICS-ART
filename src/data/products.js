@@ -16,6 +16,7 @@ export const products = [
     signText: "OPEN LATE",
     accent: "#ff2d6a",
     variant: "board",
+    image: "/products/aurora-shopfront.jpg?v=3",
   },
   {
     id: "studio-name-board",
@@ -34,6 +35,7 @@ export const products = [
     signText: "STUDIO",
     accent: "#3de0ff",
     variant: "board",
+    image: "/products/studio-name-board.jpg?v=3",
   },
   {
     id: "home-glow-board",
@@ -52,6 +54,7 @@ export const products = [
     signText: "NIVAS",
     accent: "#ffb020",
     variant: "board",
+    image: "/products/home-glow-board.jpg?v=3",
   },
   {
     id: "acrylic-door-plate",
@@ -70,6 +73,7 @@ export const products = [
     signText: "NIMWAL",
     accent: "#f4f1ea",
     variant: "nameplate",
+    image: "/products/acrylic-door-plate.jpg?v=3",
   },
   {
     id: "brass-classic",
@@ -88,6 +92,7 @@ export const products = [
     signText: "HOUSE 12",
     accent: "#ffb020",
     variant: "nameplate",
+    image: "/products/brass-classic.jpg?v=3",
   },
   {
     id: "led-house-number",
@@ -114,7 +119,7 @@ export const products = [
     group: "Signage & Boards",
     short: "A line of custom lettering in flexible neon for walls and bars.",
     description:
-      "A neon-style quote plate, scripted and spaced by hand. Choose a short line, a couple name, or a brand slogan — each piece is drawn before it is bent.",
+      "A neon-style quote plate, scripted and spaced by hand. Choose a short line, a couple name, or a brand slogan. Each piece is drawn before it is bent.",
     price: 5999,
     popularity: 94,
     sizes: ["18 × 10 in", "24 × 12 in", "32 × 14 in"],
@@ -269,7 +274,7 @@ export const products = [
     group: "Printing & Branding",
     short: "Wall graphics, glass frosting, reception and identity interiors.",
     description:
-      "Complete interior branding including wall graphics, glass frosting, reception branding and visual identity elements — so the office reads as one designed space.",
+      "Complete interior branding including wall graphics, glass frosting, reception branding and visual identity elements, so the office reads as one designed space.",
     offers: ["Reception walls", "Glass frosting and manifestation", "Wayfinding and wall graphics"],
     useCases: ["Studios", "Clinics", "Corporate floors", "Co-working"],
     materials: ["Vinyl", "Frost film", "Acrylic marks"],
@@ -375,7 +380,7 @@ export const products = [
     offers: ["On-site installation", "Annual Maintenance Contracts", "Repairs and module replacement"],
     useCases: ["Store networks", "Offices", "Outdoor boards", "Existing AV installs"],
     materials: ["Mounting hardware", "Electrical checks", "Spare LED modules"],
-    colors: ["—"],
+    colors: ["To discuss"],
     popularity: 82,
     signText: "AMC",
     accent: "#ff2d6a",

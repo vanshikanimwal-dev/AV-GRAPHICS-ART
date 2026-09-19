@@ -18,18 +18,18 @@ const shortLabels = {
 
 export default function ServicesPreview() {
   return (
-    <section className="site-wrap py-8">
+    <section className="site-wrap page-section">
       <ScrollReveal>
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Studio range</p>
-          <h2 className="mt-2 font-display text-[clamp(1.6rem,4vw,2.25rem)] text-paper">Signage, print, events & fabrication</h2>
+          <h2 className="mt-2 font-display text-[clamp(1.2rem,3.8vw,2.25rem)] text-paper">Signage, print, events & fabrication</h2>
         </div>
         <Link to="/services" className="shrink-0 text-sm text-blue hover:underline">
           View All Services
         </Link>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="service-blocks">
         {homepagePreview.map((block) => (
           <div key={block.group} className="rounded-2xl border border-white/8 bg-ink-2 p-5">
             <p className="text-[11px] uppercase tracking-[0.2em] text-magenta">{block.group}</p>
