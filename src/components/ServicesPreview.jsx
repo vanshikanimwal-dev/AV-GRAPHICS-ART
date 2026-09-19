@@ -18,12 +18,12 @@ const shortLabels = {
 
 export default function ServicesPreview() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <section className="site-wrap py-8">
       <ScrollReveal>
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Studio range</p>
-          <h2 className="mt-2 font-display text-3xl text-paper">Signage, print, events & fabrication</h2>
+          <h2 className="mt-2 font-display text-[clamp(1.6rem,4vw,2.25rem)] text-paper">Signage, print, events & fabrication</h2>
         </div>
         <Link to="/services" className="shrink-0 text-sm text-blue hover:underline">
           View All Services

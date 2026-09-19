@@ -22,12 +22,12 @@ export default function Home() {
       <AboutDesignerStory />
       <HowItWorksStory />
 
-      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+      <section className="site-wrap py-8">
         <ScrollReveal>
-          <div className="mb-8 flex items-end justify-between gap-4">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.24em] text-magenta">Featured</p>
-              <h2 className="mt-2 font-display text-3xl text-paper">Best-selling glow</h2>
+              <h2 className="mt-2 font-display text-[clamp(1.6rem,4vw,2.25rem)] text-paper">Best-selling glow</h2>
             </div>
             <Link to="/products" className="text-sm text-blue hover:underline">
               Full catalog
@@ -43,20 +43,20 @@ export default function Home() {
 
       <ServicesPreview />
 
-      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+      <section className="site-wrap py-8">
         <ScrollReveal y={40}>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Clients</p>
-          <h2 className="mt-2 mb-8 font-display text-3xl text-paper">Words after the lights went on</h2>
+          <h2 className="mt-2 mb-8 font-display text-[clamp(1.6rem,4vw,2.25rem)] text-paper">Words after the lights went on</h2>
           <TestimonialCarousel />
         </ScrollReveal>
       </section>
 
       <GalleryStory />
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <ScrollReveal className="rounded-3xl border border-magenta/30 bg-ink-2 px-6 py-12 text-center">
+      <section className="site-wrap py-16">
+        <ScrollReveal className="rounded-3xl border border-magenta/30 bg-ink-2 px-5 py-10 text-center sm:px-6 sm:py-12">
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">The story ends here</p>
-          <h2 className="mt-3 font-display text-3xl text-paper sm:text-4xl">Ready for a sign that glows?</h2>
+          <h2 className="mt-3 font-display text-[clamp(1.75rem,5vw,2.5rem)] text-paper">Ready for a sign that glows?</h2>
           <p className="mx-auto mt-4 max-w-xl text-mute">
             Commission a custom LED board, neon flex sign, print, or branded interior — designed personally by {site.owner}.
           </p>

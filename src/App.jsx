@@ -32,9 +32,9 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <HomeProgress />
-      <div className="page-shell min-h-screen">
+      <div className="page-shell">
         <Navbar />
-        <main>
+        <main className="w-full min-w-0">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />

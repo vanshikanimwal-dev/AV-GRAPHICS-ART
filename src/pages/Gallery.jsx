@@ -19,10 +19,10 @@ export default function Gallery() {
         title={`Portfolio of Custom Signs in ${site.city} | ${site.name}`}
         description={`Gallery of LED boards, nameplates, and neon plates by ${site.owner} in ${site.city}.`}
       />
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <section className="site-wrap py-12">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-blue">Portfolio</p>
-          <h1 className="mt-2 font-display text-4xl text-paper">Gallery</h1>
+          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">Gallery</h1>
           <p className="mt-3 max-w-2xl text-mute">
             Placeholder compositions of completed work. Tap a tile for a larger view; swap in photographs when ready.
           </p>

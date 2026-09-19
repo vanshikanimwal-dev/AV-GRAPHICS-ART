@@ -5,8 +5,8 @@ import ScrollReveal from "./ScrollReveal";
 export default function Footer() {
   return (
     <footer className="mt-8 border-t border-white/8 bg-[#08080c]">
-      <ScrollReveal y={36} className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
-        <div className="md:col-span-2">
+      <ScrollReveal y={36} className="site-wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="sm:col-span-2">
           <div className="flex items-center gap-3">
             <img src="/logo.png?v=2" alt="AV Graphics Art logo" className="h-14 w-auto bg-transparent object-contain" />
             <p className="font-display text-paper">{site.name}</p>

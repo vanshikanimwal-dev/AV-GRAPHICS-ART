@@ -6,8 +6,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0b0b0f]/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0b0b0f]/80 pt-[env(safe-area-inset-top)] backdrop-blur-xl">
+      <div className="site-wrap flex items-center justify-between gap-3 py-3">
         <Link to="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
           <img
             src="/logo.png?v=2"
@@ -67,8 +67,8 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-white/8 bg-ink px-4 py-4 lg:hidden">
-          <div className="flex flex-col gap-3">
+        <div className="border-t border-white/8 bg-ink py-4 lg:hidden">
+          <div className="site-wrap flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.to}

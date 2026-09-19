@@ -6,7 +6,7 @@ export default function TestimonialCarousel() {
   const item = testimonials[index];
 
   return (
-    <div className="glow-border rounded-3xl bg-ink-2 p-8 sm:p-12">
+    <div className="glow-border rounded-3xl bg-ink-2 p-6 sm:p-12">
       <div className="flex gap-1 text-amber" aria-label="5 star rating">
         {Array.from({ length: 5 }).map((_, i) => (
           <span key={i}>★</span>

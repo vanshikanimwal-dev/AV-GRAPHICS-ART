@@ -54,7 +54,7 @@ export default function GalleryStory() {
 
   if (!horizontal) {
     return (
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="site-wrap py-16">
         <ScrollReveal>{header}</ScrollReveal>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {items.map((item, i) => (
@@ -82,7 +82,7 @@ export default function GalleryStory() {
       style={{ height: `calc(100vh + ${Math.max(travel, 400)}px)` }}
     >
       <div className="sticky top-[72px] flex h-[calc(100svh-72px)] flex-col justify-center overflow-hidden">
-        <div className="mx-auto mb-8 w-full max-w-6xl px-4 sm:px-6">{header}</div>
+        <div className="site-wrap mb-8">{header}</div>
         <motion.div ref={trackRef} className="flex w-max gap-4 px-6 will-change-transform" style={{ x }}>
           {items.map((item) => (
             <Link

@@ -29,10 +29,12 @@ export default function HowItWorksStory() {
   });
 
   return (
-    <section ref={ref} className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <section ref={ref} className="site-wrap py-16">
       <ScrollReveal>
         <p className="text-xs uppercase tracking-[0.24em] text-amber">How it works</p>
-        <h2 className="mt-2 font-display text-3xl text-paper">Consult → Design → Approve → Delivered</h2>
+        <h2 className="mt-2 font-display text-[clamp(1.35rem,4.5vw,2.25rem)] leading-tight text-paper">
+          Consult → Design → Approve → Delivered
+        </h2>
       </ScrollReveal>
 
       <div className="relative mt-10 hidden lg:block">

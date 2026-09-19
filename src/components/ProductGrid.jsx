@@ -10,7 +10,7 @@ export default function ProductGrid({ products, featuredIds = [], parallax = fal
   }
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
       {products.map((product, index) => (
         <ProductCard
           key={product.id}

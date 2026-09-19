@@ -62,7 +62,7 @@ export default function AboutDesignerStory() {
   }, [pin]);
 
   const card = (
-    <div className="grid items-center gap-8 rounded-3xl border border-white/8 bg-ink-2/80 p-6 sm:p-8 lg:grid-cols-[240px_1fr]">
+    <div className="grid min-w-0 items-center gap-8 rounded-3xl border border-white/8 bg-ink-2/80 p-5 sm:p-8 lg:grid-cols-[240px_1fr]">
       <img
         ref={photoRef}
         src="/logo.png?v=2"
@@ -70,7 +70,7 @@ export default function AboutDesignerStory() {
         className="mx-auto h-44 w-full max-w-[220px] object-contain"
         style={pin ? { opacity: 0 } : undefined}
       />
-      <div>
+      <div className="min-w-0">
         <p className="text-xs uppercase tracking-[0.24em] text-blue">About the designer</p>
         <h2
           ref={(el) => {
@@ -110,14 +110,14 @@ export default function AboutDesignerStory() {
 
   if (!pin) {
     return (
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="site-wrap py-16">
         <ScrollReveal>{card}</ScrollReveal>
       </section>
     );
   }
 
   return (
-    <section ref={rootRef} className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <section ref={rootRef} className="site-wrap py-16">
       {card}
     </section>
   );

@@ -82,7 +82,7 @@ export default function QuoteForm() {
   };
 
   const field =
-    "w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-sm text-paper outline-none ring-magenta/40 placeholder:text-mute/60 focus:ring-2";
+    "w-full max-w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-sm text-paper outline-none ring-magenta/40 placeholder:text-mute/60 focus:ring-2";
 
   if (sent) {
     return (
@@ -120,7 +120,7 @@ export default function QuoteForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 rounded-3xl border border-white/10 bg-ink-2 p-6 sm:p-8">
+    <form onSubmit={onSubmit} className="min-w-0 space-y-4 rounded-3xl border border-white/10 bg-ink-2 p-5 sm:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block text-sm">
           <span className="mb-1.5 block text-mute">Name</span>

@@ -24,10 +24,10 @@ export default function About() {
         title={`About ${site.name} | Custom Signs in ${site.city}`}
         description={`${site.owner} designs LED sign boards, neon flex, 3D letters, printing and branding at ${site.name} in ${site.city}.`}
       />
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <section className="site-wrap py-12">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Studio</p>
-          <h1 className="mt-2 font-display text-4xl text-paper sm:text-5xl">About AV Graphics Art</h1>
+          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper sm:text-5xl">About AV Graphics Art</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-mute">
             {site.name} is the signage practice of {site.owner} in {site.city} — a graphic designer who
             builds LED light boards, door nameplates, and neon-style plates as designed objects, not
@@ -40,7 +40,7 @@ export default function About() {
           <img
             src="/logo.png?v=2"
             alt="AV Graphics Art logo"
-            className="h-80 w-full object-contain"
+            className="mx-auto h-52 w-full max-w-full object-contain sm:h-80"
           />
           <div className="flex flex-col justify-center rounded-3xl border border-white/8 bg-ink-2 p-8">
             <p className="text-xs uppercase tracking-[0.2em] text-blue">The designer</p>

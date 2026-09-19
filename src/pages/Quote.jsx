@@ -10,10 +10,10 @@ export default function Quote() {
         title={`Get a Custom Quote in ${site.city} | ${site.name}`}
         description={`Request a quote for LED sign boards, neon flex signs, 3D letters, vehicle branding, event boards or signage AMC from ${site.owner} at ${site.name}, ${site.city}.`}
       />
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <section className="site-wrap py-12">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Commission</p>
-          <h1 className="mt-2 font-display text-4xl text-paper">Get a custom quote</h1>
+          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">Get a custom quote</h1>
           <p className="mt-4 max-w-2xl text-mute">
             Every piece is designed personally by {site.owner}. Share a brief here, or skip ahead on WhatsApp
             if you already know what you want.
@@ -22,7 +22,7 @@ export default function Quote() {
 
         <ScrollReveal className="mt-10 grid items-start gap-8 lg:grid-cols-[1.2fr_0.8fr]" delay={0.08}>
           <QuoteForm />
-          <aside className="rounded-3xl border border-[#25D366]/40 bg-ink-2 p-8">
+          <aside className="rounded-3xl border border-[#25D366]/40 bg-ink-2 p-6 sm:p-8">
             <p className="text-xs uppercase tracking-[0.2em] text-[#25D366]">Faster path</p>
             <h2 className="mt-2 font-display text-2xl text-paper">Chat on WhatsApp</h2>
             <p className="mt-3 text-sm leading-relaxed text-mute">

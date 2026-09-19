@@ -25,7 +25,7 @@ export default function Admin() {
   return (
     <>
       <Seo title="Studio leads | AV Graphics Art" description="Private lead inbox for AV Graphics Art." />
-      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+      <section className="site-wrap mx-auto max-w-4xl py-12">
         <p className="text-xs uppercase tracking-[0.24em] text-magenta">Private</p>
         <h1 className="mt-2 font-display text-4xl text-paper">Leads</h1>
         <form onSubmit={load} className="mt-6 flex max-w-md gap-2">

@@ -38,7 +38,7 @@ export default function ProductCard({
         delay: reduced ? 0 : Math.min(index, 8) * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`group overflow-hidden rounded-2xl border border-white/8 bg-ink-2 transition duration-300 hover:-translate-y-1 hover:border-magenta/50 ${
+      className={`group min-w-0 overflow-hidden rounded-2xl border border-white/8 bg-ink-2 transition duration-300 hover:-translate-y-1 hover:border-magenta/50 ${
         featured && !reduced ? "animate-pulse-glow" : ""
       }`}
     >

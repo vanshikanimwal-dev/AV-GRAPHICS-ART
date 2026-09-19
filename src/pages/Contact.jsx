@@ -32,10 +32,10 @@ export default function Contact() {
         title={`Contact ${site.name} in ${site.city} | LED Signs & Branding`}
         description={`Call, WhatsApp, or visit ${site.name} in ${site.city} for LED sign boards, neon flex, printing, vehicle branding and signage AMC by ${site.owner}.`}
       />
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <section className="site-wrap py-12">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Delhi</p>
-          <h1 className="mt-2 font-display text-4xl text-paper">Contact</h1>
+          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">Contact</h1>
         </ScrollReveal>
 
         <ScrollReveal className="mt-10 grid gap-8 lg:grid-cols-2" delay={0.08}>
@@ -44,7 +44,7 @@ export default function Contact() {
               <iframe
                 title={`Map of ${site.city} — replace with exact studio location`}
                 src={site.mapEmbed}
-                className="h-72 w-full grayscale contrast-125"
+                className="h-72 w-full max-w-full grayscale contrast-125"
                 loading="lazy"
               />
             </div>

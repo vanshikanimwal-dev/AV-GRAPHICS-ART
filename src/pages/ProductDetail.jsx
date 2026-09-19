@@ -29,7 +29,7 @@ export default function ProductDetail() {
         title={`${product.name} in ${site.city} | ${site.name}`}
         description={seoDescription}
       />
-      <section className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2">
+      <section className="site-wrap grid gap-10 py-12 lg:grid-cols-2">
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl border border-white/10">
             <div className="aspect-[16/11]">
@@ -70,7 +70,7 @@ export default function ProductDetail() {
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">
             {product.group} · {product.category}
           </p>
-          <h1 className="mt-2 font-display text-4xl text-paper">{product.name}</h1>
+          <h1 className="mt-2 break-words font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">{product.name}</h1>
           <p className="mt-4 text-mute leading-relaxed">{product.description}</p>
           {product.highlight ? (
             <p className="mt-4 rounded-2xl border border-magenta/30 bg-magenta/5 px-4 py-3 text-sm text-paper">
@@ -121,27 +121,27 @@ export default function ProductDetail() {
             ) : null}
           </dl>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               to={quotePath(product)}
-              className="btn-glow inline-flex rounded-full bg-magenta px-6 py-3 font-semibold"
+              className="btn-glow inline-flex min-h-12 items-center justify-center rounded-full bg-magenta px-6 py-3 font-semibold"
             >
               {product.price ? "Request Custom Version" : "Get a Quote"}
             </Link>
             <Link
               to="/contact"
-              className="inline-flex rounded-full border border-white/20 px-6 py-3 font-semibold text-paper"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 px-6 py-3 font-semibold text-paper"
             >
               Contact
             </Link>
-            <Link to={catalogPath} className="inline-flex items-center text-sm text-blue hover:underline">
+            <Link to={catalogPath} className="inline-flex min-h-12 items-center text-sm text-blue hover:underline">
               ← Back to {pathname.startsWith("/services") ? "Services" : "Products"}
             </Link>
           </div>
         </ScrollReveal>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+      <section className="site-wrap pb-16">
         <ScrollReveal>
           <h2 className="font-display text-2xl text-paper">Related pieces</h2>
         </ScrollReveal>

@@ -66,12 +66,12 @@ export default function Products() {
         }
         description={`LED sign boards, neon flex signs, 3D letter signs, backlit boards, flex printing, vehicle branding, wedding name boards, laser engraving and signage AMC from ${site.name} in ${site.city}.`}
       />
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <section className="site-wrap py-12">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">
             {isServices ? "Services" : "Catalog"}
           </p>
-          <h1 className="mt-2 font-display text-4xl text-paper">
+          <h1 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.75rem)] text-paper">
             {isServices ? "Services" : "Products"}
           </h1>
           <p className="mt-3 max-w-2xl text-mute">
@@ -79,7 +79,7 @@ export default function Products() {
             boards, nameplates, and neon plates.
           </p>
 
-          <div className="-mx-4 mt-8 overflow-x-auto px-4 [scrollbar-width:thin]">
+          <div className="mt-8 overflow-x-auto [scrollbar-width:thin]">
             <div className="flex w-max min-w-full gap-2 sm:w-full sm:flex-wrap">
               {["All", ...serviceGroups].map((c) => (
                 <button
