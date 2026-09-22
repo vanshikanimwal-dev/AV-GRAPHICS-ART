@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { site } from "../data/site";
+import { site, workTypesCopy } from "../data/site";
 
 function upsertMeta(attr, key, value) {
   if (value == null || value === "") return;
@@ -50,7 +50,7 @@ export default function Seo({
     upsertMeta(
       "name",
       "keywords",
-      "AV Graphics Art, LED sign boards Delhi, neon flex signs, 3D letters, flex printing, vehicle branding, nameplates, signage AMC, Anand Prakash Nimwal"
+      "AV Graphics Art, crystal board Delhi, ACP board, sparkle board, glow sign board, LED board, acrylic plates, plastic letter, steel letter, moving display, name plate, standee, digital prints, Anand Prakash Nimwal"
     );
 
     upsertMeta("property", "og:title", title);
@@ -85,7 +85,7 @@ export default function Seo({
       sameAs: [site.instagramUrl, site.facebookUrl],
       areaServed: site.city,
       description:
-        "Custom LED sign boards, neon flex signs, 3D letters, flex printing, vehicle branding and signage AMC in Delhi.",
+        `Custom ${workTypesCopy} in Delhi.`,
     };
 
     const graph = [localBusiness];
@@ -99,14 +99,6 @@ export default function Seo({
         brand: { "@type": "Brand", name: site.name },
         url,
       };
-      if (typeof product.price === "number") {
-        node.offers = {
-          "@type": "Offer",
-          priceCurrency: "INR",
-          price: String(product.price),
-          availability: "https://schema.org/InStock",
-        };
-      }
       graph.push(node);
     }
 
@@ -121,7 +113,7 @@ export default function Seo({
       "@context": "https://schema.org",
       "@graph": graph,
     });
-  }, [title, description, image, noindex, type, pathname, product?.id, product?.name, product?.price]);
+  }, [title, description, image, noindex, type, pathname, product?.id, product?.name]);
 
   return null;
 }

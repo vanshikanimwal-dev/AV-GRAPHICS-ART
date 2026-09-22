@@ -24,6 +24,14 @@ function WhatsAppIcon({ className = "social-glyph" }) {
   );
 }
 
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="social-glyph" fill="currentColor" aria-hidden="true">
+      <path d="M4.5 5h15A2.5 2.5 0 0 1 22 7.5v9A2.5 2.5 0 0 1 19.5 19h-15A2.5 2.5 0 0 1 2 16.5v-9A2.5 2.5 0 0 1 4.5 5zm.2 2.15v.22l6.7 4.36c.37.24.83.24 1.2 0l6.7-4.36v-.22H4.7zm15.1 1.73-6.18 4.02a3.1 3.1 0 0 1-3.24 0L4.2 8.88V16.5c0 .17.13.3.3.3h15c.17 0 .3-.13.3-.3V8.88z" />
+    </svg>
+  );
+}
+
 export default function SocialIcons({ className = "" }) {
   return (
     <div className={`social-row ${className}`}>
@@ -53,6 +61,13 @@ export default function SocialIcons({ className = "" }) {
         aria-label="WhatsApp"
       >
         <WhatsAppIcon />
+      </a>
+      <a
+        href={`mailto:${site.email}`}
+        className="social-btn social-mail"
+        aria-label={`Email ${site.email}`}
+      >
+        <MailIcon />
       </a>
     </div>
   );

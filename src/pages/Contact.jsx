@@ -2,7 +2,7 @@ import { useState } from "react";
 import Seo from "../components/Seo";
 import ScrollReveal from "../components/ScrollReveal";
 import SocialIcons from "../components/SocialIcons";
-import { site } from "../data/site";
+import { site, workTypesCopy } from "../data/site";
 import { postJson } from "../lib/api";
 
 export default function Contact() {
@@ -30,8 +30,8 @@ export default function Contact() {
   return (
     <>
       <Seo
-        title={`Contact ${site.name} in ${site.city} | LED Signs & Branding`}
-        description={`Call, WhatsApp, or visit ${site.name} in ${site.city} for LED sign boards, neon flex, printing, vehicle branding and signage AMC by ${site.owner}.`}
+        title={`Contact ${site.name} in ${site.city} | Boards, Letters & Prints`}
+        description={`Call, WhatsApp, or visit ${site.name} in ${site.city} for ${workTypesCopy} by ${site.owner}.`}
       />
       <section className="site-wrap page-section">
         <ScrollReveal>

@@ -23,6 +23,7 @@ export default function ProductVisual({
   className = "",
   label,
   image,
+  fit = "cover",
 }) {
   if (image) {
     return (
@@ -30,7 +31,7 @@ export default function ProductVisual({
         <img
           src={image}
           alt={label || signText}
-          className="h-full w-full object-cover object-center"
+          className={`h-full w-full object-center ${fit === "contain" ? "object-contain" : "object-cover"}`}
           decoding="async"
           style={{
             filter: lit ? "none" : "brightness(0.58) saturate(0.8)",

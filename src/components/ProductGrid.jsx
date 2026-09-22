@@ -4,7 +4,7 @@ export default function ProductGrid({ products, featuredIds = [], parallax = fal
   if (!products.length) {
     return (
       <p className="rounded-2xl border border-white/10 bg-ink-2 p-10 text-center text-mute">
-        No pieces match those filters yet. Try another group, size, price, or category.
+        No pieces match those filters yet. Try another group, size, or category.
       </p>
     );
   }

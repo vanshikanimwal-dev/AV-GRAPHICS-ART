@@ -3,17 +3,18 @@ import { getProduct, homepagePreview } from "../data/products";
 import ScrollReveal from "./ScrollReveal";
 
 const shortLabels = {
-  "neon-flex-signs": "Neon Flex",
-  "3d-letters": "3D Letters",
-  "backlit-signboards": "Backlit Signs",
-  "flex-vinyl-banners": "Banners",
-  "vehicle-branding": "Vehicle Branding",
-  "office-branding": "Office Branding",
-  "event-name-boards": "Event Boards",
-  "trophies-mementos": "Trophies & Mementos",
-  "photo-frames-canvas": "Canvas Prints",
-  "laser-cutting": "Laser Engraving",
-  "installation-amc": "Installation & AMC",
+  "crystal-board": "Crystal Board",
+  "acp-board": "ACP Board",
+  "sparkle-board": "Sparkle Board",
+  "backlit-signboards": "Glow Sign Board",
+  "aurora-shopfront": "LED Board",
+  "acrylic-door-plate": "Acrylic Plates",
+  "3d-letters": "Plastic Letter",
+  "steel-letter": "Steel Letter",
+  "brass-classic": "Name Plate",
+  "led-video-walls": "Moving Display",
+  standee: "Standee",
+  "flex-vinyl-banners": "Digital Prints",
 };
 
 export default function ServicesPreview() {
@@ -23,7 +24,7 @@ export default function ServicesPreview() {
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">Studio range</p>
-          <h2 className="mt-2 font-display text-[clamp(1.2rem,3.8vw,2.25rem)] text-paper">Signage, print, events & fabrication</h2>
+          <h2 className="mt-2 font-display text-[clamp(1.2rem,3.8vw,2.25rem)] text-paper">Boards, letters, plates & print</h2>
         </div>
         <Link to="/services" className="shrink-0 text-sm text-blue hover:underline">
           View All Services

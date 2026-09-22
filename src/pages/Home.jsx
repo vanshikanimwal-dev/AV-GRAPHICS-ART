@@ -9,14 +9,14 @@ import AboutDesignerStory from "../components/AboutDesignerStory";
 import HowItWorksStory from "../components/HowItWorksStory";
 import GalleryStory from "../components/GalleryStory";
 import { products } from "../data/products";
-import { site } from "../data/site";
+import { site, workTypesCopy } from "../data/site";
 
 export default function Home() {
   return (
     <>
       <Seo
-        title={`LED Sign Boards, Neon Flex & Branding in ${site.city} | ${site.name}`}
-        description={`Custom LED sign boards, neon flex signs, 3D letters, flex printing, vehicle branding and signage AMC in ${site.city}, designed by ${site.owner}.`}
+        title={`LED Boards, Glow Signs & Name Plates in ${site.city} | ${site.name}`}
+        description={`Custom ${workTypesCopy} in ${site.city}, designed by ${site.owner}.`}
       />
       <Hero />
       <AboutDesignerStory />
@@ -36,7 +36,7 @@ export default function Home() {
         </ScrollReveal>
         <ProductGrid
           products={products.slice(0, 6)}
-          featuredIds={["aurora-shopfront", "neon-quote-plate", "neon-logo-wall"]}
+          featuredIds={["aurora-shopfront", "backlit-signboards", "acrylic-door-plate"]}
           parallax
         />
       </section>
@@ -58,7 +58,7 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.24em] text-magenta">The story ends here</p>
           <h2 className="mt-3 font-display text-[clamp(1.3rem,4.2vw,2.5rem)] text-paper">Ready for a sign that glows?</h2>
           <p className="mx-auto mt-4 max-w-xl text-mute">
-            Commission a custom LED board, neon flex sign, print, or branded interior, designed personally by {site.owner}.
+            Commission a custom LED board, glow sign, name plate, or digital print, designed personally by {site.owner}.
           </p>
           <Link
             to="/quote"

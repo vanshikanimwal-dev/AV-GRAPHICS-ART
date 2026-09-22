@@ -11,7 +11,7 @@ const empty = {
   size: "",
   colors: "",
   textLogo: "",
-  budget: "₹3,000 – ₹7,000",
+  budget: "To discuss",
   message: "",
 };
 
@@ -154,8 +154,9 @@ export default function QuoteForm() {
         <input name="textLogo" value={form.textLogo} onChange={update} className={field} />
       </label>
       <label className="block text-sm">
-        <span className="mb-1.5 block text-mute">Budget range</span>
+        <span className="mb-1.5 block text-mute">Approximate budget (optional)</span>
         <select name="budget" value={form.budget} onChange={update} className={field}>
+          <option>To discuss</option>
           <option>Under ₹3,000</option>
           <option>₹3,000 – ₹7,000</option>
           <option>₹7,000 – ₹15,000</option>

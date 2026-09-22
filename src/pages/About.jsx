@@ -1,6 +1,6 @@
 import ScrollReveal from "../components/ScrollReveal";
 import Seo from "../components/Seo";
-import { site } from "../data/site";
+import { site, workTypesCopy } from "../data/site";
 
 const values = [
   {
@@ -13,7 +13,7 @@ const values = [
   },
   {
     title: "Quality materials",
-    copy: "Acrylic, LED neon-flex, brass, and sealed frames chosen to hold glow and weather Delhi nights.",
+    copy: "Acrylic, ACP, LED modules, brass, and sealed frames chosen to hold glow and weather Delhi nights.",
   },
 ];
 
@@ -22,7 +22,7 @@ export default function About() {
     <>
       <Seo
         title={`About ${site.name} | Custom Signs in ${site.city}`}
-        description={`${site.owner} designs LED sign boards, neon flex, 3D letters, printing and branding at ${site.name} in ${site.city}.`}
+        description={`${site.owner} designs ${workTypesCopy} at ${site.name} in ${site.city}.`}
       />
       <section className="site-wrap page-section">
         <ScrollReveal>
@@ -30,9 +30,9 @@ export default function About() {
           <h1 className="page-title mt-2 font-display text-[clamp(1.4rem,4.6vw,2.75rem)] text-paper">About AV Graphics Art</h1>
           <p className="page-copy mt-4 text-sm leading-relaxed text-mute sm:mt-6 sm:text-lg">
             {site.name} is the signage practice of {site.owner} in {site.city}, a graphic designer who
-            builds LED light boards, door nameplates, and neon-style plates as designed objects, not
-            off-the-shelf stock. The studio also handles printing and branding, event boards, laser
-            cutting, and installation with AMC.
+            builds crystal, ACP, sparkle, glow and LED boards, acrylic plates, plastic and steel letters,
+            name plates, moving displays, standees and digital prints as designed objects, not
+            off-the-shelf stock.
           </p>
         </ScrollReveal>
 
@@ -54,21 +54,18 @@ export default function About() {
         </ScrollReveal>
 
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 md:grid-cols-3">
-          {["Sketch & type", "Prototype glow", "Finish & install"].map((label, i) => (
-            <ScrollReveal key={label} delay={i * 0.08} className="overflow-hidden rounded-2xl border border-white/8 bg-ink-2">
-              <div
-                className="h-36"
-                style={{
-                  background: [
-                    "linear-gradient(135deg,#1a1a24,rgba(255,45,106,.35))",
-                    "linear-gradient(135deg,#1a1a24,rgba(61,224,255,.3))",
-                    "linear-gradient(135deg,#1a1a24,rgba(255,176,32,.3))",
-                  ][i],
-                }}
-                role="img"
-                aria-label={`${label} workshop process photo placeholder. replace with real process photo`}
+          {[
+            { label: "Shopfronts", src: "/work/ruhan-associates.jpg" },
+            { label: "Home name plates", src: "/work/arora-h69.png" },
+            { label: "Reception letters", src: "/work/bullmen-builders.jpg" },
+          ].map((item, i) => (
+            <ScrollReveal key={item.label} delay={i * 0.08} className="overflow-hidden rounded-2xl border border-white/8 bg-ink-2">
+              <img
+                src={item.src}
+                alt={`${item.label} by ${site.name}`}
+                className="h-36 w-full object-cover sm:h-44"
               />
-              <p className="px-4 py-3 text-sm text-paper">{label}</p>
+              <p className="px-4 py-3 text-sm text-paper">{item.label}</p>
             </ScrollReveal>
           ))}
         </div>

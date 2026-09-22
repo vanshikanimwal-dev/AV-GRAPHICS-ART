@@ -32,11 +32,15 @@ export const navLinks = [
   { to: "/contact", label: "Contact" },
 ];
 
-export const categories = ["LED Light Boards", "Nameplates", "Neon Plates"];
+export const categoriesByGroup = {
+  Boards: ["Crystal Board", "ACP Board", "Sparkle Board", "Glow Sign Board", "LED Board"],
+  "Letters & Plates": ["Acrylic Plates", "Plastic Letter", "Steel Letter", "Name Plate"],
+  "Display & Print": ["Moving Display", "Standee", "Digital Prints"],
+};
 
-export const serviceGroups = [
-  "Signage & Boards",
-  "Printing & Branding",
-  "Events & Corporate",
-  "Services",
-];
+export const categories = Object.values(categoriesByGroup).flat();
+
+export const serviceGroups = ["Boards", "Letters & Plates", "Display & Print"];
+
+export const workTypesCopy =
+  "crystal board, ACP board, sparkle board, glow sign board, LED board, acrylic plates, plastic letter, steel letter, moving display, name plate, standee and digital prints";

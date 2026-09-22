@@ -2,14 +2,14 @@ import QuoteForm from "../components/QuoteForm";
 import ScrollReveal from "../components/ScrollReveal";
 import Seo from "../components/Seo";
 import SocialIcons from "../components/SocialIcons";
-import { site } from "../data/site";
+import { site, workTypesCopy } from "../data/site";
 
 export default function Quote() {
   return (
     <>
       <Seo
         title={`Get a Custom Quote in ${site.city} | ${site.name}`}
-        description={`Request a quote for LED sign boards, neon flex signs, 3D letters, vehicle branding, event boards or signage AMC from ${site.owner} at ${site.name}, ${site.city}.`}
+        description={`Request a quote for ${workTypesCopy} from ${site.owner} at ${site.name}, ${site.city}.`}
       />
       <section className="site-wrap page-section">
         <ScrollReveal>

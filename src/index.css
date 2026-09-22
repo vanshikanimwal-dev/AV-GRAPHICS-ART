@@ -284,6 +284,13 @@ iframe {
   box-shadow: 0 0 18px rgba(37, 211, 102, 0.45);
 }
 
+.social-mail:focus-visible {
+  color: #fff;
+  border-color: #ea4335;
+  background: #ea4335;
+  box-shadow: 0 0 18px rgba(234, 67, 53, 0.45);
+}
+
 @media (hover: hover) {
   .social-btn:hover {
     transform: translateY(-1px);
@@ -308,6 +315,13 @@ iframe {
     border-color: #25d366;
     background: #25d366;
     box-shadow: 0 0 18px rgba(37, 211, 102, 0.45);
+  }
+
+  .social-mail:hover {
+    color: #fff;
+    border-color: #ea4335;
+    background: #ea4335;
+    box-shadow: 0 0 18px rgba(234, 67, 53, 0.45);
   }
 }
 
@@ -432,8 +446,7 @@ iframe {
 .quote-layout,
 .product-grid,
 .split-form,
-.filters-3,
-.footer-grid {
+.filters-3 {
   display: grid;
   min-width: 0;
   gap: 1.25rem;
@@ -488,6 +501,102 @@ iframe {
   grid-template-columns: minmax(0, 1fr);
 }
 
+.site-footer {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #08080c;
+}
+
+.footer-grid {
+  display: grid;
+  min-width: 0;
+  gap: 2rem;
+  padding-block: 2.25rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.footer-brand-row {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  height: 2.5rem;
+  width: auto;
+  flex-shrink: 0;
+  background: transparent;
+  object-fit: contain;
+}
+
+.footer-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  color: #f4f1ea;
+}
+
+.footer-copy {
+  margin-top: 1rem;
+  max-width: 28rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #b7b4c4;
+}
+
+.footer-cta {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  border-radius: 999px;
+  background: #ff2d6a;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.footer-socials {
+  margin-top: 1.35rem;
+}
+
+.footer-heading {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ff2d6a;
+}
+
+.footer-links {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: #b7b4c4;
+}
+
+.footer-links a {
+  color: inherit;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.footer-links a:hover {
+  color: #f4f1ea;
+}
+
+.site-footer-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.1rem 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #b7b4c4;
+}
+
 .chip-row {
   display: flex;
   gap: 0.5rem;
@@ -520,6 +629,16 @@ iframe {
   .site-wrap {
     padding-inline: 0.75rem;
   }
+
+  .social-btn {
+    height: 2.35rem;
+    width: 2.35rem;
+  }
+
+  .footer-grid {
+    padding-block: 1.75rem;
+    gap: 1.75rem;
+  }
 }
 
 @media (min-width: 480px) {
@@ -550,10 +669,15 @@ iframe {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2.5rem;
+    padding-block: 2.75rem;
   }
 
   .footer-brand {
     grid-column: 1 / -1;
+  }
+
+  .footer-logo {
+    height: 3.25rem;
   }
 
   .form-card {
@@ -629,10 +753,16 @@ iframe {
 
   .footer-grid {
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    padding-block: 3.5rem;
   }
 
   .footer-brand {
     grid-column: auto;
+  }
+
+  .footer-logo {
+    height: 3.5rem;
   }
 
   .hero-shell {
@@ -662,6 +792,10 @@ iframe {
 @media (min-width: 1280px) {
   .page-section {
     padding-block: 3.5rem;
+  }
+
+  .footer-grid {
+    padding-block: 4rem;
   }
 }
 

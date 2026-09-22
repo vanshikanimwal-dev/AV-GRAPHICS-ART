@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 import ProductVisual from "../components/ProductVisual";
 import ScrollReveal from "../components/ScrollReveal";
 import Seo from "../components/Seo";
-import { formatPrice, getProduct, quotePath, relatedProducts } from "../data/products";
+import { getProduct, quotePath, relatedProducts } from "../data/products";
 import { site } from "../data/site";
 
 export default function ProductDetail() {
@@ -19,9 +19,7 @@ export default function ProductDetail() {
   if (!product) return <Navigate to={catalogPath} replace />;
 
   const angles = ["Front", "Angle", "Detail", "Install"];
-  const seoDescription = product.price
-    ? `${product.short} Custom ${product.category.toLowerCase()} from ${site.name}, starting at ${formatPrice(product.price)}.`
-    : `${product.short} ${product.group} from ${site.name} in ${site.city}. Request a custom quote.`;
+  const seoDescription = `${product.short} Custom ${product.category.toLowerCase()} from ${site.name} in ${site.city}. Quoted to size and finish.`;
 
   return (
     <>
@@ -83,16 +81,12 @@ export default function ProductDetail() {
               {product.highlight}
             </p>
           ) : null}
-          {product.price ? (
-            <>
-              <p className="mt-6 font-display text-2xl text-amber">From {formatPrice(product.price)}</p>
-              {product.turnaround ? (
-                <p className="mt-2 text-sm text-mute">Estimated turnaround: {product.turnaround}</p>
-              ) : null}
-            </>
-          ) : (
-            <p className="mt-6 text-sm text-mute">Custom quotation after a brief. No listed price.</p>
-          )}
+          <p className="mt-6 text-sm text-mute">
+            Every board is quoted to size, material and finish. Share a brief for a custom quote.
+          </p>
+          {product.turnaround ? (
+            <p className="mt-2 text-sm text-mute">Estimated turnaround: {product.turnaround}</p>
+          ) : null}
 
           <dl className="mt-8 grid gap-4 sm:grid-cols-2">
             {product.offers?.length ? (
@@ -132,7 +126,7 @@ export default function ProductDetail() {
               to={quotePath(product)}
               className="btn-glow inline-flex min-h-12 items-center justify-center rounded-full bg-magenta px-6 py-3 font-semibold"
             >
-              {product.price ? "Request Custom Version" : "Get a Quote"}
+              Get a Quote
             </Link>
             <Link
               to="/contact"

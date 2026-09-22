@@ -56,7 +56,8 @@ export default function Hero() {
             Designed to define your space
           </p>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-mute sm:mt-5 sm:text-base lg:text-lg">
-            LED sign boards, neon flex, 3D letters, printing and branding, drawn by hand, built to light a room,
+            Crystal, ACP, sparkle, glow and LED boards, acrylic plates, plastic and steel letters,
+            name plates, moving displays, standees and digital prints, drawn by hand, built to light a room,
             a shopfront, or a name on a door.
           </p>
           <div className="mt-5 flex w-full flex-col gap-2 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-3">

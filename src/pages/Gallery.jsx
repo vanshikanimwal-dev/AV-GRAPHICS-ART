@@ -3,7 +3,16 @@ import ProductVisual from "../components/ProductVisual";
 import ScrollReveal from "../components/ScrollReveal";
 import Seo from "../components/Seo";
 import { gallery } from "../data/gallery";
-import { categories, site } from "../data/site";
+import { site, workTypesCopy } from "../data/site";
+
+const galleryFilters = ["All", ...new Set(gallery.map((g) => g.category))];
+
+function tileAspect(item, index) {
+  if (item.aspect === "wide") return "aspect-[16/10]";
+  if (item.aspect === "tall") return "aspect-[4/5]";
+  if (item.aspect === "square") return "aspect-square";
+  return index % 3 === 0 ? "aspect-[4/5]" : "aspect-[16/11]";
+}
 
 export default function Gallery() {
   const [filter, setFilter] = useState("All");
@@ -17,18 +26,18 @@ export default function Gallery() {
     <>
       <Seo
         title={`Portfolio of Custom Signs in ${site.city} | ${site.name}`}
-        description={`Gallery of LED boards, nameplates, and neon plates by ${site.owner} in ${site.city}.`}
+        description={`Gallery of ${workTypesCopy} by ${site.owner} in ${site.city}.`}
       />
       <section className="site-wrap page-section">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.24em] text-blue">Portfolio</p>
           <h1 className="page-title mt-2 font-display text-[clamp(1.4rem,4.6vw,2.75rem)] text-paper">Gallery</h1>
           <p className="page-copy mt-3 text-sm text-mute sm:text-base">
-            Placeholder compositions of completed work. Tap a tile for a larger view; swap in photographs when ready.
+            Completed boards, letters, name plates and prints from the studio. Tap a tile for a larger view.
           </p>
         </ScrollReveal>
         <div className="chip-row mt-8">
-          {["All", ...categories].map((c) => (
+          {galleryFilters.map((c) => (
             <button
               key={c}
               type="button"
@@ -52,11 +61,9 @@ export default function Gallery() {
               style={{ breakInside: "avoid" }}
             >
               <ProductVisual
-                signText={item.signText}
-                accent={item.accent}
-                variant={item.variant}
-                className={i % 3 === 0 ? "aspect-[4/5]" : "aspect-[16/11]"}
-                label={`${item.title}. replace with real product photo`}
+                image={item.image}
+                className={tileAspect(item, i)}
+                label={item.title}
               />
               <div className="bg-ink-2 px-4 py-3 text-left">
                 <p className="text-xs uppercase tracking-wider text-magenta">{item.category}</p>
@@ -77,11 +84,10 @@ export default function Gallery() {
         >
           <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-magenta/40 bg-ink sm:rounded-3xl" onClick={(e) => e.stopPropagation()}>
             <ProductVisual
-              signText={active.signText}
-              accent={active.accent}
-              variant={active.variant}
-              className="aspect-video w-full"
-              label={`${active.title} lightbox. replace with real product photo`}
+              image={active.image}
+              fit="contain"
+              className="max-h-[70svh] min-h-52 w-full"
+              label={active.title}
             />
             <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4">
               <p className="min-w-0 truncate text-sm text-paper sm:text-base">{active.title}</p>

@@ -61,11 +61,9 @@ export default function GalleryStory() {
             <ScrollReveal key={item.id} delay={i * 0.05}>
               <Link to="/gallery" className="overflow-hidden rounded-xl border border-white/8">
                 <ProductVisual
-                  signText={item.signText}
-                  accent={item.accent}
-                  variant={item.variant}
+                  image={item.image}
                   className="aspect-square"
-                  label={`${item.title}. replace with real product photo`}
+                  label={item.title}
                 />
               </Link>
             </ScrollReveal>
@@ -91,11 +89,9 @@ export default function GalleryStory() {
               className="w-[min(72vw,22rem)] shrink-0 overflow-hidden rounded-2xl border border-white/8"
             >
               <ProductVisual
-                signText={item.signText}
-                accent={item.accent}
-                variant={item.variant}
+                image={item.image}
                 className="aspect-square"
-                label={`${item.title}. replace with real product photo`}
+                label={item.title}
               />
             </Link>
           ))}

@@ -2,7 +2,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import ProductVisual from "./ProductVisual";
-import { formatPrice, quotePath } from "../data/products";
+import { quotePath } from "../data/products";
 import { usePrefersReducedMotion } from "../hooks/useMotionPrefs";
 
 export default function ProductCard({
@@ -75,11 +75,6 @@ export default function ProductCard({
           </p>
           <h3 className="font-display text-sm text-paper sm:text-base">{product.name}</h3>
           <p className="text-xs leading-relaxed text-mute sm:text-sm">{product.short}</p>
-          {product.price ? (
-            <p className="pt-0.5 text-xs text-paper sm:pt-1 sm:text-sm">
-              From <span className="text-amber">{formatPrice(product.price)}</span>
-            </p>
-          ) : null}
         </div>
       </Link>
       <div className="flex items-center justify-between gap-2 px-3.5 pb-3.5 sm:gap-3 sm:px-5 sm:pb-5">
@@ -87,7 +82,7 @@ export default function ProductCard({
           to={`/products/${product.id}`}
           className="min-w-0 truncate text-xs uppercase tracking-wider text-blue hover:underline"
         >
-          {product.price ? "View details" : "View Service"}
+          View details
         </Link>
         <Link
           to={quotePath(product)}
