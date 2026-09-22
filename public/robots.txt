@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /404
+
+Sitemap: https://av-graphics-art.onrender.com/sitemap.xml

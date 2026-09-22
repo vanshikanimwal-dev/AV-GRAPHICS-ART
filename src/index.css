@@ -804,3 +804,72 @@ iframe {
     padding-inline: 3rem;
   }
 }
+
+.admin-page {
+  padding-block: 1.5rem 3rem;
+  min-height: 100svh;
+}
+
+.admin-login {
+  max-width: 26rem;
+  margin: 4rem auto 0;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  background: #121218;
+}
+
+.admin-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-stats,
+.admin-split,
+.admin-checks {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  .admin-page {
+    padding-block: 2rem 4rem;
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-checks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .admin-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .admin-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .admin-stats {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .admin-checks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-login {
+    margin-top: 6rem;
+    padding: 2rem;
+  }
+}

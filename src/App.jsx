@@ -27,32 +27,42 @@ function HomeProgress() {
   return pathname === "/" ? <ScrollProgress /> : null;
 }
 
+function Shell() {
+  const { pathname } = useLocation();
+  const admin = pathname.startsWith("/admin");
+
+  return (
+    <div className={admin ? "admin-app page-shell" : "page-shell"}>
+      {!admin && <Navbar />}
+      <main className="w-full min-w-0">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/services" element={<Products />} />
+          <Route path="/services/:id" element={<ProductDetail />} />
+          <Route path="/quote" element={<Quote />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
+        </Routes>
+      </main>
+      {!admin && <Footer />}
+      {!admin && <WhatsAppButton />}
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <HomeProgress />
-      <div className="page-shell">
-        <Navbar />
-        <main className="w-full min-w-0">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/services" element={<Products />} />
-            <Route path="/services/:id" element={<ProductDetail />} />
-            <Route path="/quote" element={<Quote />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/404" element={<NotFound />} />
-            <Route path="*" element={<Navigate to="/404" replace />} />
-          </Routes>
-        </main>
-        <Footer />
-        <WhatsAppButton />
-      </div>
+      <Shell />
     </BrowserRouter>
   );
 }
+

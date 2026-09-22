@@ -1,5 +1,6 @@
 export const site = {
   name: "AV Graphics Art",
+  url: "https://av-graphics-art.onrender.com",
   owner: "Anand Prakash Nimwal",
   city: "Delhi",
   address: "Delhi, India",

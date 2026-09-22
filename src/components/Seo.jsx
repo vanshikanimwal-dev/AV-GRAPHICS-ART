@@ -34,7 +34,10 @@ export default function Seo({
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const origin = window.location.origin;
+    const liveOrigin = site.url || window.location.origin;
+    const origin = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+      ? window.location.origin
+      : liveOrigin;
     const url = `${origin}${pathname === "/" ? "/" : pathname}`;
     const rawImage = image || "/logo.png";
     const absoluteImage = rawImage.startsWith("http") ? rawImage : `${origin}${rawImage.split("?")[0]}`;
