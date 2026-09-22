@@ -67,6 +67,12 @@ body {
   .site-wrap {
     padding-inline: 1.75rem;
   }
+
+  .brand-logo {
+    height: 2.75rem;
+    max-height: 2.75rem;
+    max-width: 6.25rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -218,7 +224,6 @@ svg {
 
 img {
   display: block;
-  height: auto;
 }
 
 .media-frame {
@@ -232,6 +237,17 @@ img {
 .media-frame > img {
   max-width: none;
   height: 100%;
+}
+
+.brand-logo {
+  display: block;
+  height: 2rem;
+  width: auto;
+  max-height: 2rem;
+  max-width: 4.75rem;
+  flex-shrink: 0;
+  object-fit: contain;
+  background: transparent;
 }
 
 iframe {

@@ -7,12 +7,12 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0b0b0f]/80 pt-[env(safe-area-inset-top)] backdrop-blur-xl">
-      <div className="site-wrap flex items-center justify-between gap-3 py-3">
+      <div className="site-wrap flex min-h-14 items-center justify-between gap-3 py-2 sm:min-h-16 sm:py-2.5">
         <Link to="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
           <img
             src="/logo.png?v=2"
             alt="AV Graphics Art logo"
-            className="h-8 w-auto shrink-0 bg-transparent object-contain sm:h-12"
+            className="brand-logo"
             width={62}
             height={48}
           />
