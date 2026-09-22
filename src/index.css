@@ -216,6 +216,24 @@ svg {
   max-width: 100%;
 }
 
+img {
+  display: block;
+  height: auto;
+}
+
+.media-frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  background: #07070b;
+}
+
+.media-frame > img {
+  max-width: none;
+  height: 100%;
+}
+
 iframe {
   display: block;
 }
@@ -464,9 +482,17 @@ iframe {
 }
 
 .hero-media {
+  position: relative;
+  overflow: hidden;
   aspect-ratio: 16 / 10;
   max-height: 34svh;
   width: 100%;
+}
+
+.hero-media .media-frame {
+  position: absolute;
+  inset: 0;
+  height: 100%;
 }
 
 .form-card {

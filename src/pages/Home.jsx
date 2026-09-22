@@ -8,8 +8,12 @@ import ScrollReveal from "../components/ScrollReveal";
 import AboutDesignerStory from "../components/AboutDesignerStory";
 import HowItWorksStory from "../components/HowItWorksStory";
 import GalleryStory from "../components/GalleryStory";
-import { products } from "../data/products";
+import { getProduct } from "../data/products";
 import { site, workTypesCopy } from "../data/site";
+
+const featured = ["neon-flex-signs", "sparkle-board", "office-branding", "aurora-shopfront", "brass-classic", "backlit-signboards"]
+  .map(getProduct)
+  .filter(Boolean);
 
 export default function Home() {
   return (
@@ -35,8 +39,8 @@ export default function Home() {
           </div>
         </ScrollReveal>
         <ProductGrid
-          products={products.slice(0, 6)}
-          featuredIds={["aurora-shopfront", "backlit-signboards", "acrylic-door-plate"]}
+          products={featured}
+          featuredIds={["neon-flex-signs", "sparkle-board", "office-branding"]}
           parallax
         />
       </section>

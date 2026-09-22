@@ -55,15 +55,15 @@ export default function About() {
 
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 md:grid-cols-3">
           {[
-            { label: "Shopfronts", src: "/work/ruhan-associates.jpg" },
-            { label: "Home name plates", src: "/work/arora-h69.png" },
-            { label: "Reception letters", src: "/work/bullmen-builders.jpg" },
+            { label: "Shopfronts", src: "/work/chef-banquet-hall.jpg" },
+            { label: "Home name plates", src: "/work/pawars-705.jpg" },
+            { label: "Boutique signs", src: "/work/sethani-studio.jpg" },
           ].map((item, i) => (
             <ScrollReveal key={item.label} delay={i * 0.08} className="overflow-hidden rounded-2xl border border-white/8 bg-ink-2">
               <img
                 src={item.src}
                 alt={`${item.label} by ${site.name}`}
-                className="h-36 w-full object-cover sm:h-44"
+                className="h-36 w-full object-cover object-center sm:h-44"
               />
               <p className="px-4 py-3 text-sm text-paper">{item.label}</p>
             </ScrollReveal>

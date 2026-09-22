@@ -33,14 +33,14 @@ export default function ProductDetail() {
       <section className="two-col site-wrap page-section">
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl border border-white/10">
-            <div className="aspect-[16/10] max-h-[38svh] sm:aspect-[16/11] sm:max-h-none">
+            <div className="relative aspect-[16/10] max-h-[38svh] overflow-hidden sm:aspect-[16/11] sm:max-h-none">
               <ProductVisual
                 signText={product.signText}
                 accent={product.accent}
                 variant={product.variant}
                 image={product.image}
                 lit={product.image ? true : lit}
-                className="h-full"
+                className="absolute inset-0 h-full w-full"
                 label={`${product.name} ${product.image ? "photo" : `${angles[angle].toLowerCase()} ${lit ? "lit" : "unlit"}`}`}
               />
             </div>

@@ -87,7 +87,7 @@ export const products = [
     signText: "HOUSE 12",
     accent: "#ffb020",
     variant: "nameplate",
-    image: "/work/gugyani-c26.jpg",
+    image: "/work/pawars-705.jpg",
   },
   {
     id: "led-house-number",
@@ -141,6 +141,7 @@ export const products = [
     signText: "AV",
     accent: "#ff5c8a",
     variant: "neon",
+    image: "/work/sethani-studio.jpg",
   },
   {
     id: "neon-flex-signs",
@@ -158,6 +159,7 @@ export const products = [
     signText: "FLEX",
     accent: "#ff2d6a",
     variant: "neon",
+    image: "/work/chef-banquet-hall.jpg",
   },
   {
     id: "3d-letters",
@@ -279,6 +281,7 @@ export const products = [
     signText: "STUDIO",
     accent: "#f4f1ea",
     variant: "office",
+    image: "/work/saiyari.jpg",
   },
   {
     id: "visiting-cards",
@@ -313,7 +316,7 @@ export const products = [
     signText: "WELCOME",
     accent: "#ffb020",
     variant: "event",
-    image: "/work/aggr-enclave-42.jpg",
+    image: "/work/anil-jain-directory.jpg",
   },
   {
     id: "trophies-mementos",
@@ -436,6 +439,7 @@ export const products = [
     signText: "SPARKLE",
     accent: "#ffb020",
     variant: "backlit",
+    image: "/work/beerus-honey.jpg",
   },
   {
     id: "steel-letter",

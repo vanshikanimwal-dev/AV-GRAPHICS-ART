@@ -59,7 +59,7 @@ export default function GalleryStory() {
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {items.map((item, i) => (
             <ScrollReveal key={item.id} delay={i * 0.05}>
-              <Link to="/gallery" className="overflow-hidden rounded-xl border border-white/8">
+              <Link to="/gallery" className="relative block overflow-hidden rounded-xl border border-white/8">
                 <ProductVisual
                   image={item.image}
                   className="aspect-square"
@@ -86,7 +86,7 @@ export default function GalleryStory() {
             <Link
               key={item.id}
               to="/gallery"
-              className="w-[min(72vw,22rem)] shrink-0 overflow-hidden rounded-2xl border border-white/8"
+              className="relative w-[min(72vw,22rem)] shrink-0 overflow-hidden rounded-2xl border border-white/8"
             >
               <ProductVisual
                 image={item.image}

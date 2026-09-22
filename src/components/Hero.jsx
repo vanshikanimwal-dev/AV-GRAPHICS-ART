@@ -2,10 +2,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductVisual from "./ProductVisual";
-import { products } from "../data/products";
+import { getProduct } from "../data/products";
 import { usePrefersReducedMotion } from "../hooks/useMotionPrefs";
 
-const slides = products.slice(0, 5);
+const slides = ["neon-flex-signs", "sparkle-board", "office-branding", "neon-logo-wall", "brass-classic"]
+  .map(getProduct)
+  .filter(Boolean);
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -36,7 +38,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="hero-shell relative flex items-stretch overflow-x-clip noise lg:items-center lg:overflow-hidden"
+      className="hero-shell relative flex items-stretch overflow-hidden noise lg:items-center"
     >
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,45,106,0.18),transparent_42%),radial-gradient(circle_at_80%_70%,rgba(61,224,255,0.12),transparent_40%)]"

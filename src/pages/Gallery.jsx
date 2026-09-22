@@ -60,11 +60,13 @@ export default function Gallery() {
               className="mb-4 block w-full overflow-hidden rounded-2xl border border-white/8"
               style={{ breakInside: "avoid" }}
             >
+              <div className={`relative overflow-hidden ${tileAspect(item, i)}`}>
               <ProductVisual
                 image={item.image}
-                className={tileAspect(item, i)}
+                className="absolute inset-0 h-full w-full"
                 label={item.title}
               />
+              </div>
               <div className="bg-ink-2 px-4 py-3 text-left">
                 <p className="text-xs uppercase tracking-wider text-magenta">{item.category}</p>
                 <p className="mt-1 text-sm text-paper">{item.title}</p>
@@ -86,7 +88,7 @@ export default function Gallery() {
             <ProductVisual
               image={active.image}
               fit="contain"
-              className="max-h-[70svh] min-h-52 w-full"
+              className="h-[min(70svh,32rem)] w-full"
               label={active.title}
             />
             <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4">

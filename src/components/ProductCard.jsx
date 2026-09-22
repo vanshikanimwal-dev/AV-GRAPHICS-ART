@@ -44,7 +44,7 @@ export default function ProductCard({
     >
       <Link to={`/products/${product.id}`} className="block">
         <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[16/11]">
-          <motion.div className="absolute inset-[-12%] h-[124%] w-full" style={{ y: imageY }}>
+          <motion.div className="absolute inset-0 h-full w-full" style={{ y: imageY }}>
             <div className="absolute inset-0 transition duration-500 group-hover:opacity-0">
               <ProductVisual
                 signText={product.signText}

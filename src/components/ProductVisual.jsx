@@ -27,11 +27,11 @@ export default function ProductVisual({
 }) {
   if (image) {
     return (
-      <div className={`relative overflow-hidden bg-[#07070b] ${className}`}>
+      <div className={`media-frame ${className}`}>
         <img
           src={image}
           alt={label || signText}
-          className={`h-full w-full object-center ${fit === "contain" ? "object-contain" : "object-cover"}`}
+          className={`absolute inset-0 h-full w-full max-w-none object-center ${fit === "contain" ? "object-contain" : "object-cover"}`}
           decoding="async"
           style={{
             filter: lit ? "none" : "brightness(0.58) saturate(0.8)",
