@@ -69,7 +69,7 @@ export const products = [
     signText: "NIMWAL",
     accent: "#f4f1ea",
     variant: "nameplate",
-    image: "/work/arora-h69.png",
+    image: "/work/arora-h69.jpg",
   },
   {
     id: "brass-classic",
@@ -105,7 +105,7 @@ export const products = [
     signText: "204",
     accent: "#3de0ff",
     variant: "nameplate",
-    image: "/work/gupta-p44.png",
+    image: "/work/gupta-p44.jpg",
   },
   {
     id: "neon-quote-plate",

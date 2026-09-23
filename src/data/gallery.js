@@ -31,14 +31,14 @@ export const gallery = [
     id: "g5",
     title: "Arora's H-69 home nameplate",
     category: "Acrylic Plates",
-    image: "/work/arora-h69.png",
+    image: "/work/arora-h69.jpg",
     aspect: "square",
   },
   {
     id: "g6",
     title: "Gupta's P-44 circular plate",
     category: "Name Plate",
-    image: "/work/gupta-p44.png",
+    image: "/work/gupta-p44.jpg",
     aspect: "square",
   },
   {

@@ -11,7 +11,7 @@ import GalleryStory from "../components/GalleryStory";
 import { getProduct } from "../data/products";
 import { site, workTypesCopy } from "../data/site";
 
-const featured = ["neon-flex-signs", "sparkle-board", "office-branding", "aurora-shopfront", "brass-classic", "backlit-signboards"]
+const featured = ["studio-name-board", "sparkle-board", "office-branding", "aurora-shopfront", "brass-classic", "backlit-signboards"]
   .map(getProduct)
   .filter(Boolean);
 
@@ -40,7 +40,7 @@ export default function Home() {
         </ScrollReveal>
         <ProductGrid
           products={featured}
-          featuredIds={["neon-flex-signs", "sparkle-board", "office-branding"]}
+          featuredIds={["studio-name-board", "sparkle-board", "office-branding"]}
           parallax
         />
       </section>

@@ -55,7 +55,7 @@ export default function About() {
 
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 md:grid-cols-3">
           {[
-            { label: "Shopfronts", src: "/work/chef-banquet-hall.jpg" },
+            { label: "Shopfronts", src: "/work/mahamaya-property.jpg" },
             { label: "Home name plates", src: "/work/pawars-705.jpg" },
             { label: "Boutique signs", src: "/work/sethani-studio.jpg" },
           ].map((item, i) => (
