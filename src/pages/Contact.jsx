@@ -35,13 +35,17 @@ export default function Contact() {
       />
       <section className="site-wrap page-section">
         <ScrollReveal>
-          <p className="text-xs uppercase tracking-[0.24em] text-magenta">Delhi</p>
+          <p className="text-xs uppercase tracking-[0.24em] text-magenta">Geeta Colony · Delhi</p>
           <h1 className="page-title mt-2 font-display text-[clamp(1.4rem,4.6vw,2.75rem)] text-paper">Contact</h1>
         </ScrollReveal>
 
         <ScrollReveal className="mt-8 space-y-4 text-sm text-mute" delay={0.04}>
           <ul className="space-y-2">
-            <li className="text-paper">{site.address}</li>
+            <li className="text-paper">
+              <a href={site.mapsUrl} target="_blank" rel="noreferrer" className="hover:text-magenta">
+                {site.address}
+              </a>
+            </li>
             {site.phones.map((p) => (
               <li key={p.raw}>
                 Phone:{" "}
@@ -107,13 +111,24 @@ export default function Contact() {
             )}
           </form>
 
-          <div className="map-frame overflow-hidden rounded-3xl border border-white/10">
-            <iframe
-              title={`Map of ${site.city}. replace with exact studio location`}
-              src={site.mapEmbed}
-              className="w-full max-w-full grayscale contrast-125"
-              loading="lazy"
-            />
+          <div className="min-w-0">
+            <div className="map-frame overflow-hidden rounded-3xl border border-white/10">
+              <iframe
+                title={`Map of ${site.name}, Geeta Colony, Delhi`}
+                src={site.mapEmbed}
+                className="h-full w-full max-w-full grayscale contrast-125"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <a
+              href={site.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-block text-sm text-magenta hover:underline"
+            >
+              Open in Google Maps
+            </a>
           </div>
         </ScrollReveal>
       </section>

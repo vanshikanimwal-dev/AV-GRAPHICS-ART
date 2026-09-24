@@ -3,7 +3,11 @@ export const site = {
   url: "https://av-graphics-art.onrender.com",
   owner: "Anand Prakash Nimwal",
   city: "Delhi",
-  address: "Delhi, India",
+  address: "J-101, Budh Bazar Road, Block 8, Geeta Colony, Delhi 110031",
+  mapsUrl: "https://maps.app.goo.gl/taKZbkrkhq4iafRH6",
+  mapEmbed:
+    "https://maps.google.com/maps?q=28.656038,77.2704516&z=17&hl=en&output=embed",
+  geo: { lat: 28.656038, lng: 77.2704516 },
   phones: [
     { label: "78389 89931", raw: "7838989931", tel: "+917838989931" },
     { label: "99994 79983", raw: "9999479983", tel: "+919999479983" },
@@ -17,8 +21,6 @@ export const site = {
   facebookUrl: "https://www.facebook.com/profile.php?id=61594267629208",
   hours: "Monday – Saturday, 10:00 AM – 7:00 PM",
   hoursNote: "Sunday by appointment",
-  mapEmbed:
-    "https://maps.google.com/maps?q=Delhi%2C%20India&t=&z=11&ie=UTF8&iwloc=&output=embed",
 };
 
 export const whatsappUrl = (text = site.whatsappMessage) =>

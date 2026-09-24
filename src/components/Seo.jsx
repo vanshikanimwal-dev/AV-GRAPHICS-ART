@@ -49,7 +49,9 @@ export default function Seo({
     upsertMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large");
     upsertMeta("name", "author", site.owner);
     upsertMeta("name", "geo.region", "IN-DL");
-    upsertMeta("name", "geo.placename", site.city);
+    upsertMeta("name", "geo.placename", "Geeta Colony, Delhi");
+    upsertMeta("name", "geo.position", `${site.geo.lat};${site.geo.lng}`);
+    upsertMeta("name", "ICBM", `${site.geo.lat}, ${site.geo.lng}`);
     upsertMeta(
       "name",
       "keywords",
@@ -81,9 +83,17 @@ export default function Seo({
       telephone: site.phones[0].tel,
       address: {
         "@type": "PostalAddress",
+        streetAddress: "J-101, Budh Bazar Road, Block 8, Geeta Colony",
         addressLocality: site.city,
+        postalCode: "110031",
         addressCountry: "IN",
       },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: site.geo.lat,
+        longitude: site.geo.lng,
+      },
+      hasMap: site.mapsUrl,
       founder: { "@type": "Person", name: site.owner },
       sameAs: [site.instagramUrl, site.facebookUrl],
       areaServed: site.city,

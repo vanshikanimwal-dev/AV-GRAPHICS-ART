@@ -43,7 +43,11 @@ export default function Footer() {
         <div className="footer-col">
           <p className="footer-heading">Contact</p>
           <ul className="footer-links">
-            <li>{site.address}</li>
+            <li>
+              <a href={site.mapsUrl} target="_blank" rel="noreferrer">
+                {site.address}
+              </a>
+            </li>
             {site.phones.map((p) => (
               <li key={p.raw}>
                 <a href={`tel:${p.tel}`}>+91 {p.label}</a>
