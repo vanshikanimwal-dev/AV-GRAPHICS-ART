@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { categories, site, whatsappUrl } from "../data/site";
 import { serviceNames } from "../data/products";
-import { postForm } from "../lib/api";
+import { postForm, wakeApi } from "../lib/api";
 
 const empty = {
   name: "",
@@ -28,6 +28,10 @@ export default function QuoteForm() {
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    wakeApi();
+  }, []);
 
   useEffect(() => {
     if (!requested) return;

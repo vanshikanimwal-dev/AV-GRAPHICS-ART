@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import { wakeApi } from "./lib/api";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,6 +31,10 @@ function HomeProgress() {
 function Shell() {
   const { pathname } = useLocation();
   const admin = pathname.startsWith("/admin");
+
+  useEffect(() => {
+    wakeApi();
+  }, []);
 
   return (
     <div className={admin ? "admin-app page-shell" : "page-shell"}>

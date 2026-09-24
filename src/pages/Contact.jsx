@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
 import ScrollReveal from "../components/ScrollReveal";
 import SocialIcons from "../components/SocialIcons";
 import { site, workTypesCopy } from "../data/site";
-import { postJson } from "../lib/api";
+import { postJson, wakeApi } from "../lib/api";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", contact: "", message: "" });
+
+  useEffect(() => {
+    wakeApi();
+  }, []);
 
   const update = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 

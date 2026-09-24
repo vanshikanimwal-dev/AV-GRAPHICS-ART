@@ -14,7 +14,7 @@ import {
   updateLead,
   upsertItem,
 } from "./store.js";
-import { notifyStudio } from "./mail.js";
+import { notifyStudioLater } from "./mail.js";
 import {
   adminEmail,
   clearSessionCookie,
@@ -138,7 +138,7 @@ app.post("/api/quotes", rateLimit, upload.single("image"), async (req, res) => {
     });
 
     await addLead(lead);
-    await notifyStudio({
+    notifyStudioLater({
       subject: `New quote request from ${lead.name}`,
       text: [
         `Name: ${lead.name}`,
@@ -156,7 +156,7 @@ app.post("/api/quotes", rateLimit, upload.single("image"), async (req, res) => {
     res.status(201).json({ ok: true, id: lead.id });
   } catch (err) {
     console.error(err);
-    res.status(400).json({ error: err.message || "Could not save quote." });
+    res.status(400).json({ error: "Could not save quote." });
   }
 });
 
@@ -180,7 +180,7 @@ app.post("/api/contact", rateLimit, async (req, res) => {
     });
 
     await addLead(lead);
-    await notifyStudio({
+    notifyStudioLater({
       subject: `New contact message from ${lead.name}`,
       text: [`Name: ${lead.name}`, `Contact: ${lead.contact}`, `Message: ${lead.message}`].join("\n"),
     });
@@ -188,7 +188,7 @@ app.post("/api/contact", rateLimit, async (req, res) => {
     res.status(201).json({ ok: true, id: lead.id });
   } catch (err) {
     console.error(err);
-    res.status(400).json({ error: err.message || "Could not send message." });
+    res.status(400).json({ error: "Could not send message." });
   }
 });
 
@@ -398,6 +398,9 @@ app.get(/^(?!\/api\/|\/uploads\/).*/, (req, res, next) => {
 
 app.use((err, _req, res, _next) => {
   console.error(err);
+  if (err.code === "LIMIT_FILE_SIZE") {
+    return res.status(400).json({ error: "Image is too large. Use a file under 5 MB." });
+  }
   res.status(400).json({ error: err.message || "Request failed." });
 });
 
