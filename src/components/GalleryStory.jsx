@@ -7,7 +7,9 @@ import { gallery } from "../data/gallery";
 import { site } from "../data/site";
 import { useMediaQuery, usePrefersReducedMotion } from "../hooks/useMotionPrefs";
 
-const items = gallery.slice(0, 8);
+const items = ["g24", "g2", "g21", "g22", "g23", "g1", "g20", "g3"]
+  .map((id) => gallery.find((item) => item.id === id))
+  .filter(Boolean);
 
 export default function GalleryStory() {
   const reduced = usePrefersReducedMotion();

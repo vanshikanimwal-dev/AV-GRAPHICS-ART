@@ -32,7 +32,7 @@ export default function AboutDesignerStory() {
       gsap.registerPlugin(ScrollTrigger);
       ctx = gsap.context(() => {
         const textLines = lineRefs.current.filter(Boolean);
-        gsap.set(photoRef.current, { opacity: 0, y: 20 });
+        gsap.set(photoRef.current, { opacity: 1, y: 0 });
         gsap.set(textLines, { opacity: 0, y: 16 });
 
         const tl = gsap.timeline({
@@ -47,10 +47,9 @@ export default function AboutDesignerStory() {
           },
         });
 
-        tl.to(photoRef.current, { opacity: 1, y: 0, duration: 0.45, ease: "none" }).to(
+        tl.to(
           textLines,
-          { opacity: 1, y: 0, duration: 0.35, stagger: 0.28, ease: "none" },
-          ">-0.08"
+          { opacity: 1, y: 0, duration: 0.35, stagger: 0.28, ease: "none" }
         );
       }, rootRef);
     })();
@@ -65,10 +64,9 @@ export default function AboutDesignerStory() {
     <div className="grid min-w-0 items-center gap-5 rounded-3xl border border-white/8 bg-ink-2/80 p-4 sm:p-8 lg:grid-cols-[240px_1fr]">
       <img
         ref={photoRef}
-        src="/logo.png?v=2"
-        alt="AV Graphics Art logo"
-        className="mx-auto h-28 w-full max-w-[140px] object-contain sm:h-44 sm:max-w-[220px]"
-        style={pin ? { opacity: 0 } : undefined}
+        src="/work/anand-studio.jpg"
+        alt={`${site.owner} at the AV Graphics Art workshop`}
+        className="mx-auto h-36 w-full max-w-[160px] rounded-2xl object-cover object-[center_18%] sm:h-52 sm:max-w-[220px]"
       />
       <div className="min-w-0">
         <p className="text-xs uppercase tracking-[0.24em] text-blue">About the designer</p>

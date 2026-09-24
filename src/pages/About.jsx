@@ -38,9 +38,9 @@ export default function About() {
 
         <ScrollReveal className="two-col mt-8 sm:mt-12" delay={0.08}>
           <img
-            src="/logo.png?v=2"
-            alt="AV Graphics Art logo"
-            className="mx-auto h-36 w-full max-w-[12rem] object-contain sm:h-64 sm:max-w-md lg:h-80 lg:max-w-full"
+            src="/work/anand-studio.jpg"
+            alt={`${site.owner} at the AV Graphics Art workshop`}
+            className="mx-auto h-56 w-full max-w-sm rounded-3xl object-cover object-[center_20%] sm:h-80 sm:max-w-md lg:h-[28rem] lg:max-w-full"
           />
           <div className="form-card flex min-w-0 flex-col justify-center rounded-3xl border border-white/8 bg-ink-2">
             <p className="text-xs uppercase tracking-[0.2em] text-blue">The designer</p>
@@ -56,8 +56,8 @@ export default function About() {
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 md:grid-cols-3">
           {[
             { label: "Shopfronts", src: "/work/mahamaya-property.jpg" },
-            { label: "Home name plates", src: "/work/pawars-705.jpg" },
-            { label: "Boutique signs", src: "/work/sethani-studio.jpg" },
+            { label: "Steel letters", src: "/work/steel-lux-nails.jpg" },
+            { label: "The workshop", src: "/work/workshop-j101.jpg" },
           ].map((item, i) => (
             <ScrollReveal key={item.label} delay={i * 0.08} className="overflow-hidden rounded-2xl border border-white/8 bg-ink-2">
               <img

@@ -299,6 +299,7 @@ export const products = [
     signText: "CARD",
     accent: "#ff2d6a",
     variant: "stationery",
+    image: "/work/standee-sai.jpg",
   },
   {
     id: "event-name-boards",
@@ -386,6 +387,7 @@ export const products = [
     accent: "#ff2d6a",
     variant: "install",
     highlight: "AMC is a yearly maintenance plan so your LED and illuminated signs stay reliable after installation.",
+    image: "/work/workshop-j101.jpg",
   },
   {
     id: "crystal-board",
@@ -457,6 +459,7 @@ export const products = [
     signText: "STEEL",
     accent: "#c8c8d0",
     variant: "letters3d",
+    image: "/work/steel-imed.jpg",
   },
   {
     id: "standee",
@@ -474,6 +477,7 @@ export const products = [
     signText: "STAND",
     accent: "#ff2d6a",
     variant: "banner",
+    image: "/work/standee-sai.jpg",
   },
 ];
 
