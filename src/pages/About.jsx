@@ -38,9 +38,9 @@ export default function About() {
 
         <ScrollReveal className="two-col mt-8 sm:mt-12" delay={0.08}>
           <img
-            src="/work/anand-studio.jpg"
+            src="/work/anand-studio.jpg?v=3"
             alt={`${site.owner} at the AV Graphics Art workshop`}
-            className="mx-auto h-56 w-full max-w-sm rounded-3xl object-cover object-[center_20%] sm:h-80 sm:max-w-md lg:h-[28rem] lg:max-w-full"
+            className="mx-auto aspect-[4/5] h-auto w-full max-w-sm rounded-3xl object-cover object-center sm:max-w-md lg:max-w-full"
           />
           <div className="form-card flex min-w-0 flex-col justify-center rounded-3xl border border-white/8 bg-ink-2">
             <p className="text-xs uppercase tracking-[0.2em] text-blue">The designer</p>

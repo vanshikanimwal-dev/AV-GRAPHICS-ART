@@ -64,9 +64,9 @@ export default function AboutDesignerStory() {
     <div className="grid min-w-0 items-center gap-5 rounded-3xl border border-white/8 bg-ink-2/80 p-4 sm:p-8 lg:grid-cols-[240px_1fr]">
       <img
         ref={photoRef}
-        src="/work/anand-studio.jpg"
+        src="/work/anand-studio.jpg?v=3"
         alt={`${site.owner} at the AV Graphics Art workshop`}
-        className="mx-auto h-36 w-full max-w-[160px] rounded-2xl object-cover object-[center_18%] sm:h-52 sm:max-w-[220px]"
+        className="mx-auto aspect-[4/5] h-auto w-full max-w-[160px] rounded-2xl object-cover object-center sm:max-w-[220px]"
       />
       <div className="min-w-0">
         <p className="text-xs uppercase tracking-[0.24em] text-blue">About the designer</p>
