@@ -116,6 +116,11 @@ export default function Contact() {
           </form>
 
           <div className="min-w-0">
+            <img
+              src="/work/workshop-j101.jpg"
+              alt="AV Graphics Art workshop at J-101, Geeta Colony"
+              className="mb-4 aspect-[16/10] w-full rounded-3xl border border-white/10 object-cover"
+            />
             <div className="map-frame overflow-hidden rounded-3xl border border-white/10">
               <iframe
                 title={`Map of ${site.name}, Geeta Colony, Delhi`}

@@ -34,14 +34,21 @@ export default function ServicesPreview() {
         {homepagePreview.map((block) => (
           <div key={block.group} className="rounded-2xl border border-white/8 bg-ink-2 p-5">
             <p className="text-[11px] uppercase tracking-[0.2em] text-magenta">{block.group}</p>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-4 space-y-3">
               {block.items.map((id) => {
                 const item = getProduct(id);
                 if (!item) return null;
                 return (
                   <li key={id}>
-                    <Link to={`/products/${id}`} className="text-sm text-paper hover:text-magenta">
-                      {shortLabels[id] || item.name}
+                    <Link to={`/products/${id}`} className="flex min-w-0 items-center gap-3 text-sm text-paper hover:text-magenta">
+                      {item.image ? (
+                        <span className="h-11 w-11 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-ink">
+                          <img src={item.image} alt="" className="h-full w-full object-cover" />
+                        </span>
+                      ) : (
+                        <span className="h-11 w-11 shrink-0 rounded-lg border border-white/10 bg-ink" />
+                      )}
+                      <span>{shortLabels[id] || item.name}</span>
                     </Link>
                   </li>
                 );

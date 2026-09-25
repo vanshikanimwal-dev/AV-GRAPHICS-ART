@@ -45,28 +45,44 @@ export default function ProductCard({
       <Link to={`/products/${product.id}`} className="block">
         <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[16/11]">
           <motion.div className="absolute inset-0 h-full w-full" style={{ y: imageY }}>
-            <div className="absolute inset-0 transition duration-500 group-hover:opacity-0">
-              <ProductVisual
-                signText={product.signText}
-                accent={product.accent}
-                variant={product.variant}
-                image={product.image}
-                lit={false}
-                className="h-full"
-                label={`${product.name} unlit state. replace with real product photo`}
-              />
-            </div>
-            <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
-              <ProductVisual
-                signText={product.signText}
-                accent={product.accent}
-                variant={product.variant}
-                image={product.image}
-                lit
-                className="h-full"
-                label={`${product.name} lit state. replace with real product photo`}
-              />
-            </div>
+            {product.image ? (
+              <div className="absolute inset-0 transition duration-500 group-hover:scale-[1.04]">
+                <ProductVisual
+                  signText={product.signText}
+                  accent={product.accent}
+                  variant={product.variant}
+                  image={product.image}
+                  lit
+                  className="h-full"
+                  label={`${product.name} studio photo`}
+                />
+              </div>
+            ) : (
+              <>
+                <div className="absolute inset-0 transition duration-500 group-hover:opacity-0">
+                  <ProductVisual
+                    signText={product.signText}
+                    accent={product.accent}
+                    variant={product.variant}
+                    image={product.image}
+                    lit={false}
+                    className="h-full"
+                    label={`${product.name} unlit state`}
+                  />
+                </div>
+                <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
+                  <ProductVisual
+                    signText={product.signText}
+                    accent={product.accent}
+                    variant={product.variant}
+                    image={product.image}
+                    lit
+                    className="h-full"
+                    label={`${product.name} lit state`}
+                  />
+                </div>
+              </>
+            )}
           </motion.div>
         </div>
         <div className="space-y-1.5 p-3.5 pb-2 sm:space-y-2 sm:p-5 sm:pb-3">

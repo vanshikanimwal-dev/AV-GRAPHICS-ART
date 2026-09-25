@@ -55,13 +55,18 @@ export default function Hero() {
             Custom Signs, Designed to Glow
           </h1>
           <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-paper/70 sm:mt-3 sm:text-xs sm:tracking-[0.22em]">
-            Designed to define your space
+            Designed to define your space · Geeta Colony
           </p>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-mute sm:mt-5 sm:text-base lg:text-lg">
             Crystal, ACP, sparkle, glow and LED boards, acrylic plates, plastic and steel letters,
             name plates, moving displays, standees and digital prints, drawn by hand, built to light a room,
             a shopfront, or a name on a door.
           </p>
+          <div className="hero-chip-row">
+            <span className="hero-chip">Handmade lettering</span>
+            <span className="hero-chip">Quoted to size</span>
+            <span className="hero-chip">Installed in Delhi</span>
+          </div>
           <div className="mt-5 flex w-full flex-col gap-2 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-3">
             <Link to="/quote" className={`btn-glow btn-glow-cta bg-magenta text-white transition hover:bg-magenta-soft ${cta}`}>
               Get a Custom Quote

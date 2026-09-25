@@ -216,22 +216,50 @@ app.post("/api/admin/logout", (req, res) => {
   res.json({ ok: true });
 });
 
+function monthKey(value) {
+  const date = value ? new Date(value) : new Date();
+  if (Number.isNaN(date.getTime())) return "";
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+}
+
 app.get("/api/admin/overview", requireAdmin, async (_req, res) => {
-  const [leads, orders, workers, tasks] = await Promise.all([
+  const [leads, orders, workers, tasks, expenses, payments] = await Promise.all([
     listLeads(),
     listCollection("orders"),
     listCollection("workers"),
     listCollection("tasks"),
+    listCollection("expenses"),
+    listCollection("payments"),
   ]);
+  const today = new Date().toISOString().slice(0, 10);
+  const thisMonth = monthKey(new Date());
   const openJobs = orders.filter((o) => !["delivered", "cancelled"].includes(o.status));
+  const billed = orders.reduce((sum, o) => sum + money(o.total), 0);
+  const collected = orders.reduce((sum, o) => sum + money(o.advance), 0);
+  const monthBilled = orders
+    .filter((o) => monthKey(o.date || o.createdAt) === thisMonth)
+    .reduce((sum, o) => sum + money(o.total), 0);
+  const monthSpend = expenses
+    .filter((e) => monthKey(e.date || e.createdAt) === thisMonth)
+    .reduce((sum, e) => sum + money(e.amount), 0);
   res.json({
     enquiries: leads.length,
     newEnquiries: leads.filter((l) => l.status === "new").length,
+    followUps: leads.filter(
+      (l) => l.followUpDate && l.followUpDate <= today && !["won", "closed"].includes(l.status),
+    ).length,
     jobs: orders.length,
     openJobs: openJobs.length,
+    overdueJobs: openJobs.filter((o) => o.deliveryDate && o.deliveryDate < today).length,
+    billed,
+    collected,
     balanceDue: orders.reduce((sum, o) => sum + money(o.balance), 0),
+    monthBilled,
+    monthSpend,
+    monthProfit: Math.round((monthBilled - monthSpend) * 100) / 100,
     workers: workers.filter((w) => w.status !== "inactive").length,
     openTasks: tasks.filter((t) => !t.done).length,
+    payments: payments.length,
   });
 });
 
@@ -245,6 +273,9 @@ app.patch("/api/admin/leads/:id", requireAdmin, async (req, res) => {
   if (!current) return res.status(404).json({ error: "Enquiry not found." });
   const patch = {};
   if (req.body.status) patch.status = clean(req.body.status, 40);
+  if (req.body.followUpDate != null) patch.followUpDate = clean(req.body.followUpDate, 40);
+  if (req.body.source != null) patch.source = clean(req.body.source, 80);
+  if (req.body.nextAction != null) patch.nextAction = clean(req.body.nextAction, 200);
   if (req.body.note) {
     patch.notes = [
       ...(current.notes || []),
@@ -286,6 +317,10 @@ function orderFromBody(body, existing = {}) {
     status: clean(body.status ?? existing.status, 40) || "pending",
     notes: clean(body.notes ?? existing.notes, 2000),
     leadId: clean(body.leadId ?? existing.leadId, 80),
+    siteAddress: clean(body.siteAddress ?? existing.siteAddress, 200),
+    cost: money(body.cost ?? existing.cost),
+    gst: money(body.gst ?? existing.gst),
+    profit: Math.round((total - money(body.cost ?? existing.cost)) * 100) / 100,
   });
 }
 
@@ -385,6 +420,85 @@ app.patch("/api/admin/tasks/:id", requireAdmin, async (req, res) => {
 app.delete("/api/admin/tasks/:id", requireAdmin, async (req, res) => {
   const ok = await removeItem("tasks", req.params.id);
   if (!ok) return res.status(404).json({ error: "Task not found." });
+  res.json({ ok: true });
+});
+
+function expenseFromBody(body, existing = {}) {
+  return stamp({
+    ...existing,
+    date: clean(body.date ?? existing.date, 40) || new Date().toISOString().slice(0, 10),
+    category: clean(body.category ?? existing.category, 60) || "Other",
+    amount: money(body.amount ?? existing.amount),
+    vendor: clean(body.vendor ?? existing.vendor, 120),
+    notes: clean(body.notes ?? existing.notes, 800),
+    jobId: clean(body.jobId ?? existing.jobId, 80),
+  });
+}
+
+app.get("/api/admin/expenses", requireAdmin, async (_req, res) => {
+  res.json({ expenses: await listCollection("expenses") });
+});
+
+app.post("/api/admin/expenses", requireAdmin, async (req, res) => {
+  if (!money(req.body.amount)) return res.status(400).json({ error: "Amount is required." });
+  const expense = await upsertItem("expenses", expenseFromBody(req.body));
+  res.status(201).json({ expense });
+});
+
+app.patch("/api/admin/expenses/:id", requireAdmin, async (req, res) => {
+  const items = await listCollection("expenses");
+  const existing = items.find((item) => item.id === req.params.id);
+  if (!existing) return res.status(404).json({ error: "Expense not found." });
+  const expense = await upsertItem("expenses", expenseFromBody(req.body, existing));
+  res.json({ expense });
+});
+
+app.delete("/api/admin/expenses/:id", requireAdmin, async (req, res) => {
+  const ok = await removeItem("expenses", req.params.id);
+  if (!ok) return res.status(404).json({ error: "Expense not found." });
+  res.json({ ok: true });
+});
+
+function paymentFromBody(body, existing = {}) {
+  return stamp({
+    ...existing,
+    orderId: clean(body.orderId ?? existing.orderId, 80),
+    amount: money(body.amount ?? existing.amount),
+    mode: clean(body.mode ?? existing.mode, 20) || "CASH",
+    date: clean(body.date ?? existing.date, 40) || new Date().toISOString().slice(0, 10),
+    notes: clean(body.notes ?? existing.notes, 400),
+  });
+}
+
+app.get("/api/admin/payments", requireAdmin, async (_req, res) => {
+  res.json({ payments: await listCollection("payments") });
+});
+
+app.post("/api/admin/payments", requireAdmin, async (req, res) => {
+  const amount = money(req.body.amount);
+  const orderId = clean(req.body.orderId, 80);
+  if (!orderId || !amount) return res.status(400).json({ error: "Job and amount are required." });
+  const orders = await listCollection("orders");
+  const existing = orders.find((item) => item.id === orderId);
+  if (!existing) return res.status(404).json({ error: "Job not found." });
+  const payment = await upsertItem("payments", paymentFromBody(req.body));
+  const order = await upsertItem(
+    "orders",
+    orderFromBody(
+      {
+        advance: money(existing.advance) + amount,
+        paymentMode: payment.mode,
+        paymentDate: payment.date,
+      },
+      existing,
+    ),
+  );
+  res.status(201).json({ payment, order });
+});
+
+app.delete("/api/admin/payments/:id", requireAdmin, async (req, res) => {
+  const ok = await removeItem("payments", req.params.id);
+  if (!ok) return res.status(404).json({ error: "Payment not found." });
   res.json({ ok: true });
 });
 
