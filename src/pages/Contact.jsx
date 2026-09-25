@@ -70,7 +70,7 @@ export default function Contact() {
           <SocialIcons className="pt-1" />
         </ScrollReveal>
 
-        <ScrollReveal className="two-col mt-8" delay={0.08}>
+        <ScrollReveal className="contact-split mt-8" delay={0.08}>
           <form className="form-card space-y-4 rounded-3xl border border-white/10 bg-ink-2" onSubmit={onSubmit}>
             {sent ? (
               <p className="text-paper">Message saved. For a faster reply, continue on WhatsApp.</p>
@@ -115,12 +115,7 @@ export default function Contact() {
             )}
           </form>
 
-          <div className="min-w-0">
-            <img
-              src="/work/workshop-j101.jpg"
-              alt="AV Graphics Art workshop at J-101, Geeta Colony"
-              className="mb-4 aspect-[16/10] w-full rounded-3xl border border-white/10 object-cover"
-            />
+          <div className="contact-map-col">
             <div className="map-frame overflow-hidden rounded-3xl border border-white/10">
               <iframe
                 title={`Map of ${site.name}, Geeta Colony, Delhi`}
@@ -134,7 +129,7 @@ export default function Contact() {
               href={site.mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-3 inline-block text-sm text-magenta hover:underline"
+              className="shrink-0 text-sm text-magenta hover:underline"
             >
               Open in Google Maps
             </a>
