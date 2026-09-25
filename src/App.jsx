@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import SiteAtmosphere from "./components/SiteAtmosphere";
 import { wakeApi } from "./lib/api";
 
 function ScrollToTop() {
@@ -38,8 +39,9 @@ function Shell() {
 
   return (
     <div className={admin ? "admin-app page-shell" : "page-shell"}>
+      {!admin && <SiteAtmosphere />}
       {!admin && <Navbar />}
-      <main className="w-full min-w-0">
+      <main className="page-main w-full min-w-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />

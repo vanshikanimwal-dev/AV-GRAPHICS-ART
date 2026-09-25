@@ -6,7 +6,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-magenta/20 bg-[#0b0b0f]/82 pt-[env(safe-area-inset-top)] shadow-[0_1px_24px_rgba(255,45,106,0.12)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-magenta/20 bg-[#0b0b0f]/72 pt-[env(safe-area-inset-top)] shadow-[0_1px_24px_rgba(255,45,106,0.12)] backdrop-blur-xl">
       <div className="site-wrap flex min-h-14 items-center justify-between gap-3 py-2 sm:min-h-16 sm:py-2.5">
         <Link to="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
           <img

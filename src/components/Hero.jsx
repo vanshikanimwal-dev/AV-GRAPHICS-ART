@@ -41,10 +41,13 @@ export default function Hero() {
       className="hero-shell relative flex items-stretch overflow-hidden noise lg:items-center"
     >
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,45,106,0.18),transparent_42%),radial-gradient(circle_at_80%_70%,rgba(61,224,255,0.12),transparent_40%)]"
+        className="hero-wash absolute inset-0"
         style={{ y: bgY }}
       />
-      <div className="site-wrap relative grid w-full flex-1 items-center gap-5 py-6 sm:gap-10 sm:py-12 lg:min-h-[calc(100svh-4.75rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-8">
+      <p className="hero-watermark" aria-hidden="true">
+        AV
+      </p>
+      <div className="site-wrap relative z-[1] grid w-full flex-1 items-center gap-5 py-6 sm:gap-10 sm:py-12 lg:min-h-[calc(100svh-4.75rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-8">
         <motion.div className="min-w-0" style={{ opacity: textOpacity, y: textY }}>
           <p className="text-[10px] uppercase tracking-[0.22em] text-magenta sm:text-xs sm:tracking-[0.28em]">Delhi · Custom signage</p>
           <h1
@@ -90,6 +93,7 @@ export default function Hero() {
           className="relative min-w-0 w-full will-change-transform"
           style={{ opacity: imageOpacity, y: imageY, scale: imageScale }}
         >
+          <div className="hero-bloom" aria-hidden="true" />
           <div className="hero-frame glow-border overflow-hidden rounded-xl bg-ink-2 sm:rounded-3xl">
             <div className="hero-media">
               <ProductVisual
