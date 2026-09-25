@@ -53,8 +53,8 @@ export default function Home() {
 
       <section className="site-wrap page-section">
         <ScrollReveal y={40}>
-          <p className="text-xs uppercase tracking-[0.24em] text-magenta">Clients</p>
-          <h2 className="mt-2 mb-5 font-display text-[clamp(1.2rem,3.8vw,2.25rem)] text-paper sm:mb-8">Words after the lights went on</h2>
+          <p className="text-xs uppercase tracking-[0.24em] text-magenta">Installed</p>
+          <h2 className="mt-2 mb-5 font-display text-[clamp(1.2rem,3.8vw,2.25rem)] text-paper sm:mb-8">Work already on the street</h2>
           <TestimonialCarousel />
         </ScrollReveal>
       </section>

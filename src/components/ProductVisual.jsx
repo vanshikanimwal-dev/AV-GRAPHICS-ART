@@ -59,7 +59,7 @@ export default function ProductVisual({
         viewBox="0 0 400 260"
         className="h-full w-full"
         role="img"
-        aria-label={label || `${signText} product preview. replace with real product photo`}
+        aria-label={label || `${signText} product preview`}
         style={{ filter: glow, opacity }}
       >
         {variant === "board" && (
@@ -253,9 +253,6 @@ export default function ProductVisual({
           </>
         )}
       </svg>
-      <span className="pointer-events-none absolute bottom-2 left-2 rounded-full border border-white/10 bg-black/50 px-2 py-0.5 text-[10px] uppercase tracking-wider text-mute">
-        Placeholder visual
-      </span>
     </div>
   );
 }

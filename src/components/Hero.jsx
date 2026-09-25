@@ -44,9 +44,6 @@ export default function Hero() {
         className="hero-wash absolute inset-0"
         style={{ y: bgY }}
       />
-      <p className="hero-watermark" aria-hidden="true">
-        AV
-      </p>
       <div className="site-wrap relative z-[1] grid w-full flex-1 items-center gap-5 py-6 sm:gap-10 sm:py-12 lg:min-h-[calc(100svh-4.75rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-8">
         <motion.div className="min-w-0" style={{ opacity: textOpacity, y: textY }}>
           <p className="text-[10px] uppercase tracking-[0.22em] text-magenta sm:text-xs sm:tracking-[0.28em]">Delhi · Custom signage</p>

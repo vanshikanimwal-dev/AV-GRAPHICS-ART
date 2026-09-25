@@ -11,14 +11,12 @@ export default function ProductDetail() {
   const { id } = useParams();
   const { pathname } = useLocation();
   const product = getProduct(id);
-  const [angle, setAngle] = useState(0);
   const [lit, setLit] = useState(true);
 
   const catalogPath = pathname.startsWith("/services") ? "/services" : "/products";
 
   if (!product) return <Navigate to={catalogPath} replace />;
 
-  const angles = ["Front", "Angle", "Detail", "Install"];
   const seoDescription = `${product.short} Custom ${product.category.toLowerCase()} from ${site.name} in ${site.city}. Quoted to size and finish.`;
 
   return (
@@ -41,24 +39,12 @@ export default function ProductDetail() {
                 image={product.image}
                 lit={product.image ? true : lit}
                 className="absolute inset-0 h-full w-full"
-                label={`${product.name} ${product.image ? "photo" : `${angles[angle].toLowerCase()} ${lit ? "lit" : "unlit"}`}`}
+                label={`${product.name} ${product.image ? "photo" : lit ? "lit preview" : "unlit preview"}`}
               />
             </div>
           </div>
           {!product.image ? (
           <div className="mt-4 flex flex-wrap gap-2">
-            {angles.map((a, i) => (
-              <button
-                key={a}
-                type="button"
-                onClick={() => setAngle(i)}
-                className={`rounded-full px-3 py-1.5 text-xs ${
-                  angle === i ? "bg-magenta" : "border border-white/15 text-mute"
-                }`}
-              >
-                {a} placeholder
-              </button>
-            ))}
             <button
               type="button"
               onClick={() => setLit((v) => !v)}

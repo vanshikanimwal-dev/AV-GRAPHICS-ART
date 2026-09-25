@@ -17,7 +17,6 @@ export default function SiteAtmosphere() {
       </div>
       <div className="atm-beam" />
       <div className="atm-sparks" />
-      <p className="atm-word">GLOW</p>
       <span className="atm-strip atm-strip-left" />
       <span className="atm-strip atm-strip-right" />
       <div className="atm-vignette" />

@@ -1,41 +1,45 @@
 import { useState } from "react";
-import { testimonials } from "../data/testimonials";
+import { Link } from "react-router-dom";
+import { gallery } from "../data/gallery";
+
+const featured = ["g2", "g21", "g22", "g23", "g1", "g3"]
+  .map((id) => gallery.find((item) => item.id === id))
+  .filter(Boolean);
 
 export default function TestimonialCarousel() {
   const [index, setIndex] = useState(0);
-  const item = testimonials[index];
+  const item = featured[index];
+  if (!item) return null;
 
   return (
-    <div className="glow-border rounded-3xl bg-ink-2 p-5 sm:p-12">
-      <div className="flex gap-1 text-amber" aria-label="5 star rating">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <span key={i}>★</span>
-        ))}
-      </div>
-      <blockquote className="mt-4 font-display text-base leading-relaxed text-paper sm:mt-6 sm:text-2xl">
-        “{item.quote}”
-      </blockquote>
-      <p className="mt-6 text-sm text-magenta">{item.name}</p>
-      <p className="text-sm text-mute">{item.role}</p>
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
-        <p className="text-xs uppercase tracking-[0.2em] text-mute">
-          {index + 1} / {testimonials.length}
-        </p>
-        <div className="flex gap-2">
-          <button
-            type="button"
-            className="rounded-full border border-white/15 px-4 py-2 text-sm hover:border-magenta"
-            onClick={() => setIndex((i) => (i - 1 + testimonials.length) % testimonials.length)}
-          >
-            Prev
-          </button>
-          <button
-            type="button"
-            className="rounded-full border border-white/15 px-4 py-2 text-sm hover:border-magenta"
-            onClick={() => setIndex((i) => (i + 1) % testimonials.length)}
-          >
-            Next
-          </button>
+    <div className="overflow-hidden rounded-3xl border border-white/8 bg-ink-2">
+      <img src={item.image} alt={item.title} className="aspect-[16/9] w-full object-cover" />
+      <div className="p-5 sm:p-8">
+        <p className="text-xs uppercase tracking-[0.2em] text-magenta">{item.category}</p>
+        <h3 className="mt-2 font-display text-lg text-paper sm:text-2xl">{item.title}</h3>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-xs uppercase tracking-[0.2em] text-mute">
+            {index + 1} / {featured.length}
+          </p>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              className="rounded-full border border-white/15 px-4 py-2 text-sm hover:border-magenta"
+              onClick={() => setIndex((i) => (i - 1 + featured.length) % featured.length)}
+            >
+              Prev
+            </button>
+            <button
+              type="button"
+              className="rounded-full border border-white/15 px-4 py-2 text-sm hover:border-magenta"
+              onClick={() => setIndex((i) => (i + 1) % featured.length)}
+            >
+              Next
+            </button>
+            <Link to="/gallery" className="rounded-full border border-white/15 px-4 py-2 text-sm text-blue hover:border-magenta">
+              Gallery
+            </Link>
+          </div>
         </div>
       </div>
     </div>

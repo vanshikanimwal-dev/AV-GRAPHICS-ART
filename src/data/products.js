@@ -512,6 +512,6 @@ export const homepagePreview = [
   },
   {
     group: "Display & Print",
-    items: ["led-video-walls", "standee", "flex-vinyl-banners"],
+    items: ["standee", "event-name-boards", "visiting-cards"],
   },
 ];
