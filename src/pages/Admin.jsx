@@ -129,7 +129,18 @@ export default function Admin() {
   };
 
   useEffect(() => {
-    load().catch(() => setOwner(null));
+    let cancelled = false;
+    adminFetch("/api/admin/me")
+      .then(async () => {
+        if (cancelled) return;
+        await load();
+      })
+      .catch(() => {
+        if (!cancelled) setOwner(null);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const onLogin = async (event) => {

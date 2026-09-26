@@ -207,12 +207,13 @@ app.post("/api/admin/login", loginLimit, (req, res) => {
   if (email !== adminEmail() || !passwordMatches(password)) {
     return res.status(401).json({ error: "Only the studio owner can sign in here." });
   }
-  setSessionCookie(res, createToken(email));
-  res.json({ ok: true, email, role: "owner" });
+  const token = createToken(email);
+  setSessionCookie(res, token, req);
+  res.json({ ok: true, email, role: "owner", token });
 });
 
 app.post("/api/admin/logout", (req, res) => {
-  clearSessionCookie(res);
+  clearSessionCookie(res, req);
   res.json({ ok: true });
 });
 

@@ -78,7 +78,11 @@ export function parseCookies(req) {
 }
 
 export function sessionFrom(req) {
-  return readToken(parseCookies(req)[COOKIE_NAME]);
+  const cookieSession = readToken(parseCookies(req)[COOKIE_NAME]);
+  if (cookieSession) return cookieSession;
+  const header = String(req.get("authorization") || "");
+  const match = header.match(/^Bearer\s+(.+)$/i);
+  return match ? readToken(match[1].trim()) : null;
 }
 
 function cookieSecure() {
@@ -89,18 +93,44 @@ function cookieSecure() {
   );
 }
 
-function cookieFlags() {
-  return `HttpOnly; Path=/; Max-Age=${Math.floor(WEEK_MS / 1000)}; SameSite=Lax${cookieSecure() ? "; Secure" : ""}`;
+function cookieFlags(req) {
+  let sameSite = "Lax";
+  const origin = String(req?.headers?.origin || "");
+  if (origin) {
+    try {
+      const host = new URL(origin).hostname;
+      if (host !== "localhost" && host !== "127.0.0.1" && !host.endsWith("onrender.com")) {
+        sameSite = "None";
+      }
+    } catch {
+      sameSite = "Lax";
+    }
+  }
+  const secure = cookieSecure() || sameSite === "None";
+  return `HttpOnly; Path=/; Max-Age=${Math.floor(WEEK_MS / 1000)}; SameSite=${sameSite}${secure ? "; Secure" : ""}`;
 }
 
-export function setSessionCookie(res, token) {
-  res.setHeader("Set-Cookie", `${COOKIE_NAME}=${encodeURIComponent(token)}; ${cookieFlags()}`);
+export function setSessionCookie(res, token, req) {
+  res.setHeader("Set-Cookie", `${COOKIE_NAME}=${encodeURIComponent(token)}; ${cookieFlags(req)}`);
 }
 
-export function clearSessionCookie(res) {
+export function clearSessionCookie(res, req) {
+  const secure = cookieSecure();
+  let sameSite = "Lax";
+  const origin = String(req?.headers?.origin || "");
+  if (origin) {
+    try {
+      const host = new URL(origin).hostname;
+      if (host !== "localhost" && host !== "127.0.0.1" && !host.endsWith("onrender.com")) {
+        sameSite = "None";
+      }
+    } catch {
+      sameSite = "Lax";
+    }
+  }
   res.setHeader(
     "Set-Cookie",
-    `${COOKIE_NAME}=; HttpOnly; Path=/; Max-Age=0; SameSite=Lax${cookieSecure() ? "; Secure" : ""}`
+    `${COOKIE_NAME}=; HttpOnly; Path=/; Max-Age=0; SameSite=${sameSite}${secure || sameSite === "None" ? "; Secure" : ""}`
   );
 }
 

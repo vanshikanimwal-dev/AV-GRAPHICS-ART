@@ -14,6 +14,25 @@ export function apiUrl(path) {
   return `${apiOrigin()}${path}`;
 }
 
+const TOKEN_KEY = "avga_admin_token";
+
+function adminToken() {
+  try {
+    return sessionStorage.getItem(TOKEN_KEY) || "";
+  } catch {
+    return "";
+  }
+}
+
+function setAdminToken(token) {
+  try {
+    if (token) sessionStorage.setItem(TOKEN_KEY, token);
+    else sessionStorage.removeItem(TOKEN_KEY);
+  } catch {
+    /* ignore private-mode storage */
+  }
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -45,6 +64,7 @@ async function request(path, options = {}, { retries = 2 } = {}) {
     res = await fetch(url, options);
     data = await parseBody(res);
     if (res.ok) return data;
+    if (res.status === 401 || res.status === 403) break;
     const transient = res.status === 502 || res.status === 503 || res.status === 504;
     if (!transient || attempt === retries) break;
     await sleep(1800 * (attempt + 1));
@@ -72,14 +92,20 @@ export async function postForm(path, formData) {
 }
 
 export async function adminFetch(path, { method = "GET", body } = {}) {
-  return request(
+  const headers = body ? { "Content-Type": "application/json" } : {};
+  const token = adminToken();
+  if (token) headers.Authorization = `Bearer ${token}`;
+  const data = await request(
     path,
     {
       method,
       credentials: "include",
-      headers: body ? { "Content-Type": "application/json" } : undefined,
+      headers,
       body: body ? JSON.stringify(body) : undefined,
     },
     { retries: method === "GET" ? 1 : 0 }
   );
+  if (path.endsWith("/login") && data.token) setAdminToken(data.token);
+  if (path.endsWith("/logout")) setAdminToken("");
+  return data;
 }
