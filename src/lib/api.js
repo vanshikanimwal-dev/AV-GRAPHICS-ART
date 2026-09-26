@@ -56,8 +56,8 @@ function failMessage(res, data) {
   return "Request failed.";
 }
 
-async function request(path, options = {}, { retries = 2 } = {}) {
-  const url = apiUrl(path);
+async function request(path, options = {}, { retries = 2, origin } = {}) {
+  const url = `${origin === undefined ? apiOrigin() : origin}${path}`;
   let res;
   let data = {};
   for (let attempt = 0; attempt <= retries; attempt += 1) {
@@ -103,7 +103,7 @@ export async function adminFetch(path, { method = "GET", body } = {}) {
       headers,
       body: body ? JSON.stringify(body) : undefined,
     },
-    { retries: method === "GET" ? 1 : 0 }
+    { retries: method === "GET" ? 1 : 0, origin: "" }
   );
   if (path.endsWith("/login") && data.token) setAdminToken(data.token);
   if (path.endsWith("/logout")) setAdminToken("");

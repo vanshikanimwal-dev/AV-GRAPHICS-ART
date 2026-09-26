@@ -50,7 +50,7 @@ export function readToken(token) {
 }
 
 export function passwordMatches(password) {
-  const expected = process.env.ADMIN_PASSWORD || "";
+  const expected = String(process.env.ADMIN_PASSWORD || "").trim();
   if (!expected || !password) return false;
   const salt = secret() || "avga";
   const left = scryptSync(String(password), salt, 32);

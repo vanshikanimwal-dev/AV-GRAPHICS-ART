@@ -82,7 +82,11 @@ const upload = multer({
   },
 });
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({
+  origin: true,
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 app.set("trust proxy", 1);
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
@@ -203,7 +207,7 @@ app.post("/api/admin/login", loginLimit, (req, res) => {
     return res.status(503).json({ error: "Set ADMIN_PASSWORD on the server before signing in." });
   }
   const email = clean(req.body.email, 120).toLowerCase();
-  const password = String(req.body.password || "");
+  const password = String(req.body.password || "").trim();
   if (email !== adminEmail() || !passwordMatches(password)) {
     return res.status(401).json({ error: "Only the studio owner can sign in here." });
   }
