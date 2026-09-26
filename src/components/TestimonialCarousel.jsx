@@ -13,7 +13,9 @@ export default function TestimonialCarousel() {
 
   return (
     <div className="overflow-hidden rounded-3xl border border-white/8 bg-ink-2">
-      <img src={item.image} alt={item.title} className="aspect-[16/9] w-full object-cover" />
+      <div className="work-frame">
+        <img src={item.image} alt={item.title} decoding="async" />
+      </div>
       <div className="p-5 sm:p-8">
         <p className="text-xs uppercase tracking-[0.2em] text-magenta">{item.category}</p>
         <h3 className="mt-2 font-display text-lg text-paper sm:text-2xl">{item.title}</h3>

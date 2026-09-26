@@ -10,8 +10,8 @@ const stats = [
 ];
 
 const tiles = [
-  { src: "/work/workshop-nameplates.jpg", className: "mosaic-wide", alt: "Nameplates covering the AV Graphics Art workshop wall" },
-  { src: "/work/neon-flex-display.jpg", className: "", alt: "Neon-flex display outside the studio" },
+  { src: "/work/workshop-fascias.jpg", className: "mosaic-wide", alt: "ACP and glow samples on the shop wall" },
+  { src: "/work/workshop-nameplates.jpg", className: "", alt: "Nameplates covering the AV Graphics Art workshop wall" },
   { src: "/work/halo-letters-gold.jpg", className: "", alt: "Halo-lit gold three-dimensional letters" },
   { src: "/work/workshop-ceiling.jpg", className: "", alt: "Lit sample boards on the workshop ceiling" },
   { src: "/work/anand-studio.jpg?v=3", className: "mosaic-tall", alt: `${site.owner} at the workshop` },
