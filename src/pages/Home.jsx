@@ -13,7 +13,7 @@ import StudioPulse from "../components/StudioPulse";
 import { getProduct } from "../data/products";
 import { site, workTypesCopy } from "../data/site";
 
-const featured = ["studio-name-board", "steel-letter", "standee", "aurora-shopfront", "office-branding", "backlit-signboards"]
+const featured = ["studio-name-board", "3d-letters", "neon-flex-signs", "home-glow-board", "steel-letter", "backlit-signboards"]
   .map(getProduct)
   .filter(Boolean);
 
@@ -43,7 +43,7 @@ export default function Home() {
         </ScrollReveal>
         <ProductGrid
           products={featured}
-          featuredIds={["studio-name-board", "steel-letter", "standee"]}
+          featuredIds={["studio-name-board", "3d-letters", "neon-flex-signs"]}
           parallax
         />
       </section>

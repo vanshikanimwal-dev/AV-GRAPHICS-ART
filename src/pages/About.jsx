@@ -55,9 +55,9 @@ export default function About() {
 
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 md:grid-cols-3">
           {[
-            { label: "Shopfronts", src: "/work/mahamaya-property.jpg" },
-            { label: "Steel letters", src: "/work/steel-lux-nails.jpg" },
-            { label: "The workshop", src: "/work/workshop-j101.jpg" },
+            { label: "Shopfronts", src: "/work/workshop-fascias.jpg" },
+            { label: "Steel letters", src: "/work/halo-letters-gold.jpg" },
+            { label: "The workshop", src: "/work/workshop-nameplates.jpg" },
           ].map((item, i) => (
             <ScrollReveal key={item.label} delay={i * 0.08} className="overflow-hidden rounded-2xl border border-white/8 bg-ink-2">
               <img

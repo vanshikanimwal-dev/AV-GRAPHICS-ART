@@ -7,7 +7,7 @@ import { gallery } from "../data/gallery";
 import { site } from "../data/site";
 import { useMediaQuery, usePrefersReducedMotion } from "../hooks/useMotionPrefs";
 
-const items = ["g24", "g2", "g21", "g22", "g23", "g1", "g20", "g3"]
+const items = ["g27", "g29", "g32", "g33", "g25", "g2", "g21", "g31"]
   .map((id) => gallery.find((item) => item.id === id))
   .filter(Boolean);
 

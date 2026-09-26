@@ -51,7 +51,7 @@ export const products = [
     signText: "NIVAS",
     accent: "#ffb020",
     variant: "board",
-    image: "/work/sharma-b10.jpg",
+    image: "/work/home-nameplate-lit.jpg",
   },
   {
     id: "acrylic-door-plate",
@@ -105,7 +105,7 @@ export const products = [
     signText: "204",
     accent: "#3de0ff",
     variant: "nameplate",
-    image: "/work/gupta-p44.jpg",
+    image: "/work/backlit-nameplate.jpg",
   },
   {
     id: "neon-quote-plate",
@@ -141,7 +141,7 @@ export const products = [
     signText: "AV",
     accent: "#ff5c8a",
     variant: "neon",
-    image: "/work/sethani-studio.jpg",
+    image: "/work/neon-script-wall.jpg",
   },
   {
     id: "neon-flex-signs",
@@ -159,7 +159,7 @@ export const products = [
     signText: "FLEX",
     accent: "#ff2d6a",
     variant: "neon",
-    image: "/work/chef-banquet-hall.jpg",
+    image: "/work/neon-flex-display.jpg",
   },
   {
     id: "3d-letters",
@@ -177,7 +177,7 @@ export const products = [
     signText: "3D",
     accent: "#ff2d6a",
     variant: "letters3d",
-    image: "/work/bullmen-builders.jpg",
+    image: "/work/raised-gold-letters.jpg",
   },
   {
     id: "backlit-signboards",
@@ -195,7 +195,7 @@ export const products = [
     signText: "HALO",
     accent: "#ff5c8a",
     variant: "backlit",
-    image: "/work/grand-arcasia-hotel.jpg",
+    image: "/work/halo-letters-gold.jpg",
   },
   {
     id: "led-video-walls",
@@ -213,6 +213,7 @@ export const products = [
     signText: "LIVE",
     accent: "#3de0ff",
     variant: "videowall",
+    image: "/work/workshop-desk.jpg",
   },
   {
     id: "solar-signboards",
@@ -247,6 +248,7 @@ export const products = [
     signText: "PRINT",
     accent: "#ff2d6a",
     variant: "banner",
+    image: "/work/workshop-fascias.jpg",
   },
   {
     id: "vehicle-branding",
@@ -317,7 +319,7 @@ export const products = [
     signText: "WELCOME",
     accent: "#ffb020",
     variant: "event",
-    image: "/work/anil-jain-directory.jpg",
+    image: "/work/neon-flex-display.jpg",
   },
   {
     id: "trophies-mementos",
@@ -352,6 +354,7 @@ export const products = [
     signText: "FRAME",
     accent: "#f4f1ea",
     variant: "canvas",
+    image: "/work/workshop-desk.jpg",
   },
   {
     id: "laser-cutting",
@@ -369,6 +372,7 @@ export const products = [
     signText: "CUT",
     accent: "#3de0ff",
     variant: "laser",
+    image: "/work/letter-samples.jpg",
   },
   {
     id: "installation-amc",

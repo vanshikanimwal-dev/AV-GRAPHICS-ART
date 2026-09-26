@@ -5,7 +5,7 @@ import ProductVisual from "./ProductVisual";
 import { getProduct } from "../data/products";
 import { usePrefersReducedMotion } from "../hooks/useMotionPrefs";
 
-const slides = ["studio-name-board", "sparkle-board", "office-branding", "neon-logo-wall", "brass-classic"]
+const slides = ["studio-name-board", "3d-letters", "neon-flex-signs", "home-glow-board", "neon-logo-wall"]
   .map(getProduct)
   .filter(Boolean);
 

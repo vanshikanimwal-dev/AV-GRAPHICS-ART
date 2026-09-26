@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { gallery } from "../data/gallery";
 
-const featured = ["g2", "g21", "g22", "g23", "g1", "g3"]
+const featured = ["g27", "g29", "g32", "g33", "g25", "g2"]
   .map((id) => gallery.find((item) => item.id === id))
   .filter(Boolean);
 

@@ -4,10 +4,10 @@ export default function SiteAtmosphere() {
       <div className="atm-wash" />
       <div className="atm-grid" />
       <div className="atm-photos">
-        <img src="/work/workshop-j101.jpg" alt="" className="atm-photo atm-photo-1" />
-        <img src="/work/mahamaya-property.jpg" alt="" className="atm-photo atm-photo-2" />
-        <img src="/work/steel-lux-nails.jpg" alt="" className="atm-photo atm-photo-3" />
-        <img src="/work/standee-sai.jpg" alt="" className="atm-photo atm-photo-4" />
+        <img src="/work/workshop-ceiling.jpg" alt="" className="atm-photo atm-photo-1" />
+        <img src="/work/halo-letters-gold.jpg" alt="" className="atm-photo atm-photo-2" />
+        <img src="/work/neon-flex-display.jpg" alt="" className="atm-photo atm-photo-3" />
+        <img src="/work/workshop-nameplates.jpg" alt="" className="atm-photo atm-photo-4" />
       </div>
       <div className="atm-orbs">
         <span className="atm-orb atm-orb-pink" />

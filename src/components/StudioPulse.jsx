@@ -10,10 +10,10 @@ const stats = [
 ];
 
 const tiles = [
-  { src: "/work/workshop-j101.jpg", className: "mosaic-wide", alt: "AV Graphics Art workshop wall of signs" },
-  { src: "/work/mahamaya-property.jpg", className: "", alt: "Mahamaya Property Dealer LED fascia" },
-  { src: "/work/steel-lux-nails.jpg", className: "", alt: "LUX Nails Studio halo letters" },
-  { src: "/work/steel-imed.jpg", className: "", alt: "iMED gold steel letters" },
+  { src: "/work/workshop-nameplates.jpg", className: "mosaic-wide", alt: "Nameplates covering the AV Graphics Art workshop wall" },
+  { src: "/work/neon-flex-display.jpg", className: "", alt: "Neon-flex display outside the studio" },
+  { src: "/work/halo-letters-gold.jpg", className: "", alt: "Halo-lit gold three-dimensional letters" },
+  { src: "/work/workshop-ceiling.jpg", className: "", alt: "Lit sample boards on the workshop ceiling" },
   { src: "/work/anand-studio.jpg?v=3", className: "mosaic-tall", alt: `${site.owner} at the workshop` },
 ];
 
