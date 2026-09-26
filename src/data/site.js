@@ -26,6 +26,12 @@ export const site = {
 export const whatsappUrl = (text = site.whatsappMessage) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
 
+export const mailUrl = (subject = "") => {
+  const params = new URLSearchParams({ view: "cm", fs: "1", to: site.email });
+  if (subject) params.set("su", subject);
+  return `https://mail.google.com/mail/?${params.toString()}`;
+};
+
 export const navLinks = [
   { to: "/", label: "Home" },
   { to: "/products", label: "Products" },

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { site } from "../data/site";
+import { mailUrl, site } from "../data/site";
 import ScrollReveal from "./ScrollReveal";
 import SocialIcons from "./SocialIcons";
 
@@ -54,9 +54,14 @@ export default function Footer() {
               </li>
             ))}
             <li>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <a href={mailUrl()} target="_blank" rel="noreferrer">
+                {site.email}
+              </a>
             </li>
             <li>{site.hours}</li>
+            <li>
+              <Link to="/admin">Admin panel</Link>
+            </li>
           </ul>
         </div>
       </ScrollReveal>

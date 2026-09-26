@@ -2,7 +2,7 @@ import QuoteForm from "../components/QuoteForm";
 import ScrollReveal from "../components/ScrollReveal";
 import Seo from "../components/Seo";
 import SocialIcons from "../components/SocialIcons";
-import { site, workTypesCopy } from "../data/site";
+import { mailUrl, site, workTypesCopy } from "../data/site";
 
 export default function Quote() {
   return (
@@ -32,7 +32,7 @@ export default function Quote() {
             <p className="mt-4 text-sm text-paper">+91 {site.phones[0].label}</p>
             <p className="text-sm text-mute">Alt: +91 {site.phones[1].label}</p>
             <p className="mt-2 break-all text-sm text-mute">
-              <a href={`mailto:${site.email}`} className="hover:text-paper">
+              <a href={mailUrl("Quote for AV Graphics Art")} target="_blank" rel="noreferrer" className="hover:text-paper">
                 {site.email}
               </a>
             </p>

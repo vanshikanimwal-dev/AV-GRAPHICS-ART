@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
 import ScrollReveal from "../components/ScrollReveal";
 import SocialIcons from "../components/SocialIcons";
-import { site, workTypesCopy } from "../data/site";
+import { mailUrl, site, workTypesCopy } from "../data/site";
 import { postJson, wakeApi } from "../lib/api";
 
 export default function Contact() {
@@ -60,7 +60,7 @@ export default function Contact() {
             ))}
             <li className="break-all">
               Email:{" "}
-              <a className="text-blue" href={`mailto:${site.email}`}>
+              <a className="text-blue" href={mailUrl()} target="_blank" rel="noreferrer">
                 {site.email}
               </a>
             </li>

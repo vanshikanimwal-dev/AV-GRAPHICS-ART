@@ -1,4 +1,4 @@
-import { site, whatsappUrl } from "../data/site";
+import { mailUrl, site, whatsappUrl } from "../data/site";
 
 function InstagramIcon() {
   return (
@@ -63,7 +63,9 @@ export default function SocialIcons({ className = "" }) {
         <WhatsAppIcon />
       </a>
       <a
-        href={`mailto:${site.email}`}
+        href={mailUrl()}
+        target="_blank"
+        rel="noreferrer"
         className="social-btn social-mail"
         aria-label={`Email ${site.email}`}
       >

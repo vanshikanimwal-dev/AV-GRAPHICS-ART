@@ -35,6 +35,12 @@ export default function Navbar() {
             </NavLink>
           ))}
           <Link
+            to="/admin"
+            className="rounded-full border border-white/20 px-4 py-2 text-sm text-mute transition hover:border-magenta hover:text-paper"
+          >
+            Admin
+          </Link>
+          <Link
             to="/quote"
             className="btn-glow rounded-full bg-magenta px-4 py-2 text-sm font-semibold text-white transition hover:bg-magenta-soft"
           >
@@ -79,6 +85,13 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              to="/admin"
+              className="rounded-full border border-white/20 px-4 py-3 text-center text-paper"
+              onClick={() => setOpen(false)}
+            >
+              Admin panel
+            </Link>
             <Link
               to="/quote"
               className="btn-glow rounded-full bg-magenta px-4 py-3 text-center font-semibold"
